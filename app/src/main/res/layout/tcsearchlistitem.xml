@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="120dp"
+    android:layout_width="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:focusable="false"
+    >
+    <LinearLayout
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="horizontal"
+    android:background="@drawable/search_bg"
+    >
+    
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        
+	        <TextView 
+	            style="@style/searchlistitemtext"
+		    android:id="@+id/tcstvtype"
+		    android:layout_width="match_parent"
+		    android:layout_height="45dp"
+		    android:text="Type K"
+		    android:gravity="left|center_vertical"
+		    android:textSize="35sp"
+		    android:textColor="#4d4d4d" >
+			</TextView>
+			
+			<TextView 
+			    style="@style/searchlistitemtext"
+		    android:id="@+id/tcstvstandard"
+		    android:layout_width="match_parent"
+		    android:layout_height="40dp"
+		    android:gravity="left|top"
+		    android:text="IEC"
+		    android:textSize="30sp"
+		    android:textColor="#8a8a8a" >
+			</TextView>
+        
+    </LinearLayout>
+    
+    <ImageView 
+        android:id="@+id/tcsiv"
+        android:padding="8dp"
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
+    
+    
+    
+</FrameLayout>
+

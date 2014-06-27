@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="thick_margin">32dp</dimen>
+    <dimen name="standard_margin">16dp</dimen>
+    <dimen name="thin_margin">8dp</dimen>
+    <dimen name="ultra_thin_margin">4dp</dimen>
+
+    <dimen name="tcDetailFragmentTitleTextSize">40dp</dimen>
+    <dimen name="headerText">36dp</dimen>
+    <dimen name="standardText">20dp</dimen>
+    <dimen name="smallText">14dp</dimen>
+</resources>

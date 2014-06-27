@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<!-- Selected -->
+<item android:state_checked="true" android:state_pressed="true" android:drawable="@drawable/tab_selected_focused_holo" />
+<item android:state_checked="true" android:drawable="@drawable/tab_selected_holo" />
+
+<item android:state_pressed="true" android:state_checked="false" android:drawable="@drawable/tab_unselected_focused_holo" />
+<item android:state_checked="false" android:drawable="@drawable/tab_unselected_holo" />
+
+</selector>

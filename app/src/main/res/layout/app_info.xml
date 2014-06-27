@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#3b3b3b"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:scrollbars="none"
+    tools:context=".Info" >
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+
+	<ImageView
+	    android:id="@+id/infoimage"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="top|center_horizontal"
+	    android:adjustViewBounds="true"
+	    android:contentDescription="@string/STSLogo"
+	    android:padding="10dp"
+	    android:src="@drawable/trlogo" />
+	
+	<TextView
+	    style="@style/infotitle"
+	    android:text="STANDARDS" />
+	    
+
+	
+	        <TextView
+	        style="@style/infoColourStandards"
+	        android:text="@string/iiec"/>
+	        <TextView
+            style="@style/infoColourStandards"
+	        android:text="@string/ibs"/>
+	        <TextView
+            style="@style/infoColourStandards"
+	        android:text="@string/iansi"/>
+	        <TextView
+            style="@style/infoColourStandards"
+	        android:text="@string/infe"/>
+	        <TextView
+            style="@style/infoColourStandards"
+	        android:text="@string/idin"/>
+            <TextView
+            style="@style/infoColourStandards"
+            android:text="@string/ijis"/>
+
+
+	<TextView
+	    style="@style/infotitle"
+	    android:text="DISCLAIMER" />
+	        	        
+	    <TextView
+	        style="@style/infoColourStandards"
+	        android:text="@string/info1"/>
+	
+	</LinearLayout>
+	    
+</ScrollView>
+

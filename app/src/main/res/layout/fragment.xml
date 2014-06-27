@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#e5e5e5">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        android:id="@+id/scrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true">
+
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:foregroundGravity="center_vertical|center_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/search_bg"
+                android:layout_margin="@dimen/thin_margin">
+
+                <TextView
+                    style="@style/tcTitle"
+                    android:id="@+id/tcTitle"
+                    android:text="@string/tcTitleTest"
+                    />
+
+                <RadioGroup
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent">
+                    <RadioButton style="@style/tcDetailRadioButton"
+                                 android:id="@+id/tcDetailRBiec"
+                                 android:text="IEC"/>
+                    <RadioButton style="@style/tcDetailRadioButton"
+                                 android:id="@+id/tcDetailRBbs"
+                                 android:text="BS"/>
+                    <RadioButton style="@style/tcDetailRadioButton"
+                                 android:id="@+id/tcDetailRBansi"
+                                 android:text="ANSI"/>
+                    <RadioButton style="@style/tcDetailRadioButton"
+                                 android:id="@+id/tcDetailRBnfe"
+                                 android:text="NFE"/>
+                    <RadioButton style="@style/tcDetailRadioButton"
+                                 android:id="@+id/tcDetailRBdin"
+                                 android:text="DIN"/>
+                    <RadioButton style="@style/tcDetailRadioButton"
+                                 android:id="@+id/tcDetailRBjis"
+                                 android:text="JIS"/>
+
+                </RadioGroup>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tcDetailImageView"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    android:layout_marginBottom="@dimen/thick_margin"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/thin_margin"/>
+
+                <TextView
+                    style="@style/tcDetailInfo"
+                    android:id="@+id/tcPositiveLeg"
+                    android:text="@string/tcDetailTest1"/>
+
+                <TextView
+                    style="@style/tcDetailInfo"
+                    android:id="@+id/tcNegativeLeg"
+                    android:text="@string/tcDetailTest2"/>
+
+                <TextView
+                    style="@style/tcDetailInfo"
+                    android:id="@+id/tcTempRange"
+                    android:text="@string/tcDetailTest3"/>
+                <TextView
+                    style="@style/tcDetailInfo"
+                    android:id="@+id/compensates"
+                    android:text="@string/tcDetailTest4"
+                    android:layout_marginBottom="@dimen/standard_margin"/>
+
+            </LinearLayout>
+
+
+                     </FrameLayout>
+
+
+
+    </ScrollView>
+</RelativeLayout>
+

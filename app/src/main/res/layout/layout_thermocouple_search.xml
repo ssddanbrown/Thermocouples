@@ -1,0 +1,115 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThermocoupleSearch"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#33B5E5">
+        
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:padding="4dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="bottom" >
+
+        <Spinner
+            android:id="@+id/jcolor"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0000"
+            android:scrollbars="none"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@id/jcolor"
+            android:scaleType="fitXY"
+            android:src="@drawable/spinnerdefault" />
+
+        </RelativeLayout>
+        
+
+        
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:padding="4dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="bottom" >
+
+        <Spinner
+        android:id="@+id/pcolor"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#0000"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@id/pcolor"
+            android:scaleType="fitXY"
+            android:scrollbars="none"
+            android:src="@drawable/spinnerdefault" />
+
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:padding="4dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="bottom" >
+
+        <Spinner
+        android:id="@+id/ncolor"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#0000"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@id/ncolor"
+            android:scaleType="fitXY"
+            android:scrollbars="none"
+            android:src="@drawable/spinnerdefault" />
+
+        </RelativeLayout>
+    </LinearLayout>
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        >
+
+	    <ListView
+	        android:id="@+id/tcsearchlist"
+	        android:layout_width="match_parent"
+	        android:layout_height="fill_parent"
+	        android:background="#e5e5e5"
+	        android:clickable="false"
+	        android:divider="#0000"
+	        android:dividerHeight="0dp"
+	        android:paddingTop="0dp"
+            android:listSelector="@android:color/transparent"
+	        android:scrollbars="none" >
+	    </ListView>
+	            <ImageView
+	                android:layout_width="match_parent"
+	                android:layout_height="3dp"
+	                android:scaleType="fitXY"
+	                android:src="@drawable/vshadow" />
+        
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

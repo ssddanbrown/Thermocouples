@@ -1,0 +1,207 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCCCCC"
+    tools:context=".TcCalc" >
+
+        <EditText
+            style="@style/calculatorsEditText"
+            android:id="@+id/tcinput"
+            android:hint="@string/tccalcEditTextHint"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="true">
+
+        <requestFocus />
+        </EditText>
+        
+        <TextView
+        android:textSize="@dimen/standardText"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:text="@string/tccalcRefTempText"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/tcinput"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/textView"/>
+        
+        
+        <Button
+        android:id="@+id/tccalcbuttonk"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:text="CONVERT"
+        android:textSize="@dimen/standardText"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:background="@drawable/tccalcconvertbutton"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/standard_margin"
+        android:layout_marginTop="@dimen/thin_margin"
+        android:layout_marginBottom="@dimen/thin_margin"
+        android:layout_marginRight="@dimen/standard_margin"/>
+
+      	<ScrollView
+           android:id="@+id/scrollView1"
+                android:layout_width="match_parent"
+    			android:layout_height="0dp"
+    			android:background="@drawable/tccalcbg"
+                android:layout_below="@+id/tccalcbuttonk"
+                android:layout_alignParentBottom="true">
+
+        <LinearLayout 
+                android:layout_width="fill_parent"
+    			android:layout_height="wrap_content"
+    			android:orientation="vertical"  >
+        	
+            
+            <LinearLayout
+                style="@style/tcCalcLinearLayout"
+            android:id="@+id/tcidb"
+	        android:background="@drawable/calcresult"
+                >
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:layout_weight="0.15"
+		        android:text="B"
+		        android:textStyle="bold"
+		        android:background="#0099CC" />
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:id="@+id/tcresultb"
+		        android:layout_weight="1"
+		        android:text="250 to 1820°C"/>
+	            </LinearLayout>
+            <LinearLayout
+                style="@style/tcCalcLinearLayout"
+			android:id="@+id/tcide"
+	        android:background="@drawable/calcresultf"
+                >
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:layout_weight="0.15"
+		        android:text="E"
+		        android:textStyle="bold"
+		        android:background="#669900" />
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:id="@+id/tcresulte"
+		        android:layout_weight="1"
+		        android:text="-270 to 1000°C"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/tcCalcLinearLayout"
+			android:id="@+id/tcidj"
+	        android:background="@drawable/calcresultk"
+                >
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:layout_weight="0.15"
+		        android:text="J"
+		        android:textStyle="bold"
+		        android:background="#FF8800" />
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:id="@+id/tcresultj"
+		        android:layout_weight="1"
+		        android:text="-210 to 1200°C"/>
+            </LinearLayout>
+	        
+            <LinearLayout
+                style="@style/tcCalcLinearLayout"
+            android:id="@+id/tcidk"
+	        android:background="@drawable/calcresult"
+                >
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:layout_weight="0.15"
+		        android:text="K"
+		        android:textStyle="bold"
+		        android:background="#0099CC" />
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:id="@+id/tcresultk"
+		        android:layout_weight="1"
+		        android:text="-250 to 1200°C" />
+            </LinearLayout>
+	        
+            <LinearLayout
+                style="@style/tcCalcLinearLayout"
+            android:id="@+id/tcidn"
+	        android:background="@drawable/calcresultf"
+                >
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:layout_weight="0.15"
+		        android:text="N"
+		        android:textStyle="bold"
+		        android:background="#669900" />
+	            <TextView
+	            style="@style/tcmvcalcline"
+		        android:id="@+id/tcresultn"
+		        android:layout_weight="1"
+		        android:text="-250 to 1300°C" />
+            </LinearLayout>
+            
+          <LinearLayout
+              style="@style/tcCalcLinearLayout"
+            android:id="@+id/tcidr"
+	        android:background="@drawable/calcresultk"
+                >
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:layout_weight="0.15"
+		        android:text="R"
+		        android:textStyle="bold"
+		        android:background="#FF8800" />
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:id="@+id/tcresultr"
+		        android:layout_weight="1"
+		        android:text="-50 to 1760°C"/>
+            </LinearLayout>	        
+
+          <LinearLayout
+              style="@style/tcCalcLinearLayout"
+            android:id="@+id/tcids"
+	        android:background="@drawable/calcresult"
+                >
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:layout_weight="0.15"
+		        android:text="S"
+		        android:textStyle="bold"
+		        android:background="#0099CC" />
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:id="@+id/tcresults"
+		        android:layout_weight="1"
+		        android:text="-50 to 1760°C"/>
+            </LinearLayout>	  
+	        
+          <LinearLayout
+              style="@style/tcCalcLinearLayout"
+            android:id="@+id/tcidt"
+	        android:background="@drawable/calcresultf"
+                >
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:layout_weight="0.15"
+		        android:text="T"
+		        android:textStyle="bold"
+		        android:background="#669900" />
+	            <TextView
+		    	style="@style/tcmvcalcline"
+		        android:id="@+id/tcresultt"
+		        android:layout_weight="1"
+		        android:text="-250 to 400°C" />
+            </LinearLayout>	  
+
+        </LinearLayout>
+           
+       </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#CCCCCC" >
+
+        <EditText
+            style="@style/calculatorsEditText"
+            android:id="@+id/calcinput"
+            android:hint="@string/calcviewEditTextHint"
+            android:layout_alignParentTop="true">
+            <requestFocus />
+        </EditText>
+        
+        <LinearLayout
+            android:id="@+id/calcViewButtonLayout"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/calcinput"
+            android:layout_marginBottom="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/standard_margin">
+
+            <Button
+              style="@style/calcViewButtons"
+              android:id="@+id/buttonc"
+              android:layout_marginRight="10dp"
+              android:layout_marginLeft="20dp"
+              android:text="°C"
+              android:background="@drawable/bluebuttonstate" />
+
+
+            <Button
+              style="@style/calcViewButtons"
+              android:id="@+id/buttonf"
+              android:layout_marginRight="10dp"
+              android:layout_marginLeft="10dp"
+              android:text="°F"
+              android:background="@drawable/greenbuttonstate" />
+
+            <Button
+              style="@style/calcViewButtons"
+              android:id="@+id/buttonk"
+              android:layout_marginRight="20dp"
+              android:layout_marginLeft="10dp"
+              android:text="K"
+              android:background="@drawable/orangebuttonstate"/>
+        </LinearLayout>
+
+    <ScrollView
+        android:layout_below="@+id/calcViewButtonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:background="@drawable/tccalcbg"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_alignParentLeft="true">
+
+
+
+            <TextView
+                style="@style/calcViewTextView"
+                android:id="@+id/tempc"
+                android:background="@drawable/calcresult"
+                android:text="Centigrade" />
+            <TextView
+                style="@style/calcViewTextView"
+                android:id="@+id/tempf"
+                android:background="@drawable/calcresultf"
+                android:text="Farenheit"/>
+
+            <TextView
+                style="@style/calcViewTextView"
+                android:id="@+id/tempk"
+                android:background="@drawable/calcresultk"
+                android:text="Kelvin" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="tctitles">
+	    <item>Type B</item>
+	    <item>Type E</item>
+	    <item>Type J</item>
+	    <item>Type K</item>
+	    <item>Type N</item>
+	    <item>Type R</item>
+	    <item>Type S</item>
+	    <item>Type T</item>
+	    <item>Type U</item>
+	    <item>Type Vx</item>
+	</string-array>
+	<string-array name="compcable">
+	    <item>Compensating Colours</item>
+	    <item></item>
+	    <item></item>
+	    <item></item>
+	    <item></item>
+	    <item>U Compensates R+S</item>
+	    <item>U Compensates R+S</item>
+	    <item></item>
+	    <item>Compensates R and S</item>
+	    <item>Compensates Type K</item>
+	</string-array>
+	<string-array name="positiveleg">
+	    <item>Platinum-30% Rhodium</item>
+	    <item>Nickel-Chromium</item>
+	    <item>Iron</item>
+	    <item>Nickel-Chromium</item>
+	    <item>Nicrosil</item>
+	    <item>Platinum-13% Rhodium</item>
+	    <item>Platinum-10% Rhodium</item>
+	    <item>Copper</item>
+	    <item>Copper</item>
+	    <item>Copper</item>
+	</string-array>
+	<string-array name="negativeleg">
+	    <item>Platinum-6% Rhodium</item>
+	    <item>Constantan</item>
+	    <item>Constantan</item>
+	    <item>Nickel-Aluminium</item>
+	    <item>Nisil</item>
+	    <item>Platinum</item>
+	    <item>Platinum</item>
+	    <item>Constantan</item>
+	    <item>Copper-Low Nickel</item>
+	    <item>Constantan</item>
+	</string-array>
+	<string-array name="temprange">
+	    <item>0 to 1700°C</item>
+	    <item>-200 to 900°C</item>
+	    <item>0 to 750°C</item>
+	    <item>-200 to 1250°C</item>
+	    <item>-270 to 1300°C</item>
+	    <item>0 to 1450°C</item>
+	    <item>0 to 1450°C</item>
+	    <item>-200 to 350°C</item>
+	    <item>0 to 50°C</item>
+	    <item>0 to 80°C</item>
+	</string-array>
+</resources>

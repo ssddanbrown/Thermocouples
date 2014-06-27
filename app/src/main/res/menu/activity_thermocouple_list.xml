@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/SearchItem"
+        android:titleCondensed="Search" 
+        android:title="@string/action_search"
+        android:visible="true"
+        android:icon="@drawable/ic_action_search"
+        android:showAsAction="ifRoom"
+        android:enabled="true"/>
+    <item 
+        android:id="@+id/CalculatorItem" 
+        android:titleCondensed="Converters" 
+        android:visible="true" 
+        android:icon="@drawable/calculator"
+        android:title="@string/action_converters"
+        android:showAsAction="ifRoom" 
+        android:enabled="true"/>
+        <item 
+        android:id="@+id/InfoItem" 
+        android:titleCondensed="Info" 
+        android:visible="true"
+        android:icon="@drawable/info"
+        android:title="@string/action_info"
+        android:showAsAction="never"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/RtdItem"
+        android:titleCondensed="Retherm"
+        android:visible="true"
+        android:title="@string/action_rtd"
+        android:showAsAction="never"
+        android:enabled="true"/>
+        
+</menu>

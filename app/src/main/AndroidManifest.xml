@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.southerntemp.thermocouples"
+    android:versionCode="9"
+    android:versionName="1.5" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.MyTheme" >
+        <activity
+            android:name="com.southerntemp.thermocouples.TcHolder"
+            android:label="@string/app_name" >
+            <intent-filter android:label="@string/launcher_name" >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.southerntemp.thermocouples.Info"
+            android:label="@string/title_activity_info"
+            android:parentActivityName="com.southerntemp.thermocouples.TcHolder" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.southerntemp.thermocouples.TcHolder" />
+        </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.southerntemp.thermocouples.CalcHolder"
+            android:label="@string/title_activity_calc_holder"
+            android:windowSoftInputMode="adjustPan" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.southerntemp.thermocouples.TcHolder" />
+        </activity>
+        <activity
+            android:name="com.southerntemp.thermocouples.ThermocoupleSearch"
+            android:label="@string/title_activity_thermocouple_search"
+            android:parentActivityName="com.southerntemp.thermocouples.TcHolder" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.southerntemp.thermocouples.TcHolder" />
+        </activity>
+    </application>
+
+</manifest>
