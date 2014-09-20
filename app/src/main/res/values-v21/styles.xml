@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MyTheme" parent="android:Theme.Material">
+        <!-- Main theme colors -->
+        <!--   your app's branding color (for the app bar) -->
+        <item name="android:colorPrimary">@color/primary</item>
+        <!--   darker variant of colorPrimary (for status bar, contextual app bars) -->
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+    </style>
+
+    <style name="calcViewButtons">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/button_text</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:elevation">1dp</item>
+        <item name="android:layout_marginTop">@dimen/pad_s</item>
+    </style>
+
+    <style name="calcButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:textSize">@dimen/button_text</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_margin">@dimen/pad_s</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:background">@drawable/redbuttonstate</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
+</resources>

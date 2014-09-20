@@ -23,14 +23,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-
 
 
 public class TcHolder extends FragmentActivity {
 	ArrayAdapter<String> adapter;
 	public static LruCache<String, Bitmap> mMemoryCache;
-	static Typeface robotoSlab;
     private DrawerLayout homeDrawer;
     private ActionBarDrawerToggle drawerToggle;
     ListView drawerList;
@@ -45,11 +42,10 @@ public class TcHolder extends FragmentActivity {
 		setContentView(R.layout.tcholder);
 
         //Get slab font for titles
-        robotoSlab = Typeface.createFromAsset(getAssets(), "RobotoSlab-Bold.ttf");
         //Sidebar setup
 		thermoCouples = getResources().getStringArray(R.array.tctitles);
         drawerList = (ListView)findViewById(R.id.left_drawer);
-        adapter =  new ArrayAdapter<String>(this, R.layout.simple_list_item_1, thermoCouples);
+        adapter =  new ArrayAdapter<String>(this, R.layout.sidebar_list_item, thermoCouples);
         drawerList.setAdapter(adapter);
         homeDrawer = (DrawerLayout)findViewById(R.id.homedrawerlayout);
         drawerToggle = new ActionBarDrawerToggle(

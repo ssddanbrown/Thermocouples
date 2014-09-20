@@ -92,12 +92,7 @@ public class CalcHolder extends FragmentActivity {
 			return null;
 		}
 	}
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.calculatormenu, menu);
-		return true;
-		
-	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
@@ -105,16 +100,6 @@ public class CalcHolder extends FragmentActivity {
             NavUtils.navigateUpFromSameTask(this);
             CalcHolder.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             return true;
-        } else if (i == R.id.switchcalc) {
-            if (mViewPager.getCurrentItem() == 0) {
-                mViewPager.setCurrentItem(1);
-            } else if (mViewPager.getCurrentItem() == 1) {
-                mViewPager.setCurrentItem(0);
-            } else {
-                return true;
-            }
-
-            return super.onOptionsItemSelected(item);
         } else {
             return super.onOptionsItemSelected(item);
         }

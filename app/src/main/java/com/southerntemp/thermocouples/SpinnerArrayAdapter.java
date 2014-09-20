@@ -43,9 +43,6 @@ public class SpinnerArrayAdapter extends ArrayAdapter<String> {
 	    else if(spinnerString.equals("pink")){spinnerItem.setBackgroundColor(Color.rgb(255, 100, 255));spinnerItem.setText("");}
 	    else if(spinnerString.equals("orange")){spinnerItem.setBackgroundColor(Color.rgb(255, 143, 0));spinnerItem.setText("");}
 	    else if(spinnerString.equals("white")){spinnerItem.setBackgroundColor(Color.rgb(255, 255, 255));spinnerItem.setText("");}
-	    
-
-	    
 	    return rowView;
 	  }
     @Override
@@ -54,9 +51,10 @@ public class SpinnerArrayAdapter extends ArrayAdapter<String> {
 	    LayoutInflater inflater = (LayoutInflater) context
 		        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		    View rowView = inflater.inflate(R.layout.spinneritem, parent, false);
-		    
 		    TextView spinnerItem = (TextView)rowView.findViewById(R.id.spinneritemtv);
 		    String spinnerString = objects[position];
+            int height = (int)context.getResources().getDimension(R.dimen.listItem);
+            spinnerItem.setHeight(height);
 		    if(spinnerString.equals("None")){spinnerItem.setText("N/A");}
 		    else if(spinnerString.equals("grey")){spinnerItem.setBackgroundColor(Color.rgb(139, 139, 139));spinnerItem.setText("");}
 		    else if(spinnerString.equals("purple")){spinnerItem.setBackgroundColor(Color.rgb(143, 0, 255));spinnerItem.setText("");}

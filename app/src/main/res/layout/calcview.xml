@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#CCCCCC" >
+    android:background="#EEEEEE" >
 
         <EditText
             style="@style/calculatorsEditText"
@@ -20,8 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@+id/calcinput"
-            android:layout_marginBottom="@dimen/standard_margin"
-            android:layout_marginTop="@dimen/standard_margin">
+            android:paddingTop="@dimen/pad_s">
 
             <Button
               style="@style/calcViewButtons"

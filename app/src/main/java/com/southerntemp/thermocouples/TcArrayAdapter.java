@@ -65,10 +65,7 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
 	    //Fill views with info
 	    holder.type.setText(thermoCouples[tcid]);
 	       //set font
-	    Typeface font = Typeface.createFromAsset(context.getAssets(), "RobotoSlab-Bold.ttf");
-	    holder.type.setTypeface(font);
 	    holder.standard.setText(standard);
-	    holder.standard.setTypeface(font);
 	    int[] stda = returnStandardImageArray(standard);
 
 	    final String imageKey = String.valueOf(stda[tcid]);

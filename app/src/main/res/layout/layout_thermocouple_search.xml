@@ -6,82 +6,30 @@
     android:orientation="vertical" >
     
     <LinearLayout 
-        android:layout_height="48dp"
+        android:layout_height="@dimen/listItem"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:background="#33B5E5">
-        
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:padding="4dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="bottom" >
+        android:background="@color/primary">
+
 
         <Spinner
-            android:id="@+id/jcolor"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="#0000"
-            android:scrollbars="none"
-            android:textAlignment="center" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignBottom="@id/jcolor"
-            android:scaleType="fitXY"
-            android:src="@drawable/spinnerdefault" />
-
-        </RelativeLayout>
-        
-
-        
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:padding="4dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="bottom" >
+        android:id="@+id/jcolor"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="fill_parent"/>
 
         <Spinner
         android:id="@+id/pcolor"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#0000"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignBottom="@id/pcolor"
-            android:scaleType="fitXY"
-            android:scrollbars="none"
-            android:src="@drawable/spinnerdefault" />
-
-        </RelativeLayout>
-        
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:padding="4dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="bottom" >
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="fill_parent"/>
 
         <Spinner
         android:id="@+id/ncolor"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#0000"/>
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="fill_parent"/>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignBottom="@id/ncolor"
-            android:scaleType="fitXY"
-            android:scrollbars="none"
-            android:src="@drawable/spinnerdefault" />
-
-        </RelativeLayout>
     </LinearLayout>
     
     <RelativeLayout 

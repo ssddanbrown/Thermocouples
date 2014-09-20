@@ -44,7 +44,6 @@ public class TcDetailsFragment extends Fragment {
         //Title is written to textview
         TextView detailTitle = (TextView)v.findViewById(R.id.tcTitle);
         detailTitle.setText(thermoCouples[id] + " Thermocouple");
-        detailTitle.setTypeface(TcHolder.robotoSlab);
 
         //Tab setup
         RadioButton[] rbArray = {
@@ -64,10 +63,15 @@ public class TcDetailsFragment extends Fragment {
         }
 
         //Thermocouple text is written to views
-        ((TextView)v.findViewById(R.id.tcPositiveLeg)).setText("+ Metal: " + positiveleg[id]);
-        ((TextView)v.findViewById(R.id.tcNegativeLeg)).setText("- Metal: " + negativeleg[id]);
-        ((TextView)v.findViewById(R.id.tcTempRange)).setText("Temp Range: " + temprange[id]);
-        ((TextView)v.findViewById(R.id.compensates)).setText(compensates[id]);
+        ((TextView)v.findViewById(R.id.tcPositiveLeg)).setText(positiveleg[id]);
+        ((TextView)v.findViewById(R.id.tcNegativeLeg)).setText(negativeleg[id]);
+        ((TextView)v.findViewById(R.id.tcTempRange)).setText(temprange[id]);
+        if (compensates[id].length() > 0) {
+            ((TextView)v.findViewById(R.id.tcExtra)).setText(compensates[id]);
+        } else {
+            ((TextView)v.findViewById(R.id.tcExtra)).setText("N/A");
+        }
+
         return v;
     }
 

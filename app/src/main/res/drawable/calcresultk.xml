@@ -12,7 +12,7 @@
         android:right="3px"
         android:top="3px"> >
         	<shape>
-	<solid android:color="#ffbb33"/>
+	<solid android:color="@color/orange"/>
 	        <corners
 	            android:radius="2dp" />
 	        <padding

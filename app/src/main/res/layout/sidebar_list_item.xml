@@ -2,14 +2,13 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/sidebartext"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/listItem"
     android:background="@drawable/menucolors"
     android:gravity="center_vertical"
-    android:paddingLeft="@dimen/standard_margin"
-    android:fontFamily="sans-serif-thin"
+    android:paddingLeft="@dimen/pad_m"
     android:paddingTop="@dimen/ultra_thin_margin"
     android:paddingBottom="@dimen/ultra_thin_margin"
-    android:textColor="#ffffff"
-    android:textSize="@dimen/headerText"
+    android:textColor="#666666"
+    android:textSize="@dimen/text_m"
     android:text="Test K" />
 

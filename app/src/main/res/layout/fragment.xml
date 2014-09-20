@@ -18,6 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:paddingBottom="@dimen/pad_s"
                 android:background="@drawable/search_bg"
                 android:layout_margin="@dimen/thin_margin">
 
@@ -61,25 +62,76 @@
                     android:layout_gravity="center"
                     android:padding="@dimen/thin_margin"/>
 
-                <TextView
-                    style="@style/tcDetailInfo"
-                    android:id="@+id/tcPositiveLeg"
-                    android:text="@string/tcDetailTest1"/>
+                <LinearLayout
+                    style="@style/tcDetail"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        style="@style/tcDetailTitle"
+                        android:id="@+id/tcPositiveLegTitle"
+                        android:text="@string/tcPositive" />
+                    <TextView
+                        style="@style/tcDetailInfo"
+                        android:id="@+id/tcPositiveLeg"
+                        android:text="@string/tcDetailTest1"/>
 
-                <TextView
-                    style="@style/tcDetailInfo"
-                    android:id="@+id/tcNegativeLeg"
-                    android:text="@string/tcDetailTest2"/>
+                </LinearLayout>
 
-                <TextView
-                    style="@style/tcDetailInfo"
-                    android:id="@+id/tcTempRange"
-                    android:text="@string/tcDetailTest3"/>
-                <TextView
-                    style="@style/tcDetailInfo"
-                    android:id="@+id/compensates"
-                    android:text="@string/tcDetailTest4"
-                    android:layout_marginBottom="@dimen/standard_margin"/>
+                <View style="@style/divider" />
+
+
+                <LinearLayout
+                    style="@style/tcDetail"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        style="@style/tcDetailTitle"
+                        android:id="@+id/tcNegativeLegTitle"
+                        android:text="@string/tcNegative"/>
+                    <TextView
+                        style="@style/tcDetailInfo"
+                        android:id="@+id/tcNegativeLeg"
+                        android:text="@string/tcDetailTest2"/>
+
+                </LinearLayout>
+
+                <View style="@style/divider" />
+
+                <LinearLayout
+                    style="@style/tcDetail"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        style="@style/tcDetailTitle"
+                        android:id="@+id/tcTempRangeTitle"
+                        android:text="@string/tcTempRange"/>
+                    <TextView
+                        style="@style/tcDetailInfo"
+                        android:id="@+id/tcTempRange"
+                        android:text="@string/tcDetailTest3"/>
+
+                </LinearLayout>
+
+                <View style="@style/divider" />
+
+                <LinearLayout
+                    style="@style/tcDetail"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        style="@style/tcDetailTitle"
+                        android:id="@+id/tcExtraTitle"
+                        android:text="@string/tcExtra"/>
+                    <TextView
+                        style="@style/tcDetailInfo"
+                        android:id="@+id/tcExtra"
+                        android:text="@string/tcDetailTest4"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 

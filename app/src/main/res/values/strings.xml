@@ -5,10 +5,14 @@
     <string name="launcher_name">Thermo\nCouples</string>
 
     <string name="tcTitleTest">Type K Thermocouple</string>
-    <string name="tcDetailTest1">+ Metal: Platinum-30% Rhodium</string>
-    <string name="tcDetailTest2">- Metal: Platinum-6% Rhodium</string>
-    <string name="tcDetailTest3">Temp Range: -200 to 350°C</string>
-    <string name="tcDetailTest4">Compensates R and S</string>
+    <string name="tcPositive">Positive (+) Metal</string>
+    <string name="tcNegative">Negative (-) Metal</string>
+    <string name="tcTempRange">Temperature Range</string>
+    <string name="tcExtra">Extra Information</string>
+    <string name="tcDetailTest1">Platinum-30% Rhodium</string>
+    <string name="tcDetailTest2">Platinum-6% Rhodium</string>
+    <string name="tcDetailTest3">-200 to 350°C</string>
+    <string name="tcDetailTest4">R and S</string>
     <string name="menu_settings">Settings</string>
     <string name="imgdesc">Thermocouple colours</string>
 

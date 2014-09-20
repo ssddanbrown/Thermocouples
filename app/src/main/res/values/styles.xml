@@ -7,8 +7,8 @@
     </style>
 
     <style name="MyTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@drawable/ab_background</item>
-        <item name="android:icon">@drawable/ab_logo</item>
+        <item name="android:background">@color/primary</item>
+        <item name="android:icon">@android:color/transparent</item>
         <item name="android:titleTextStyle">@style/ActionBarTitle</item>
     </style>
 
@@ -17,29 +17,50 @@
         <item name="android:textSize">@dimen/standardText</item>
     </style>
 
-    <style name="searchlistitemtext">
-        <item name="android:paddingLeft">8dp</item>
-    </style>
-
     <style name="tcTitle">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:padding">@dimen/standard_margin</item>
         <item name="android:textColor">#636363</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/tcDetailFragmentTitleTextSize</item>
-        <item name="android:id">@+id/tcTitle</item>
+        <item name="android:textSize">@dimen/text_l</item>
         <item name="android:text">Type K Thermocouple</item>
     </style>
-    <style name="tcDetailInfo">
-        <item name="android:textSize">@dimen/standardText</item>
+
+    <style name="tcDetail">
+        <item name="android:paddingLeft">@dimen/pad_m</item>
+        <item name="android:paddingRight">@dimen/pad_m</item>
+        <item name="android:paddingTop">@dimen/pad_s</item>
+        <item name="android:paddingBottom">@dimen/pad_s</item>
+    </style>
+    <style name="tcDetailTitle">
+        <item name="android:textSize">@dimen/text_s</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/thin_margin</item>
         <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">#636363</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#888888</item>
+    </style>
+    <style name="tcDetailInfo">
+        <item name="android:textSize">@dimen/text_m</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/thin_margin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="divider">
+        <item name="android:background">@color/grey</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
     </style>
 
     <style name="tcDetailTabFrame">
@@ -55,8 +76,7 @@
         <item name="android:background">@drawable/tabbackground</item>
         <item name="android:button">@null</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#444</item>
         <item name="android:visibility">gone</item>
         <item name="android:textSize">@dimen/smallText</item>
     </style>
@@ -64,16 +84,23 @@
     <style name="calcViewButtons">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingTop">@dimen/standard_margin</item>
-        <item name="android:paddingBottom">@dimen/standard_margin</item>
-        <item name="android:paddingRight">@dimen/thick_margin</item>
-        <item name="android:paddingLeft">@dimen/thick_margin</item>
+        <item name="android:layout_height">@dimen/button_height</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/headerText</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/button_text</item>
         <item name="android:textColor">#ffffff</item>
+        <item name="android:layout_marginTop">@dimen/pad_s</item>
+    </style>
+
+    <style name="calcButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:textSize">@dimen/button_text</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_margin">@dimen/pad_s</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:background">@drawable/redbuttonstate</item>
+        <item name="android:layout_gravity">center_horizontal</item>
     </style>
 
     <style name="calculatorsEditText">
@@ -90,7 +117,7 @@
         <item name="android:gravity">center</item>
         <item name="android:padding">@dimen/thin_margin</item>
         <item name="android:textCursorDrawable">@drawable/edittext_cursor</item>
-        <item name="android:background">@drawable/calcinput</item>
+        <item name="android:background">#FFFFFF</item>
     </style>
 
     <style name="calcViewTextView">

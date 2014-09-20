@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CCCCCC"
+    android:background="#EEEEEE"
     tools:context=".TcCalc" >
 
         <EditText
@@ -10,6 +10,7 @@
             android:id="@+id/tcinput"
             android:hint="@string/tccalc2EditTextHint"
             android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
             android:layout_alignParentTop="true">
 
         <requestFocus />
@@ -17,21 +18,10 @@
         
         
         <Button
+            style="@style/calcButton"
         android:id="@+id/tccalcbuttonk"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_gravity="center_horizontal"
         android:text="CONVERT"
-        android:textSize="@dimen/standardText"
-        android:textStyle="bold"
-        android:textColor="#ffffff"
-        android:background="@drawable/tccalcconvertbutton"
-        android:layout_below="@+id/tcinput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="@dimen/standard_margin"
-        android:layout_marginTop="@dimen/thin_margin"
-        android:layout_marginBottom="@dimen/thin_margin"
-        android:layout_marginRight="@dimen/standard_margin"/>
+        android:layout_below="@+id/tcinput"/>
 
       	<ScrollView
            android:id="@+id/scrollView1"
@@ -57,7 +47,7 @@
 		        android:layout_weight="0.15"
 		        android:text="B"
 		        android:textStyle="bold"
-		        android:background="#0099CC" />
+		        android:background="@color/primary_dark" />
 	            <TextView
 		    	style="@style/tcmvcalcline"
 		        android:id="@+id/tcresultb"
@@ -74,7 +64,7 @@
 		        android:layout_weight="0.15"
 		        android:text="E"
 		        android:textStyle="bold"
-		        android:background="#669900" />
+		        android:background="@color/green_dark" />
 	            <TextView
 		    	style="@style/tcmvcalcline"
 		        android:id="@+id/tcresulte"
@@ -91,7 +81,7 @@
 		        android:layout_weight="0.15"
 		        android:text="J"
 		        android:textStyle="bold"
-		        android:background="#FF8800" />
+		        android:background="@color/orange_dark" />
 	            <TextView
 		    	style="@style/tcmvcalcline"
 		        android:id="@+id/tcresultj"
@@ -109,7 +99,7 @@
 		        android:layout_weight="0.15"
 		        android:text="K"
 		        android:textStyle="bold"
-		        android:background="#0099CC" />
+		        android:background="@color/primary_dark" />
 	            <TextView
 		    	style="@style/tcmvcalcline"
 		        android:id="@+id/tcresultk"
@@ -127,7 +117,7 @@
 		        android:layout_weight="0.15"
 		        android:text="N"
 		        android:textStyle="bold"
-		        android:background="#669900" />
+		        android:background="@color/green_dark" />
 	            <TextView
 	            style="@style/tcmvcalcline"
 		        android:id="@+id/tcresultn"
@@ -145,7 +135,7 @@
 		        android:layout_weight="0.15"
 		        android:text="R"
 		        android:textStyle="bold"
-		        android:background="#FF8800" />
+		        android:background="@color/orange_dark" />
 	            <TextView
 		    	style="@style/tcmvcalcline"
 		        android:id="@+id/tcresultr"
@@ -163,7 +153,7 @@
 		        android:layout_weight="0.15"
 		        android:text="S"
 		        android:textStyle="bold"
-		        android:background="#0099CC" />
+		        android:background="@color/primary_dark" />
 	            <TextView
 		    	style="@style/tcmvcalcline"
 		        android:id="@+id/tcresults"
@@ -181,7 +171,7 @@
 		        android:layout_weight="0.15"
 		        android:text="T"
 		        android:textStyle="bold"
-		        android:background="#669900" />
+		        android:background="@color/green_dark" />
 	            <TextView
 		    	style="@style/tcmvcalcline"
 		        android:id="@+id/tcresultt"
