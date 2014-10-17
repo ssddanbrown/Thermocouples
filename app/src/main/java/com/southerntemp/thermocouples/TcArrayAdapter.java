@@ -23,12 +23,14 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
 	
 	private final Context context;
 	private final List<TcSet> objects;
+    private int lastPosition;
 
 	public TcArrayAdapter(Context context, int resource,
 			int textViewResourceId, List<TcSet> objects) {
 		super(context, resource, textViewResourceId, objects);
 		this.context = context;
 		this.objects = objects;
+        lastPosition = 0;
 	}
 	
   static class ViewHolder {
@@ -76,10 +78,13 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
 	        BitmapWorkerTask task = new BitmapWorkerTask(holder.image);
 	        task.execute(stda[tcid]);
 	    }
-	    
-	    Animation anim = AnimationUtils.loadAnimation(context, R.anim.searchcardanimation);
-	    rowView.setAnimation(anim);
-	    
+
+        if (position >= lastPosition) {
+            Animation anim = AnimationUtils.loadAnimation(context, R.anim.searchcardanimation);
+            rowView.setAnimation(anim);
+        }
+
+	    lastPosition = position;
 	    return rowView;
 	  }
 	public int[] returnStandardImageArray(String standardinput){

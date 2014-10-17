@@ -1,17 +1,18 @@
 apply plugin: 'android'
 
 android {
-    compileSdkVersion 'android-L'
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 21
+    buildToolsVersion "21.0.0"
 
     defaultConfig {
         applicationId "com.southerntemp.thermocouples"
         minSdkVersion 14
-        targetSdkVersion 'L'
+        targetSdkVersion 21
     }
 
     dependencies {
-        compile "com.android.support:support-v4:20.0.0"
+        compile "com.android.support:support-v4:21.0.0"
+        compile "com.android.support:appcompat-v7:21.0.0"
     }
 
     buildTypes {

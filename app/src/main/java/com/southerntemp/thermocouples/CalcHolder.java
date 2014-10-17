@@ -3,6 +3,7 @@ package com.southerntemp.thermocouples;
 import java.math.BigDecimal;
 
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.content.Context;
 import android.graphics.Typeface;
@@ -38,13 +39,16 @@ public class CalcHolder extends FragmentActivity {
 	InputMethodManager imm;
 	static Typeface rLight;
 
-	@Override
+	@TargetApi(Build.VERSION_CODES.L)
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		//ActionBarSherlock setup
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
+        // Create comptible method with toolbar instead of actionbar
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) actionBar.setElevation(0f);
 		
 		//Set content view, Keyborad imm and light font
 		setContentView(R.layout.activity_calc_holder);

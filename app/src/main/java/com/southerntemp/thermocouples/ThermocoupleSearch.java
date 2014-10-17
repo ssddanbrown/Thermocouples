@@ -3,7 +3,9 @@ package com.southerntemp.thermocouples;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
@@ -23,13 +25,17 @@ public class ThermocoupleSearch extends FragmentActivity {
 	String filter2;
 	String filter3;
 
-	@Override
+	@TargetApi(Build.VERSION_CODES.L)
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_thermocouple_search);
 		// ActionBar Setup
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
+
+        // Create comptible method with toolbar instead of actionbar
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) actionBar.setElevation(0f);
 
         //Load tclists
 		tclist = loadTcSets();
