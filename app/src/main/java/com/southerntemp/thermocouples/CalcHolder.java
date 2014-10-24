@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 
 import android.annotation.TargetApi;
-import android.app.ActionBar;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -15,6 +14,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,7 +32,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-public class CalcHolder extends FragmentActivity {
+public class CalcHolder extends ActionBarActivity {
 
 	
 	SectionsPagerAdapter mSectionsPagerAdapter;
@@ -45,7 +46,7 @@ public class CalcHolder extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		
 		//ActionBarSherlock setup
-		ActionBar actionBar = getActionBar();
+		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
         // Create comptible method with toolbar instead of actionbar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) actionBar.setElevation(0f);

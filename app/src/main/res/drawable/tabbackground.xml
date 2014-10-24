@@ -2,10 +2,10 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
 
 <!-- Selected -->
-<item android:state_checked="true" android:state_pressed="true" android:drawable="@drawable/tab_selected_focused_holo" />
-<item android:state_checked="true" android:drawable="@drawable/tab_selected_holo" />
+<item android:state_checked="true" android:state_pressed="true" android:drawable="@drawable/tab_selected_pressed" />
+<item android:state_checked="true" android:drawable="@drawable/tab_selected" />
 
-<item android:state_pressed="true" android:state_checked="false" android:drawable="@drawable/tab_unselected_focused_holo" />
-<item android:state_checked="false" android:drawable="@drawable/tab_unselected_holo" />
+<item android:state_pressed="true" android:state_checked="false" android:drawable="@drawable/tab_pressed" />
+<item android:state_checked="false" android:drawable="@drawable/tab" />
 
 </selector>

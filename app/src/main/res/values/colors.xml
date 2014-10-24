@@ -21,4 +21,6 @@
     <color name="grey_light">#EEEEEE</color>
     <color name="grey">#DDDDDD</color>
     <color name="grey_dark">#BBBBBB</color>
+
+    <color name="black">#000000</color>
 </resources>

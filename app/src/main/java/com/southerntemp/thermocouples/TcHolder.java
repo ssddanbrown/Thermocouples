@@ -3,7 +3,6 @@ package com.southerntemp.thermocouples;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.ActionBar;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -11,14 +10,18 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.util.LruCache;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,7 +31,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-public class TcHolder extends FragmentActivity {
+public class TcHolder extends ActionBarActivity {
 	ArrayAdapter<String> adapter;
 	public static LruCache<String, Bitmap> mMemoryCache;
     private DrawerLayout homeDrawer;
@@ -45,6 +48,14 @@ public class TcHolder extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tcholder);
 
+        // Toolbar setup
+        Toolbar toolbar = (Toolbar)findViewById(R.id.tcholder_toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
+
         //Get slab font for titles
         //Sidebar setup
 		thermoCouples = getResources().getStringArray(R.array.tctitles);
@@ -53,7 +64,7 @@ public class TcHolder extends FragmentActivity {
         drawerList.setAdapter(adapter);
         homeDrawer = (DrawerLayout)findViewById(R.id.homedrawerlayout);
         drawerToggle = new ActionBarDrawerToggle(
-                this, homeDrawer, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close
+                this, homeDrawer, toolbar, R.string.drawer_open, R.string.drawer_close
         ){};
         homeDrawer.setDrawerListener(drawerToggle);
 		
@@ -67,14 +78,9 @@ public class TcHolder extends FragmentActivity {
 			});
 
 
-		//ActionBarSherlock setup
-		ActionBar actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
-
         // Create comptible method with toolbar instead of actionbar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            actionBar.setElevation(10f);
+            toolbar.setElevation(10f);
         }
 		
 		//Viewpager setup

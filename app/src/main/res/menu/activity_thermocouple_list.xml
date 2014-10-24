@@ -5,14 +5,14 @@
         android:titleCondensed="Search" 
         android:title="@string/action_search"
         android:visible="true"
-        android:icon="@drawable/ic_action_search"
+        android:icon="@drawable/ic_search"
         android:showAsAction="ifRoom"
         android:enabled="true"/>
     <item 
         android:id="@+id/CalculatorItem" 
         android:titleCondensed="Converters" 
         android:visible="true" 
-        android:icon="@drawable/calculator"
+        android:icon="@drawable/ic_calc"
         android:title="@string/action_converters"
         android:showAsAction="ifRoom" 
         android:enabled="true"/>
@@ -20,7 +20,6 @@
         android:id="@+id/InfoItem" 
         android:titleCondensed="Info" 
         android:visible="true"
-        android:icon="@drawable/info"
         android:title="@string/action_info"
         android:showAsAction="never"
         android:enabled="true"/>

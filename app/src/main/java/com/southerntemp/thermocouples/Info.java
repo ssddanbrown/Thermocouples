@@ -4,21 +4,28 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
-public class Info extends Activity {
+public class Info extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.app_info);
 		// Show the Up button in the action bar.
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.tcholder_toolbar);
+		setSupportActionBar(toolbar);
+
+
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
-		final ImageView stslogo = (ImageView)findViewById(R.id.infoimage);
+		final Button stslogo = (Button)findViewById(R.id.info_button_sponsor);
 		stslogo.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {

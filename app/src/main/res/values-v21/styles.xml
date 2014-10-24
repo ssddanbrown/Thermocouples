@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.MyTheme" parent="android:Theme.Material">
-        <!-- Main theme colors -->
-        <!--   your app's branding color (for the app bar) -->
-        <item name="android:colorPrimary">@color/primary</item>
-        <!--   darker variant of colorPrimary (for status bar, contextual app bars) -->
-        <item name="android:colorPrimaryDark">@color/primary_dark</item>
-        <!--   theme UI controls like checkboxes and text fields -->
-        <item name="android:colorAccent">@color/accent</item>
-        <item name="android:windowBackground">@color/windowBackground</item>
-    </style>
 
     <style name="calcViewButtons">
         <item name="android:layout_width">0dp</item>

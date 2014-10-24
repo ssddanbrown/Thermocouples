@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.TargetApi;
-import android.app.ActionBar;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,7 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-public class ThermocoupleSearch extends FragmentActivity {
+public class ThermocoupleSearch extends ActionBarActivity {
 	public static List<TcSet> tclist;
 	public static List<TcSet> filteredList;
 	ArrayAdapter<TcSet> adapter;
@@ -31,7 +32,7 @@ public class ThermocoupleSearch extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_thermocouple_search);
 		// ActionBar Setup
-		ActionBar actionBar = getActionBar();
+		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
         // Create comptible method with toolbar instead of actionbar

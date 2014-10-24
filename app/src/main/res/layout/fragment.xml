@@ -50,8 +50,13 @@
                     <RadioButton style="@style/tcDetailRadioButton"
                                  android:id="@+id/tcDetailRBjis"
                                  android:text="JIS"/>
-
                 </RadioGroup>
+                <View
+                    android:background="@color/primary"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_height="2dp"/>
 
                 <ImageView
                     android:layout_width="match_parent"
