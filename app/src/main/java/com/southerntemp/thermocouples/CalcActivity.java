@@ -106,8 +106,8 @@ public class CalcActivity extends ActionBarActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         if (i == android.R.id.home) {
-            NavUtils.navigateUpFromSameTask(this);
-            CalcActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+            this.finish();
+            overridePendingTransition(0, R.anim.push_left_out);
             return true;
         } else {
             return super.onOptionsItemSelected(item);

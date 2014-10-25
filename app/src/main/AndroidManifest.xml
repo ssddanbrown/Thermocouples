@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.southerntemp.thermocouples"
-    android:versionCode="9"
-    android:versionName="1.5" >
+    android:versionCode="10"
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -29,7 +29,7 @@
             android:parentActivityName=".DetailsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.southerntemp.thermocouples.TcHolder" />
+                android:value="com.southerntemp.thermocouples.DetailsActivity" />
         </activity>
         <activity
             android:screenOrientation="portrait"
@@ -38,7 +38,7 @@
             android:windowSoftInputMode="adjustPan" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.southerntemp.thermocouples.TcHolder" />
+                android:value="com.southerntemp.thermocouples.DetailsActivity" />
         </activity>
         <activity
             android:name=".SearchActivity"
@@ -46,7 +46,7 @@
             android:parentActivityName=".DetailsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.southerntemp.thermocouples.TcHolder" />
+                android:value="com.southerntemp.thermocouples.DetailsActivity" />
         </activity>
     </application>
 

@@ -14,13 +14,14 @@
     <dimen name="text_s">16sp</dimen>
     <dimen name="text_sm">18sp</dimen>
     <dimen name="text_m">20sp</dimen>
-    <dimen name="text_l">45sp</dimen>
+    <dimen name="text_l">42sp</dimen>
 
     <dimen name="pad_xxxs">2dp</dimen>
     <dimen name="pad_xxs">4dp</dimen>
     <dimen name="pad_xs">8dp</dimen>
     <dimen name="pad_s">16dp</dimen>
     <dimen name="pad_m">32dp</dimen>
+    <dimen name="pad_l">56dp</dimen>
 
     <dimen name="button_height">48dp</dimen>
     <dimen name="button_text">20sp</dimen>
@@ -29,4 +30,6 @@
 
     <dimen name="listItem">56dp</dimen>
     <dimen name="listItemLarge">144dp</dimen>
+
+    <dimen name="card_padding">8dp</dimen>
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="tcDetail">
+        <item name="android:paddingLeft">@dimen/pad_m</item>
+        <item name="android:paddingRight">@dimen/pad_m</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">@dimen/pad_xs</item>
+    </style>
+
+</resources>

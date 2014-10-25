@@ -42,10 +42,8 @@ public class InfoActivity extends ActionBarActivity {
 	    switch (item.getItemId()) {
 	        case android.R.id.home:
 	            // app icon in action bar clicked; go home
-	            Intent intent = new Intent(this, DetailsActivity.class);
-	            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	            startActivity(intent);
-	            InfoActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                this.finish();
+                overridePendingTransition(0, R.anim.push_left_out);
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

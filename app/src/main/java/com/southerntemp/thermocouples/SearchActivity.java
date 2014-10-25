@@ -113,8 +113,8 @@ public class SearchActivity extends ActionBarActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			NavUtils.navigateUpFromSameTask(this);
-			SearchActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+			this.finish();
+            overridePendingTransition(0, R.anim.push_left_out);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -122,7 +122,7 @@ public class SearchActivity extends ActionBarActivity {
 	@Override
 	public void onBackPressed() {
 	    super.onBackPressed();
-	    overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+	    overridePendingTransition(0, R.anim.push_left_out);
 	}
 	private void clearAndPopulateFilteredList(){
         adapter.clear();
