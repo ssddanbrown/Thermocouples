@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,7 +26,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-public class TcHolder extends ActionBarActivity {
+public class DetailsActivity extends ActionBarActivity {
 	ArrayAdapter<String> adapter;
 	public static LruCache<String, Bitmap> mMemoryCache;
     private DrawerLayout homeDrawer;
@@ -155,19 +154,19 @@ public class TcHolder extends ActionBarActivity {
 	public boolean goToCalc(MenuItem item) {
         Intent intentCalc = new Intent(this, CalcActivity.class);
         startActivity(intentCalc);
-        TcHolder.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+        DetailsActivity.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         return true;
 	}
 	public boolean goToInfo(MenuItem item) {
-        Intent intentInfo = new Intent(this, Info.class);
+        Intent intentInfo = new Intent(this, InfoActivity.class);
         startActivity(intentInfo);
-        TcHolder.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+        DetailsActivity.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         return true;
 	}
 	public boolean goToSearch(MenuItem item) {
-        Intent intentSearch = new Intent(this, ThermocoupleSearch.class);
+        Intent intentSearch = new Intent(this, SearchActivity.class);
         startActivity(intentSearch);
-        TcHolder.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+        DetailsActivity.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         return true;
 	}
 	@Override
@@ -188,21 +187,6 @@ public class TcHolder extends ActionBarActivity {
             return true;
         } else if (i == R.id.InfoItem) {
             goToInfo(item);
-            return true;
-        } else if (i==R.id.RtdItem){
-            Intent intent = getPackageManager().getLaunchIntentForPackage("me.danb.retherm");
-            if (intent != null) {
-                // start the activity
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            } else {
-                // bring user to the market
-                // or let them choose an app?
-                intent = new Intent(Intent.ACTION_VIEW);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setData(Uri.parse("market://details?id=" + "me.danb.retherm"));
-                startActivity(intent);
-            }
             return true;
         } else {
             return super.onOptionsItemSelected(item);

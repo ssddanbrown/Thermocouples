@@ -16,7 +16,7 @@
         android:title="@string/action_converters"
         app:showAsAction="ifRoom" 
         android:enabled="true"/>
-        <item 
+    <item
         android:id="@+id/InfoItem" 
         android:titleCondensed="Info" 
         android:visible="true"
@@ -24,12 +24,5 @@
         app:showAsAction="never"
         android:enabled="true"/>
 
-    <item
-        android:id="@+id/RtdItem"
-        android:titleCondensed="Retherm"
-        android:visible="true"
-        android:title="@string/action_rtd"
-        app:showAsAction="never"
-        android:enabled="true"/>
         
 </menu>

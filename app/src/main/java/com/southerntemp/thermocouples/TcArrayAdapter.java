@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -59,7 +58,7 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
 	    //Get thermocouple information from xml rescources
 	    String[] thermoCouples = context.getResources().getStringArray(R.array.tctitles);
 	    //Get TcSet + ids + Standard for layout
-		List<com.southerntemp.thermocouples.TcSet> newlist = ThermocoupleSearch.filteredList;
+		List<com.southerntemp.thermocouples.TcSet> newlist = SearchActivity.filteredList;
 	    com.southerntemp.thermocouples.TcSet tcInfo = newlist.get(position);
 	    int tcid = tcInfo.getId();
 	    String standard = tcInfo.getStd();
@@ -112,12 +111,12 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
 	
 	public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
 	    if (getBitmapFromMemCache(key) == null) {
-	        TcHolder.mMemoryCache.put(key, bitmap);
+	        DetailsActivity.mMemoryCache.put(key, bitmap);
 	    }
 	}
 
 	public Bitmap getBitmapFromMemCache(String key) {
-		Bitmap bitmap = TcHolder.mMemoryCache.get(key);
+		Bitmap bitmap = DetailsActivity.mMemoryCache.get(key);
 		if (bitmap == null){Log.i("Cache","Bitmpa null " + key);}
 	    return bitmap;
 	}

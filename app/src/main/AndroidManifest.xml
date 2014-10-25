@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AppTheme" >
         <activity
-            android:name="com.southerntemp.thermocouples.TcHolder"
+            android:name=".DetailsActivity"
             android:label="@string/app_name" >
             <intent-filter android:label="@string/launcher_name" >
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +24,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.southerntemp.thermocouples.Info"
+            android:name=".InfoActivity"
             android:label="@string/title_activity_info"
-            android:parentActivityName="com.southerntemp.thermocouples.TcHolder" >
+            android:parentActivityName=".DetailsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.southerntemp.thermocouples.TcHolder" />
@@ -41,9 +41,9 @@
                 android:value="com.southerntemp.thermocouples.TcHolder" />
         </activity>
         <activity
-            android:name="com.southerntemp.thermocouples.ThermocoupleSearch"
+            android:name=".SearchActivity"
             android:label="@string/title_activity_thermocouple_search"
-            android:parentActivityName="com.southerntemp.thermocouples.TcHolder" >
+            android:parentActivityName=".DetailsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.southerntemp.thermocouples.TcHolder" />
