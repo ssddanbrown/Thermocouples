@@ -1,4 +1,4 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <item
         android:id="@+id/SearchItem"
@@ -6,22 +6,22 @@
         android:title="@string/action_search"
         android:visible="true"
         android:icon="@drawable/ic_search"
-        android:showAsAction="ifRoom"
-        android:enabled="true"/>
+        app:showAsAction="ifRoom"
+        android:enabled="true" />
     <item 
         android:id="@+id/CalculatorItem" 
         android:titleCondensed="Converters" 
         android:visible="true" 
         android:icon="@drawable/ic_calc"
         android:title="@string/action_converters"
-        android:showAsAction="ifRoom" 
+        app:showAsAction="ifRoom" 
         android:enabled="true"/>
         <item 
         android:id="@+id/InfoItem" 
         android:titleCondensed="Info" 
         android:visible="true"
         android:title="@string/action_info"
-        android:showAsAction="never"
+        app:showAsAction="never"
         android:enabled="true"/>
 
     <item
@@ -29,7 +29,7 @@
         android:titleCondensed="Retherm"
         android:visible="true"
         android:title="@string/action_rtd"
-        android:showAsAction="never"
+        app:showAsAction="never"
         android:enabled="true"/>
         
 </menu>

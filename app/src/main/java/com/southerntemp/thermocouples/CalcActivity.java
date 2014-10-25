@@ -9,13 +9,13 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,7 +32,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-public class CalcHolder extends ActionBarActivity {
+public class CalcActivity extends ActionBarActivity {
 
 	
 	SectionsPagerAdapter mSectionsPagerAdapter;
@@ -44,17 +44,21 @@ public class CalcHolder extends ActionBarActivity {
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+        //Set content view, Keyborad imm and light font
+        setContentView(R.layout.activity_calc_holder);
+        imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        rLight = Typeface.createFromAsset(getAssets(), "Roboto-Light.ttf");
 		
 		//ActionBarSherlock setup
+        Toolbar toolbar = (Toolbar)findViewById(R.id.tcholder_toolbar);
+        setSupportActionBar(toolbar);
+
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
         // Create comptible method with toolbar instead of actionbar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) actionBar.setElevation(0f);
-		
-		//Set content view, Keyborad imm and light font
-		setContentView(R.layout.activity_calc_holder);
-		imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-		rLight = Typeface.createFromAsset(getAssets(), "Roboto-Light.ttf");
+
 
 		// Set up the ViewPager with the sections adapter.
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
@@ -103,7 +107,7 @@ public class CalcHolder extends ActionBarActivity {
         int i = item.getItemId();
         if (i == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
-            CalcHolder.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+            CalcActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             return true;
         } else {
             return super.onOptionsItemSelected(item);

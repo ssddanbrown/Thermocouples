@@ -3,12 +3,13 @@
     android:id="@+id/sidebartext"
     android:layout_width="match_parent"
     android:layout_height="@dimen/listItem"
-    android:background="@drawable/menucolors"
+    android:background="@drawable/menu_item_background"
     android:gravity="center_vertical"
     android:paddingLeft="@dimen/pad_m"
+    android:paddingStart="@dimen/pad_m"
     android:paddingTop="@dimen/ultra_thin_margin"
     android:paddingBottom="@dimen/ultra_thin_margin"
-    android:textColor="#666666"
+    android:textColor="#444444"
     android:textSize="@dimen/text_m"
     android:text="Test K" />
 

@@ -2,20 +2,16 @@ package com.southerntemp.thermocouples;
 
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.util.LruCache;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -51,12 +47,12 @@ public class TcHolder extends ActionBarActivity {
         // Toolbar setup
         Toolbar toolbar = (Toolbar)findViewById(R.id.tcholder_toolbar);
         setSupportActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.activity_thermocouple_list);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
 
-        //Get slab font for titles
         //Sidebar setup
 		thermoCouples = getResources().getStringArray(R.array.tctitles);
         drawerList = (ListView)findViewById(R.id.left_drawer);
@@ -157,7 +153,7 @@ public class TcHolder extends ActionBarActivity {
 		
 	}
 	public boolean goToCalc(MenuItem item) {
-        Intent intentCalc = new Intent(this, CalcHolder.class);
+        Intent intentCalc = new Intent(this, CalcActivity.class);
         startActivity(intentCalc);
         TcHolder.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         return true;

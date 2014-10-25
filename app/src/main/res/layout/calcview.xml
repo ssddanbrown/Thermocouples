@@ -28,7 +28,7 @@
               android:layout_marginRight="10dp"
               android:layout_marginLeft="20dp"
               android:text="°C"
-              android:background="@drawable/bluebuttonstate" />
+              android:background="@drawable/button_blue" />
 
 
             <Button
@@ -37,7 +37,7 @@
               android:layout_marginRight="10dp"
               android:layout_marginLeft="10dp"
               android:text="°F"
-              android:background="@drawable/greenbuttonstate" />
+              android:background="@drawable/button_green" />
 
             <Button
               style="@style/calcViewButtons"
@@ -45,7 +45,7 @@
               android:layout_marginRight="20dp"
               android:layout_marginLeft="10dp"
               android:text="K"
-              android:background="@drawable/orangebuttonstate"/>
+              android:background="@drawable/button_orange"/>
         </LinearLayout>
 
     <ScrollView
