@@ -86,26 +86,20 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
 	    lastPosition = position;
 	    return rowView;
 	  }
-	public int[] returnStandardImageArray(String standardinput){
+	public int[] returnStandardImageArray(String standardInput){
 	    
-	    if(standardinput.equals("IEC")){
-	    	int[] stda = {0,R.drawable.iece,R.drawable.iecj,R.drawable.ieck,R.drawable.iecn,R.drawable.iecu,R.drawable.iecu,R.drawable.iect,R.drawable.iecu,R.drawable.iecv};
-	    	return stda;
-	    } else if (standardinput.equals("BS")){
-	    	int[] stda = {0,R.drawable.bse,R.drawable.bsj,R.drawable.bsk,R.drawable.bsn,R.drawable.bsu,R.drawable.bsu,R.drawable.bst,R.drawable.bsu,R.drawable.bsv};
-	    	return stda;
-	    } else if (standardinput.equals("ANSI")){
-	    	int[] stda = {R.drawable.ansib,R.drawable.ansie,R.drawable.ansij,R.drawable.ansik,R.drawable.ansin,R.drawable.ansiu,R.drawable.ansiu,R.drawable.ansit,R.drawable.ansiu,R.drawable.ansiv};
-	    	return stda;
-	    } else if (standardinput.equals("NFE")){
-	    	int[] stda = {R.drawable.nfeb,R.drawable.nfee,R.drawable.nfej,R.drawable.nfek,0,R.drawable.nfeu,R.drawable.nfeu,R.drawable.nfet,R.drawable.nfeu,R.drawable.nfev};
-	    	return stda;
-	    } else if (standardinput.equals("DIN")){
-	    	int[] stda = {R.drawable.dinb,R.drawable.dine,R.drawable.dinj,R.drawable.dink,0,R.drawable.dinu,R.drawable.dinu,R.drawable.dint,R.drawable.dinu,R.drawable.dinv};
-	    	return stda;
+	    if(standardInput.equals("IEC")){
+			return new int[]{0, R.drawable.iece,R.drawable.iecj,R.drawable.ieck,R.drawable.iecn,R.drawable.iecu,R.drawable.iecu,R.drawable.iect,R.drawable.iecu,R.drawable.iecv};
+	    } else if (standardInput.equals("BS")){
+	    	return new int[]{0, R.drawable.bse, R.drawable.bsj, R.drawable.bsk, R.drawable.bsn, R.drawable.bsu, R.drawable.bsu, R.drawable.bst, R.drawable.bsu, R.drawable.bsv};
+	    } else if (standardInput.equals("ANSI")){
+			return new int[]{R.drawable.ansib,R.drawable.ansie,R.drawable.ansij,R.drawable.ansik,R.drawable.ansin,R.drawable.ansiu,R.drawable.ansiu,R.drawable.ansit,R.drawable.ansiu,R.drawable.ansiv};
+	    } else if (standardInput.equals("NFE")){
+			return new int[]{R.drawable.nfeb,R.drawable.nfee,R.drawable.nfej,R.drawable.nfek,0,R.drawable.nfeu,R.drawable.nfeu,R.drawable.nfet,R.drawable.nfeu,R.drawable.nfev};
+	    } else if (standardInput.equals("DIN")){
+			return new int[]{R.drawable.dinb,R.drawable.dine,R.drawable.dinj,R.drawable.dink,0,R.drawable.dinu,R.drawable.dinu,R.drawable.dint,R.drawable.dinu,R.drawable.dinv};
 	    } else{
-	    	int[] stda = {R.drawable.jisb,R.drawable.jise,R.drawable.jisj,R.drawable.jisk,0,R.drawable.jisu,R.drawable.jisu,R.drawable.jist,R.drawable.jisu,R.drawable.jisv};
-	    	return stda;
+			return new int[]{R.drawable.jisb,R.drawable.jise,R.drawable.jisj,R.drawable.jisk,0,R.drawable.jisu,R.drawable.jisu,R.drawable.jist,R.drawable.jisu,R.drawable.jisv};
 	    }
 	}
 	

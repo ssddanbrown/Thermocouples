@@ -26,7 +26,6 @@ public class SearchActivity extends ActionBarActivity {
 	String filter2;
 	String filter3;
 
-	@TargetApi(Build.VERSION_CODES.L)
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -126,8 +125,8 @@ public class SearchActivity extends ActionBarActivity {
 	}
 	private void clearAndPopulateFilteredList(){
         adapter.clear();
-        int filteredcount = filteredList.size();
-        for(int i = 0; i<filteredcount; i++){
+        int filteredCount = filteredList.size();
+        for(int i = 0; i < filteredCount; i++){
         	adapter.add(filteredList.get(i));
         }
         adapter.notifyDataSetChanged();

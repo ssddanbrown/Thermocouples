@@ -33,3 +33,5 @@ gradle/
 .gradle/
 gradlew
 gradlew.bat
+app.iml
+thermocouples.iml

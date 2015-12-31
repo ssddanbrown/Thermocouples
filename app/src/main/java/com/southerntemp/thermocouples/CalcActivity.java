@@ -40,7 +40,6 @@ public class CalcActivity extends ActionBarActivity {
 	InputMethodManager imm;
 	static Typeface rLight;
 
-	@TargetApi(Build.VERSION_CODES.L)
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
