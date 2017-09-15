@@ -14,8 +14,8 @@ import android.support.v4.util.LruCache;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +26,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-public class DetailsActivity extends ActionBarActivity {
+public class DetailsActivity extends AppCompatActivity {
 	ArrayAdapter<String> adapter;
 	public static LruCache<String, Bitmap> mMemoryCache;
     private DrawerLayout homeDrawer;
@@ -44,7 +44,7 @@ public class DetailsActivity extends ActionBarActivity {
 		setContentView(R.layout.tcholder);
 
         // Toolbar setup
-        Toolbar toolbar = (Toolbar)findViewById(R.id.tcholder_toolbar);
+        Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.activity_thermocouple_list);
 
@@ -54,10 +54,10 @@ public class DetailsActivity extends ActionBarActivity {
 
         //Sidebar setup
 		thermoCouples = getResources().getStringArray(R.array.tctitles);
-        drawerList = (ListView)findViewById(R.id.left_drawer);
+        drawerList = findViewById(R.id.left_drawer);
         adapter =  new ArrayAdapter<String>(this, R.layout.sidebar_list_item, thermoCouples);
         drawerList.setAdapter(adapter);
-        homeDrawer = (DrawerLayout)findViewById(R.id.homedrawerlayout);
+        homeDrawer = findViewById(R.id.homedrawerlayout);
         drawerToggle = new ActionBarDrawerToggle(
                 this, homeDrawer, toolbar, R.string.drawer_open, R.string.drawer_close
         ){};
@@ -80,11 +80,11 @@ public class DetailsActivity extends ActionBarActivity {
 		
 		//Viewpager setup
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-		mViewPager = (ViewPager)findViewById(R.id.pager);
+		mViewPager = findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 		
-		//MEMORY image cache setup
-		 // Get max available VM memory, exceeding this amount will throw an
+		// MEMORY image cache setup
+        // Get max available VM memory, exceeding this amount will throw an
 	    // OutOfMemory exception. Stored in kilobytes as LruCache takes an
 	    // int in its constructor.
 	    final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
@@ -177,7 +177,7 @@ public class DetailsActivity extends ActionBarActivity {
                 homeDrawer.closeDrawer(drawerList);
             } else {
                 homeDrawer.openDrawer(drawerList);
-            };
+            }
             return true;
         } else if (i == R.id.SearchItem) {
             goToSearch(item);

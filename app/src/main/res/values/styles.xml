@@ -4,7 +4,7 @@
 
     </style>
 
-    <style name="Theme.MyTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/windowBackground</item>
         <item name="android:actionBarItemBackground">@drawable/ab_bgselector</item>
         <item name="colorPrimary">@color/primary</item>
@@ -12,7 +12,6 @@
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <!--   theme UI controls like checkboxes and text fields -->
         <item name="colorAccent">@color/accent</item>
-        <item name="windowActionBar">false</item>
     </style>
 
     <style name="Theme.MyTheme.NoActionBar">
@@ -23,6 +22,7 @@
 
     <style name="HeaderBar">
         <item name="android:background">@color/primary</item>
+        <item name="android:color">@color/white</item>
         <item name="android:elevation" tools:ignore="NewApi">10dp</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">56dp</item>
