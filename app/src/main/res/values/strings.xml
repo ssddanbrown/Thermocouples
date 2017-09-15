@@ -13,8 +13,6 @@
     <string name="tcDetailTest2">Platinum-6% Rhodium</string>
     <string name="tcDetailTest3">-200 to 350°C</string>
     <string name="tcDetailTest4">R and S</string>
-    <string name="menu_settings">Settings</string>
-    <string name="imgdesc">Thermocouple colours</string>
 
     <string name="calcviewEditTextHint">Enter Temperature</string>
 
@@ -22,12 +20,9 @@
     <string name="tccalc2EditTextHint">Enter Temp(°C)</string>
     <string name="tccalcRefTempText">(0°C Reference temperature)</string>
 
-    <string name="inputTemp">Temperature Input Unit</string>
-    <string name="outputTemp">Converted Temperature</string>
     <string name="title_activity_info">Information</string>
 
 
-    <string name="infotitle">Information</string>
     <string name="info_link">Our Sponsor\nwww.southerntemp.co.uk</string>
     <string name="info1">This application is for quick reference use only, there may be errors or inaccuracies  although I try to ensure the information is as accurate as possible. Me, the app maker, nor the application sponsor will not be held liable for any misinformation as a result of using this app.</string>
     <string name="iiec">IEC: IEC584-3 international</string>
@@ -37,15 +32,13 @@
     <string name="idin">DIN: DIN 43710 Germany/Netherlands</string>
     <string name="ijis">JIS: JIS C 1610-1981 Japanese </string>
 
-    <string name="title_activity_tc_calc">TcCalc</string>
     <string name="title_activity_calc_holder">Converters</string>
     <string name="title_activity_thermocouple_search">Search</string>
 
     <string name="action_search">Search Thermocouples</string>
     <string name="action_converters">Conversion Calculators</string>
     <string name="action_info">Information</string>
-    <string name="action_rtd">RTD calculator</string>
-    <string name="action_settings">Settings</string>
+
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>
 

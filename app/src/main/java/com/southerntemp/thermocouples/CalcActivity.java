@@ -47,7 +47,7 @@ public class CalcActivity extends AppCompatActivity {
         rLight = Typeface.createFromAsset(getAssets(), "Roboto-Light.ttf");
 		
 		//ActionBarSherlock setup
-        Toolbar toolbar = (Toolbar)findViewById(R.id.tcholder_toolbar);
+        Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
         setSupportActionBar(toolbar);
 
 		ActionBar actionBar = getSupportActionBar();
@@ -59,7 +59,7 @@ public class CalcActivity extends AppCompatActivity {
 		// Set up the ViewPager with the sections adapter.
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
 				getSupportFragmentManager());
-		mViewPager = (ViewPager)findViewById(R.id.pager);
+		mViewPager = findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
 	}
@@ -131,24 +131,21 @@ public class CalcActivity extends AppCompatActivity {
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			 v = inflater.inflate(R.layout.calcview, container, false);
 			
-			//////Load everything from layout//////
-			final EditText calcinput =(EditText)v.findViewById(R.id.calcinput);
+			// Load everything from layout
+			final EditText calcinput = v.findViewById(R.id.calcinput);
 			
-			final Button buttonc = (Button)v.findViewById(R.id.buttonc);
-			final Button buttonf = (Button)v.findViewById(R.id.buttonf);
-			final Button buttonk = (Button)v.findViewById(R.id.buttonk);
+			final Button buttonc = v.findViewById(R.id.buttonc);
+			final Button buttonf = v.findViewById(R.id.buttonf);
+			final Button buttonk = v.findViewById(R.id.buttonk);
 			
-			final TextView tempc =(TextView)v.findViewById(R.id.tempc);
-			final TextView tempf =(TextView)v.findViewById(R.id.tempf);
-			final TextView tempk =(TextView)v.findViewById(R.id.tempk);
-			//////////
+			final TextView tempc = v.findViewById(R.id.tempc);
+			final TextView tempf = v.findViewById(R.id.tempf);
+			final TextView tempk = v.findViewById(R.id.tempk);
 			
-			//If android verions >ICS a light font is set
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-				tempc.setTypeface(rLight);
-				tempf.setTypeface(rLight);
-				tempk.setTypeface(rLight);
-			}
+			// Set light font
+			tempc.setTypeface(rLight);
+			tempf.setTypeface(rLight);
+			tempk.setTypeface(rLight);
 			
 			//Centigrade button setup
 	        buttonc.setOnClickListener(new View.OnClickListener() {
@@ -175,7 +172,8 @@ public class CalcActivity extends AppCompatActivity {
 	                tempk.setText(ck + "K");
 	            }
 	        });
-			//Farenheight button setup
+
+			// Fahrenheit button setup
 	        buttonf.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
 	            	InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -233,9 +231,9 @@ public class CalcActivity extends AppCompatActivity {
 		@Override
 		public void onStart() {
 			super.onStart();
-			final TextView tempc =(TextView)v.findViewById(R.id.tempc);
-			final TextView tempf =(TextView)v.findViewById(R.id.tempf);
-			final TextView tempk =(TextView)v.findViewById(R.id.tempk);
+			final TextView tempc = v.findViewById(R.id.tempc);
+			final TextView tempf = v.findViewById(R.id.tempf);
+			final TextView tempk = v.findViewById(R.id.tempk);
 			
 			final Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.push_right_in);
 		    animation.setDuration(800);
@@ -258,16 +256,16 @@ public class CalcActivity extends AppCompatActivity {
 			v = inflater.inflate(R.layout.activity_tc_calc, container, false);
 			
 			//Set Views
-			final TextView tcresultb = (TextView)v.findViewById(R.id.tcresultb);
-			final TextView tcresulte = (TextView)v.findViewById(R.id.tcresulte);
-			final TextView tcresultk = (TextView)v.findViewById(R.id.tcresultk);
-			final TextView tcresultj = (TextView)v.findViewById(R.id.tcresultj);
-			final TextView tcresultn = (TextView)v.findViewById(R.id.tcresultn);
-			final TextView tcresultr = (TextView)v.findViewById(R.id.tcresultr);
-			final TextView tcresults = (TextView)v.findViewById(R.id.tcresults);
-			final TextView tcresultt = (TextView)v.findViewById(R.id.tcresultt);
-			final EditText tcinput = (EditText)v.findViewById(R.id.tcinput);
-			final Button tccalcbuttonk = (Button)v.findViewById(R.id.tccalcbuttonk);
+			final TextView tcresultb = v.findViewById(R.id.tcresultb);
+			final TextView tcresulte = v.findViewById(R.id.tcresulte);
+			final TextView tcresultk = v.findViewById(R.id.tcresultk);
+			final TextView tcresultj = v.findViewById(R.id.tcresultj);
+			final TextView tcresultn = v.findViewById(R.id.tcresultn);
+			final TextView tcresultr = v.findViewById(R.id.tcresultr);
+			final TextView tcresults = v.findViewById(R.id.tcresults);
+			final TextView tcresultt = v.findViewById(R.id.tcresultt);
+			final EditText tcinput = v.findViewById(R.id.tcinput);
+			final Button tccalcbuttonk = v.findViewById(R.id.tccalcbuttonk);
 			
 			//Set light font for ICS and above
 			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
@@ -294,7 +292,7 @@ public class CalcActivity extends AppCompatActivity {
 			
 			tccalcbuttonk.setOnClickListener(new Button.OnClickListener(){
 				public void onClick(View k){
-					EditText tcinput = (EditText)v.findViewById(R.id.tcinput);
+					EditText tcinput = v.findViewById(R.id.tcinput);
 	            	InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
 	            	imm.hideSoftInputFromWindow(tcinput.getApplicationWindowToken(), 0);
 					if (tcinput.getText().toString().equals(".") || tcinput.getText().toString().equals("-") || tcinput.getText().toString().equals("-.") || tcinput.getText().toString().equals("")){
@@ -349,14 +347,14 @@ public class CalcActivity extends AppCompatActivity {
 		@Override
 		public void onStart() {
 			super.onStart();
-			final LinearLayout b = (LinearLayout)v.findViewById(R.id.tcidb);
-			final LinearLayout e = (LinearLayout)v.findViewById(R.id.tcide);
-			final LinearLayout j = (LinearLayout)v.findViewById(R.id.tcidj);
-			final LinearLayout k = (LinearLayout)v.findViewById(R.id.tcidk);
-			final LinearLayout n = (LinearLayout)v.findViewById(R.id.tcidn);
-			final LinearLayout r = (LinearLayout)v.findViewById(R.id.tcidr);
-			final LinearLayout s = (LinearLayout)v.findViewById(R.id.tcids);
-			final LinearLayout t = (LinearLayout)v.findViewById(R.id.tcidt);
+			final LinearLayout b = v.findViewById(R.id.tcidb);
+			final LinearLayout e = v.findViewById(R.id.tcide);
+			final LinearLayout j = v.findViewById(R.id.tcidj);
+			final LinearLayout k = v.findViewById(R.id.tcidk);
+			final LinearLayout n = v.findViewById(R.id.tcidn);
+			final LinearLayout r = v.findViewById(R.id.tcidr);
+			final LinearLayout s = v.findViewById(R.id.tcids);
+			final LinearLayout t = v.findViewById(R.id.tcidt);
 			
 			final Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.push_right_in);
 		    animation.setDuration(800);
@@ -789,16 +787,16 @@ public class CalcActivity extends AppCompatActivity {
             v = inflater.inflate(R.layout.activity_tc_calc2, container, false);
 
             //Set Views
-            final TextView tcresultb = (TextView)v.findViewById(R.id.tcresultb);
-            final TextView tcresulte = (TextView)v.findViewById(R.id.tcresulte);
-            final TextView tcresultk = (TextView)v.findViewById(R.id.tcresultk);
-            final TextView tcresultj = (TextView)v.findViewById(R.id.tcresultj);
-            final TextView tcresultn = (TextView)v.findViewById(R.id.tcresultn);
-            final TextView tcresultr = (TextView)v.findViewById(R.id.tcresultr);
-            final TextView tcresults = (TextView)v.findViewById(R.id.tcresults);
-            final TextView tcresultt = (TextView)v.findViewById(R.id.tcresultt);
-            final EditText tcinput = (EditText)v.findViewById(R.id.tcinput);
-            final Button tccalcbuttonk = (Button)v.findViewById(R.id.tccalcbuttonk);
+            final TextView tcresultb = v.findViewById(R.id.tcresultb);
+            final TextView tcresulte = v.findViewById(R.id.tcresulte);
+            final TextView tcresultk = v.findViewById(R.id.tcresultk);
+            final TextView tcresultj = v.findViewById(R.id.tcresultj);
+            final TextView tcresultn = v.findViewById(R.id.tcresultn);
+            final TextView tcresultr = v.findViewById(R.id.tcresultr);
+            final TextView tcresults = v.findViewById(R.id.tcresults);
+            final TextView tcresultt = v.findViewById(R.id.tcresultt);
+            final EditText tcinput = v.findViewById(R.id.tcinput);
+            final Button tccalcbuttonk = v.findViewById(R.id.tccalcbuttonk);
 
             //Set light font for ICS and above
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
@@ -825,7 +823,7 @@ public class CalcActivity extends AppCompatActivity {
 
             tccalcbuttonk.setOnClickListener(new Button.OnClickListener(){
                 public void onClick(View k){
-                    EditText tcinput = (EditText)v.findViewById(R.id.tcinput);
+                    EditText tcinput = v.findViewById(R.id.tcinput);
                     InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(tcinput.getApplicationWindowToken(), 0);
                     if (tcinput.getText().toString().equals(".") || tcinput.getText().toString().equals("-") || tcinput.getText().toString().equals("-.") || tcinput.getText().toString().equals("")){
@@ -880,14 +878,14 @@ public class CalcActivity extends AppCompatActivity {
         @Override
         public void onStart() {
             super.onStart();
-            final LinearLayout b = (LinearLayout)v.findViewById(R.id.tcidb);
-            final LinearLayout e = (LinearLayout)v.findViewById(R.id.tcide);
-            final LinearLayout j = (LinearLayout)v.findViewById(R.id.tcidj);
-            final LinearLayout k = (LinearLayout)v.findViewById(R.id.tcidk);
-            final LinearLayout n = (LinearLayout)v.findViewById(R.id.tcidn);
-            final LinearLayout r = (LinearLayout)v.findViewById(R.id.tcidr);
-            final LinearLayout s = (LinearLayout)v.findViewById(R.id.tcids);
-            final LinearLayout t = (LinearLayout)v.findViewById(R.id.tcidt);
+            final LinearLayout b = v.findViewById(R.id.tcidb);
+            final LinearLayout e = v.findViewById(R.id.tcide);
+            final LinearLayout j = v.findViewById(R.id.tcidj);
+            final LinearLayout k = v.findViewById(R.id.tcidk);
+            final LinearLayout n = v.findViewById(R.id.tcidn);
+            final LinearLayout r = v.findViewById(R.id.tcidr);
+            final LinearLayout s = v.findViewById(R.id.tcids);
+            final LinearLayout t = v.findViewById(R.id.tcidt);
 
             final Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.push_right_in);
             animation.setDuration(800);

@@ -92,7 +92,6 @@
                             android:layout_height="wrap_content">
                             <TextView
                                 style="@style/tcDetailTitle"
-                                android:id="@+id/tcPositiveLegTitle"
                                 android:text="@string/tcPositive" />
                             <TextView
                                 style="@style/tcDetailInfo"
@@ -109,7 +108,6 @@
                             android:layout_height="wrap_content">
                             <TextView
                                 style="@style/tcDetailTitle"
-                                android:id="@+id/tcNegativeLegTitle"
                                 android:text="@string/tcNegative"/>
                             <TextView
                                 style="@style/tcDetailInfo"
@@ -126,7 +124,6 @@
                             android:layout_height="wrap_content">
                             <TextView
                                 style="@style/tcDetailTitle"
-                                android:id="@+id/tcTempRangeTitle"
                                 android:text="@string/tcTempRange"/>
                             <TextView
                                 style="@style/tcDetailInfo"
@@ -143,7 +140,6 @@
                             android:layout_height="wrap_content">
                             <TextView
                                 style="@style/tcDetailTitle"
-                                android:id="@+id/tcExtraTitle"
                                 android:text="@string/tcExtra"/>
                             <TextView
                                 style="@style/tcDetailInfo"

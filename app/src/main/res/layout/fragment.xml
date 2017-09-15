@@ -1,19 +1,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#e5e5e5">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e5e5e5">
+
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scrollbars="none"
-        android:id="@+id/scrollView"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true">
+        android:scrollbars="none">
 
-        <FrameLayout android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:padding="@dimen/card_padding"
-                     android:foregroundGravity="center_vertical|center_horizontal">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center_vertical|center_horizontal"
+            android:padding="@dimen/card_padding">
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -23,67 +25,83 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/pad_xxs"
-                    android:layout_margin="@dimen/thin_margin">
+                    android:paddingBottom="@dimen/pad_xxs">
 
                     <TextView
-                        style="@style/tcTitle"
                         android:id="@+id/tcTitle"
-                        android:text="@string/tcTitleTest"
-                        />
+                        style="@style/tcTitle"
+                        android:text="@string/tcTitleTest" />
 
                     <RadioGroup
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent">
-                        <RadioButton style="@style/tcDetailTab"
-                            android:id="@+id/tcDetailRBiec"
-                            android:text="IEC"/>
-                        <RadioButton style="@style/tcDetailTab"
-                            android:id="@+id/tcDetailRBbs"
-                            android:text="BS"/>
-                        <RadioButton style="@style/tcDetailTab"
-                            android:id="@+id/tcDetailRBansi"
-                            android:text="ANSI"/>
-                        <RadioButton style="@style/tcDetailTab"
-                            android:id="@+id/tcDetailRBnfe"
-                            android:text="NFE"/>
-                        <RadioButton style="@style/tcDetailTab"
-                            android:id="@+id/tcDetailRBdin"
-                            android:text="DIN"/>
-                        <RadioButton style="@style/tcDetailTab"
-                            android:id="@+id/tcDetailRBjis"
-                            android:text="JIS"/>
-                    </RadioGroup>
-                    <View
-                        android:background="@color/primary"
                         android:layout_width="match_parent"
-                        android:layout_marginLeft="1dp"
-                        android:layout_marginRight="1dp"
-                        android:layout_height="2dp"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/tcDetailRBiec"
+                            style="@style/tcDetailTab"
+                            android:text="IEC" />
+
+                        <RadioButton
+                            android:id="@+id/tcDetailRBbs"
+                            style="@style/tcDetailTab"
+                            android:text="BS" />
+
+                        <RadioButton
+                            android:id="@+id/tcDetailRBansi"
+                            style="@style/tcDetailTab"
+                            android:text="ANSI" />
+
+                        <RadioButton
+                            android:id="@+id/tcDetailRBnfe"
+                            style="@style/tcDetailTab"
+                            android:text="NFE" />
+
+                        <RadioButton
+                            android:id="@+id/tcDetailRBdin"
+                            style="@style/tcDetailTab"
+                            android:text="DIN" />
+
+                        <RadioButton
+                            android:id="@+id/tcDetailRBjis"
+                            style="@style/tcDetailTab"
+                            android:text="JIS" />
+                    </RadioGroup>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="@dimen/pad_s"
+                        android:layout_marginRight="@dimen/pad_s"
+                        android:background="@color/primary" />
 
                     <ImageView
+                        android:id="@+id/tcDetailImageView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tcDetailImageView"
-                        android:layout_marginTop="@dimen/standard_margin"
-                        android:layout_marginBottom="@dimen/thick_margin"
                         android:layout_gravity="center"
-                        android:padding="@dimen/thin_margin"/>
+                        android:layout_marginBottom="@dimen/thick_margin"
+                        android:layout_marginTop="@dimen/standard_margin"
+                        android:padding="@dimen/thin_margin" />
+
+                    <View style="@style/divider" />
 
                     <LinearLayout
                         style="@style/tcDetail"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
                         <TextView
                             style="@style/tcDetailTitle"
-                            android:id="@+id/tcPositiveLegTitle"
                             android:text="@string/tcPositive" />
+
                         <TextView
-                            style="@style/tcDetailInfo"
                             android:id="@+id/tcPositiveLeg"
-                            android:text="@string/tcDetailTest1"/>
+                            style="@style/tcDetailInfo"
+                            android:text="@string/tcDetailTest1" />
 
                     </LinearLayout>
 
@@ -92,17 +110,18 @@
 
                     <LinearLayout
                         style="@style/tcDetail"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
                         <TextView
                             style="@style/tcDetailTitle"
-                            android:id="@+id/tcNegativeLegTitle"
-                            android:text="@string/tcNegative"/>
+                            android:text="@string/tcNegative" />
+
                         <TextView
-                            style="@style/tcDetailInfo"
                             android:id="@+id/tcNegativeLeg"
-                            android:text="@string/tcDetailTest2"/>
+                            style="@style/tcDetailInfo"
+                            android:text="@string/tcDetailTest2" />
 
                     </LinearLayout>
 
@@ -110,17 +129,18 @@
 
                     <LinearLayout
                         style="@style/tcDetail"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
                         <TextView
                             style="@style/tcDetailTitle"
-                            android:id="@+id/tcTempRangeTitle"
-                            android:text="@string/tcTempRange"/>
+                            android:text="@string/tcTempRange" />
+
                         <TextView
-                            style="@style/tcDetailInfo"
                             android:id="@+id/tcTempRange"
-                            android:text="@string/tcDetailTest3"/>
+                            style="@style/tcDetailInfo"
+                            android:text="@string/tcDetailTest3" />
 
                     </LinearLayout>
 
@@ -128,17 +148,18 @@
 
                     <LinearLayout
                         style="@style/tcDetail"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
                         <TextView
                             style="@style/tcDetailTitle"
-                            android:id="@+id/tcExtraTitle"
-                            android:text="@string/tcExtra"/>
+                            android:text="@string/tcExtra" />
+
                         <TextView
-                            style="@style/tcDetailInfo"
                             android:id="@+id/tcExtra"
-                            android:text="@string/tcDetailTest4"/>
+                            style="@style/tcDetailInfo"
+                            android:text="@string/tcDetailTest4" />
 
                     </LinearLayout>
 
@@ -147,9 +168,7 @@
             </android.support.v7.widget.CardView>
 
 
-
         </FrameLayout>
-
 
 
     </ScrollView>

@@ -7,14 +7,11 @@
     <dimen name="ultra_thin_margin">4dp</dimen>
 
     <dimen name="headerText">32dp</dimen>
-    <dimen name="standardText">24dp</dimen>
     <dimen name="smallText">18dp</dimen>
 
     <!--Android L dimensions-->
     <dimen name="text_s">18sp</dimen>
-    <dimen name="text_sm">24sp</dimen>
     <dimen name="text_m">32sp</dimen>
-    <dimen name="text_l">64sp</dimen>
 
     <dimen name="pad_xxxs">4dp</dimen>
     <dimen name="pad_xxs">8dp</dimen>
@@ -22,7 +19,6 @@
     <dimen name="pad_s">24dp</dimen>
     <dimen name="pad_m">42dp</dimen>
 
-    <dimen name="button_height">56dp</dimen>
     <dimen name="button_text">20sp</dimen>
 
     <dimen name="divider">2dp</dimen>

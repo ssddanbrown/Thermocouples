@@ -61,7 +61,7 @@ public class DetailsActivity extends AppCompatActivity {
         drawerToggle = new ActionBarDrawerToggle(
                 this, homeDrawer, toolbar, R.string.drawer_open, R.string.drawer_close
         ){};
-        homeDrawer.setDrawerListener(drawerToggle);
+        homeDrawer.addDrawerListener(drawerToggle);
 		
 		drawerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override

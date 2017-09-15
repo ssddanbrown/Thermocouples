@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="windowBackground">#ffffff</color>
-    <color name="primary">#03a9f4</color>
-    <color name="primary_dark">#0288d1</color>
-    <color name="primary_light">#81d4fa</color>
-    <color name="accent">#1de9b6</color>
+    <color name="primary">#3f51b5</color>
+    <color name="primary_dark">#303f9f</color>
+    <color name="primary_light">#C5CAE9</color>
+    <color name="accent">#FF4081</color>
 
     <color name="green">#42bd41</color>
-    <color name="green_light">#a3e9a4</color>
     <color name="green_dark">#0a7e07</color>
     <color name="orange">#ffa726</color>
-    <color name="orange_light">#ffcc80</color>
     <color name="orange_dark">#ff6d00</color>
-    <color name="red">#e51c23</color>
-    <color name="red_light">#f36c60</color>
-    <color name="red_dark">#c41411</color>
 
 
     <color name="white">#FFFFFF</color>
