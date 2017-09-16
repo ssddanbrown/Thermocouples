@@ -144,10 +144,11 @@
 
                     </LinearLayout>
 
-                    <View style="@style/divider" />
+                    <View android:id="@+id/tcExtraSep" style="@style/divider" />
 
                     <LinearLayout
                         style="@style/tcDetail"
+                        android:id="@+id/tcExtraWrap"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">

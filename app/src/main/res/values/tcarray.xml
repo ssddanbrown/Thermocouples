@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string-array name="tctitles">
-	    <item>Type B</item>
-	    <item>Type E</item>
-	    <item>Type J</item>
-	    <item>Type K</item>
-	    <item>Type N</item>
-	    <item>Type R</item>
-	    <item>Type S</item>
-	    <item>Type T</item>
-	    <item>Type U</item>
-	    <item>Type Vx</item>
+	<string-array name="type">
+	    <item>B</item>
+	    <item>E</item>
+	    <item>J</item>
+	    <item>K</item>
+	    <item>N</item>
+	    <item>R</item>
+	    <item>S</item>
+	    <item>T</item>
+	    <item>U</item>
+	    <item>Vx</item>
 	</string-array>
-	<string-array name="compcable">
-	    <item>Compensating Colours</item>
-	    <item></item>
-	    <item></item>
-	    <item></item>
-	    <item></item>
-	    <item>U Compensates R+S</item>
-	    <item>U Compensates R+S</item>
-	    <item></item>
-	    <item>Compensates R and S</item>
-	    <item>Compensates Type K</item>
-	</string-array>
-	<string-array name="positiveleg">
+	<string-array name="pLeg">
 	    <item>Platinum-30% Rhodium</item>
 	    <item>Nickel-Chromium</item>
 	    <item>Iron</item>
@@ -36,7 +24,7 @@
 	    <item>Copper</item>
 	    <item>Copper</item>
 	</string-array>
-	<string-array name="negativeleg">
+	<string-array name="nLeg">
 	    <item>Platinum-6% Rhodium</item>
 	    <item>Constantan</item>
 	    <item>Constantan</item>
@@ -48,16 +36,40 @@
 	    <item>Copper-Low Nickel</item>
 	    <item>Constantan</item>
 	</string-array>
-	<string-array name="temprange">
-	    <item>0 to 1700°C</item>
-	    <item>-200 to 900°C</item>
-	    <item>0 to 750°C</item>
-	    <item>-200 to 1250°C</item>
-	    <item>-270 to 1300°C</item>
-	    <item>0 to 1450°C</item>
-	    <item>0 to 1450°C</item>
-	    <item>-200 to 350°C</item>
-	    <item>0 to 50°C</item>
-	    <item>0 to 80°C</item>
+	<integer-array name="minTemp">
+	    <item>0</item>
+	    <item>-200</item>
+	    <item>0</item>
+	    <item>-200</item>
+	    <item>-270</item>
+	    <item>0</item>
+	    <item>0</item>
+	    <item>-200</item>
+	    <item>0</item>
+	    <item>0</item>
+	</integer-array>
+	<integer-array name="maxTemp">
+		<item>1700</item>
+		<item>-900</item>
+		<item>750</item>
+		<item>-1250</item>
+		<item>-1300</item>
+		<item>1450</item>
+		<item>1450</item>
+		<item>-350</item>
+		<item>50</item>
+		<item>80</item>
+	</integer-array>
+	<string-array name="info">
+		<item>Compensating Colours</item>
+		<item></item>
+		<item></item>
+		<item></item>
+		<item></item>
+		<item>U Compensates R+S</item>
+		<item>U Compensates R+S</item>
+		<item></item>
+		<item>Compensates R and S</item>
+		<item>Compensates Type K</item>
 	</string-array>
 </resources>

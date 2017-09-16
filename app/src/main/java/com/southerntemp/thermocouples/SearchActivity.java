@@ -1,8 +1,5 @@
 package com.southerntemp.thermocouples;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -16,199 +13,154 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class SearchActivity extends AppCompatActivity {
-	public static List<TcSet> tclist;
-	public static List<TcSet> filteredList;
-	ArrayAdapter<TcSet> adapter;
-	String filter1;
-	String filter2;
-	String filter3;
+    public static TcColor[] colorList;
+    public List<TcColor> filteredList;
+    ArrayAdapter<TcColor> adapter;
+    String jacketFilter;
+    String leadAFilter;
+    String leadBFilter;
+    TcRepo tcRepo;
 
     @Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.layout_thermocouple_search);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_thermocouple_search);
 
-		// ActionBar Setup
+        // ActionBar Setup
         Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
         setSupportActionBar(toolbar);
 
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         // Create compatible method with toolbar instead of actionbar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) actionBar.setElevation(0f);
 
-        // Load tclists
-		tclist = loadTcSets();
-		filteredList = tclist;
-		
-		// Listview setup
-		ListView tcSearchList = findViewById(R.id.tcsearchlist);
-		adapter = new TcArrayAdapter<TcSet>(this, R.layout.tcsearchlistitem, R.id.tcstvtype, filteredList);
-		tcSearchList.setAdapter(adapter);
-		
-		//Spinner setup
-		filter1 = "None";
-		filter2 = "None";
-		filter3 = "None";
-		String[] colorarray = {"None", "grey", "purple", "brown", "black", "blue", "yellow", "green", "red", "pink", "orange", "white"};
-			//Jacket spinner setup
-		ArrayAdapter<String> jspinneradpt = new SpinnerArrayAdapter(this, R.layout.spinneritem, R.id.spinneritemtv, colorarray, "Jacket");
-		Spinner jspinner = findViewById(R.id.jcolor);
-		jspinner.setAdapter(jspinneradpt);
-		jspinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-		    @Override
-		    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-				filter1 = parentView.getItemAtPosition(position).toString();
-		        filteredList = filterThermocoupleList();
-		        clearAndPopulateFilteredList();
-		    }
-		    @Override
-		    public void onNothingSelected(AdapterView<?> parentView) {
-		        // your code here
-		    }
+        tcRepo = TcRepo.getInstance(getApplicationContext());
 
-		});
-		ArrayAdapter<String> pspinneradpt = new SpinnerArrayAdapter(this, R.layout.spinneritem, R.id.spinneritemtv, colorarray, "Lead");
-		Spinner pspinner = findViewById(R.id.pcolor);
-		pspinner.setAdapter(pspinneradpt);
-		pspinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-		    @Override
-		    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-		        filter2 = parentView.getItemAtPosition(position).toString();
-		        filteredList = filterThermocoupleList();
-		        clearAndPopulateFilteredList();
-		    }
-		    @Override
-		    public void onNothingSelected(AdapterView<?> parentView) {
-		        // your code here
-		    }
+        // Load Thermocouples
+        colorList = tcRepo.getColorArray();
+        filteredList = new ArrayList<>(Arrays.asList(colorList));
 
-		});
-		
-		ArrayAdapter<String> nSpinnerAdpt = new SpinnerArrayAdapter(this, R.layout.spinneritem, R.id.spinneritemtv, colorarray, "Lead");
-		Spinner nSpinner = findViewById(R.id.ncolor);
-		nSpinner.setAdapter(nSpinnerAdpt);
-		nSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-		    @Override
-		    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-		        filter3 = parentView.getItemAtPosition(position).toString();
-		        filteredList = filterThermocoupleList();
-		        clearAndPopulateFilteredList();
-		    }
-		    @Override
-		    public void onNothingSelected(AdapterView<?> parentView) {
-		        // your code here
-		    }
+        // Listview setup
+        ListView tcSearchList = findViewById(R.id.tcsearchlist);
+        adapter = new TcArrayAdapter(this, R.layout.tcsearchlistitem, R.id.tcstvtype, filteredList);
+        tcSearchList.setAdapter(adapter);
 
-		});
-	}
+        // Spinner setup
+        jacketFilter = "None";
+        leadAFilter = "None";
+        leadBFilter = "None";
+        String[] colorArray = {"None", "grey", "purple", "brown", "black", "blue", "yellow", "green", "red", "pink", "orange", "white"};
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			this.finish();
+        // Jacket spinner setup
+        ArrayAdapter<String> jspinneradpt = new SpinnerArrayAdapter(this, R.layout.spinneritem, R.id.spinneritemtv, colorArray, "Jacket");
+        Spinner jspinner = findViewById(R.id.jcolor);
+        jspinner.setAdapter(jspinneradpt);
+        jspinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                jacketFilter = parentView.getItemAtPosition(position).toString();
+                filteredList = filterThermocoupleList();
+                clearAndPopulateFilteredList();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+        ArrayAdapter<String> pSpinnerAdpt = new SpinnerArrayAdapter(this, R.layout.spinneritem, R.id.spinneritemtv, colorArray, "Lead");
+        Spinner pSpinner = findViewById(R.id.pcolor);
+        pSpinner.setAdapter(pSpinnerAdpt);
+        pSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                leadAFilter = parentView.getItemAtPosition(position).toString();
+                filteredList = filterThermocoupleList();
+                clearAndPopulateFilteredList();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        ArrayAdapter<String> nSpinnerAdpt = new SpinnerArrayAdapter(this, R.layout.spinneritem, R.id.spinneritemtv, colorArray, "Lead");
+        Spinner nSpinner = findViewById(R.id.ncolor);
+        nSpinner.setAdapter(nSpinnerAdpt);
+        nSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                leadBFilter = parentView.getItemAtPosition(position).toString();
+                filteredList = filterThermocoupleList();
+                clearAndPopulateFilteredList();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
             overridePendingTransition(0, R.anim.push_left_out);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-	@Override
-	public void onBackPressed() {
-	    super.onBackPressed();
-	    overridePendingTransition(0, R.anim.push_left_out);
-	}
-	private void clearAndPopulateFilteredList(){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(0, R.anim.push_left_out);
+    }
+
+    private void clearAndPopulateFilteredList() {
         adapter.clear();
-        int filteredCount = filteredList.size();
-        for(int i = 0; i < filteredCount; i++){
-        	adapter.add(filteredList.get(i));
+        for (TcColor color : filteredList) {
+            adapter.add(color);
         }
         adapter.notifyDataSetChanged();
-	}
-	
-	private List<TcSet> filterThermocoupleList(){
-		filteredList.clear();
-		List<TcSet> freshList= new ArrayList<TcSet>();
-		if(tclist.isEmpty()){
-			tclist = loadTcSets();
-		}
-		freshList = tclist;
-		List<TcSet> toDelete = new ArrayList<TcSet>();
-		for(int i=0, s = freshList.size(); i<(s); i++){
-			TcSet a = freshList.get(i);
-			int c = 0;
-			if(a.getJcolor().equals(filter1) || filter1.equals("None")){}else{toDelete.add(a); c = 1;}
-			String[] b = a.getLegColors();
-			if(b[0].equals(filter2) || b[1].equals(filter2) || filter2.equals("None")){}else{
-				if(c==0){toDelete.add(a);}
-				}
-			if(b[0].equals(filter3) || b[1].equals(filter3) || filter3.equals("None")){}else{if(c==0){toDelete.add(a);}}
-		}
-		freshList.removeAll(toDelete);
-		return freshList;
-	}
-	
-	private List<TcSet> loadTcSets(){	
-		List<TcSet> tcSetList = new ArrayList<TcSet>();
-		tcSetList.add(new TcSet(0, "ANSI", "grey", "white", "red"));
-		tcSetList.add(new TcSet(0, "NFE", "grey", "yellow", "grey"));
-		tcSetList.add(new TcSet(0, "DIN", "grey", "red", "grey"));
-		tcSetList.add(new TcSet(0, "JIS", "grey", "red", "grey"));
-		tcSetList.add(new TcSet(1, "IEC", "purple", "purple", "white"));
-		tcSetList.add(new TcSet(1, "BS", "brown", "brown", "blue"));
-		tcSetList.add(new TcSet(1, "ANSI", "purple", "purple", "red"));
-		tcSetList.add(new TcSet(1, "NFE", "purple", "yellow", "purple"));
-		tcSetList.add(new TcSet(1, "DIN", "black", "red", "black"));
-		tcSetList.add(new TcSet(1, "JIS", "purple", "red", "white"));
-		tcSetList.add(new TcSet(2, "IEC", "black", "black", "white"));
-		tcSetList.add(new TcSet(2, "BS", "black", "yellow", "blue"));
-		tcSetList.add(new TcSet(2, "ANSI", "black", "white", "red"));
-		tcSetList.add(new TcSet(2, "NFE", "black", "yellow", "black"));
-		tcSetList.add(new TcSet(2, "DIN", "blue", "red", "blue"));
-		tcSetList.add(new TcSet(2, "JIS", "yellow", "red", "white"));
-		tcSetList.add(new TcSet(3, "IEC", "green", "green", "white"));
-		tcSetList.add(new TcSet(3, "BS", "red", "brown", "blue"));
-		tcSetList.add(new TcSet(3, "ANSI", "yellow", "yellow", "red"));
-		tcSetList.add(new TcSet(3, "NFE", "yellow", "yellow", "purple"));
-		tcSetList.add(new TcSet(3, "DIN", "green", "red", "green"));
-		tcSetList.add(new TcSet(3, "JIS", "blue", "red", "white"));
-		tcSetList.add(new TcSet(4, "IEC", "pink", "pink", "white"));
-		tcSetList.add(new TcSet(4, "BS", "orange", "orange", "blue"));
-		tcSetList.add(new TcSet(4, "ANSI", "orange", "orange", "red"));
-		tcSetList.add(new TcSet(5, "IEC", "orange", "orange", "white"));
-		tcSetList.add(new TcSet(5, "BS", "green", "white", "blue"));
-		tcSetList.add(new TcSet(5, "ANSI", "green", "black", "red"));
-		tcSetList.add(new TcSet(5, "NFE", "green", "yellow", "green"));
-		tcSetList.add(new TcSet(5, "DIN", "white", "red", "white"));
-		tcSetList.add(new TcSet(5, "JIS", "black", "red", "white"));
-		tcSetList.add(new TcSet(6, "IEC", "orange", "orange", "white"));
-		tcSetList.add(new TcSet(6, "BS", "green", "white", "blue"));
-		tcSetList.add(new TcSet(6, "ANSI", "green", "black", "red"));
-		tcSetList.add(new TcSet(6, "NFE", "green", "yellow", "green"));
-		tcSetList.add(new TcSet(6, "DIN", "white", "red", "white"));
-		tcSetList.add(new TcSet(6, "JIS", "black", "red", "white"));
-		tcSetList.add(new TcSet(7, "IEC", "brown", "brown", "white"));
-		tcSetList.add(new TcSet(7, "BS", "blue", "white", "blue"));
-		tcSetList.add(new TcSet(7, "ANSI", "blue", "blue", "red"));
-		tcSetList.add(new TcSet(7, "NFE", "blue", "yellow", "blue"));
-		tcSetList.add(new TcSet(7, "DIN", "brown", "red", "brown"));
-		tcSetList.add(new TcSet(7, "JIS", "brown", "red", "white"));
-		tcSetList.add(new TcSet(8, "IEC", "orange", "orange", "white"));
-		tcSetList.add(new TcSet(8, "BS", "green", "white", "blue"));
-		tcSetList.add(new TcSet(8, "ANSI", "green", "black", "red"));
-		tcSetList.add(new TcSet(8, "NFE", "green", "yellow", "green"));
-		tcSetList.add(new TcSet(8, "DIN", "white", "red", "white"));
-		tcSetList.add(new TcSet(8, "JIS", "black", "red", "white"));
-		tcSetList.add(new TcSet(9, "IEC", "green", "green", "white"));
-		tcSetList.add(new TcSet(9, "BS", "red", "white", "blue"));
-		tcSetList.add(new TcSet(9, "ANSI", "red", "brown", "red"));
-		tcSetList.add(new TcSet(9, "NFE", "red", "yellow", "brown"));
-		tcSetList.add(new TcSet(9, "DIN", "green", "red", "green"));
-		tcSetList.add(new TcSet(9, "JIS", "blue", "red", "white"));
-		return tcSetList;
-	}
+    }
+
+    private List<TcColor> filterThermocoupleList() {
+        List<TcColor> filteredList = new ArrayList<>(Arrays.asList(colorList));
+        List<TcColor> toDelete = new ArrayList<>();
+
+        for (int i = 0, s = filteredList.size(); i < s; i++) {
+            TcColor a = filteredList.get(i);
+
+            // Check Jacket color
+            if (!jacketFilter.equals("None")  && !a.colorJacket.equals(jacketFilter)) {
+                toDelete.add(a);
+                continue;
+            }
+
+            // Filter leads
+            String[] leadFilters = {leadAFilter, leadBFilter};
+            for (String leadFilter : leadFilters) {
+                if (!leadFilter.equals("None") && !a.colorPos.equals(leadFilter) && !a.colorNeg.equals(leadFilter)) {
+                    toDelete.add(a);
+                }
+            }
+        }
+
+        filteredList.removeAll(toDelete);
+        return filteredList;
+    }
 
 }

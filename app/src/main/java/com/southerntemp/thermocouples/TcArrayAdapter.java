@@ -18,18 +18,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
+public class TcArrayAdapter extends ArrayAdapter<TcColor> {
 
     private final Context context;
-    private final List<TcSet> objects;
+    private List<com.southerntemp.thermocouples.TcColor > objects;
     private int lastPosition;
 
     public TcArrayAdapter(Context context, int resource,
-                          int textViewResourceId, List<TcSet> objects) {
+                          int textViewResourceId, List<TcColor> objects) {
         super(context, resource, textViewResourceId, objects);
         this.context = context;
-        this.objects = objects;
         lastPosition = 0;
+        this.objects = objects;
     }
 
     static class ViewHolder {
@@ -47,7 +47,7 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             rowView = inflater.inflate(R.layout.tcsearchlistitem, parent, false);
 
-            // Setup Views within layout within viewholder
+            // Setup Views within layout within ViewHolder
             ViewHolder viewHolder = new ViewHolder();
             viewHolder.type = rowView.findViewById(R.id.tcstvtype);
             viewHolder.standard = rowView.findViewById(R.id.tcstvstandard);
@@ -56,28 +56,20 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
         }
         ViewHolder holder = (ViewHolder) rowView.getTag();
 
-        // Get thermocouple information from xml rescources
-        String[] thermoCouples = context.getResources().getStringArray(R.array.tctitles);
-
         // Get TcSet + ids + Standard for layout
-        List<com.southerntemp.thermocouples.TcSet> newlist = SearchActivity.filteredList;
-        com.southerntemp.thermocouples.TcSet tcInfo = newlist.get(position);
-        int tcid = tcInfo.getId();
-        String standard = tcInfo.getStd();
+        TcColor tcInfo = objects.get(position);
 
         // Fill views with info
-        holder.type.setText(thermoCouples[tcid]);
-        // Set font
-        holder.standard.setText(standard);
-        int[] stda = returnStandardImageArray(standard);
+        holder.type.setText(tcInfo.thermocouple.getTypeFormatted());
+        holder.standard.setText(tcInfo.standard);
 
-        final String imageKey = String.valueOf(stda[tcid]);
+        final String imageKey = String.valueOf(tcInfo.drawable);
         final Bitmap bitmap = getBitmapFromMemCache(imageKey);
         if (bitmap != null) {
             holder.image.setImageBitmap(bitmap);
         } else {
             BitmapWorkerTask task = new BitmapWorkerTask(holder.image);
-            task.execute(stda[tcid]);
+            task.execute(tcInfo.drawable);
         }
 
         if (position >= lastPosition) {
@@ -89,23 +81,6 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
         return rowView;
     }
 
-    public int[] returnStandardImageArray(String standardInput) {
-
-        if (standardInput.equals("IEC")) {
-            return new int[]{0, R.drawable.iece, R.drawable.iecj, R.drawable.ieck, R.drawable.iecn, R.drawable.iecu, R.drawable.iecu, R.drawable.iect, R.drawable.iecu, R.drawable.iecv};
-        } else if (standardInput.equals("BS")) {
-            return new int[]{0, R.drawable.bse, R.drawable.bsj, R.drawable.bsk, R.drawable.bsn, R.drawable.bsu, R.drawable.bsu, R.drawable.bst, R.drawable.bsu, R.drawable.bsv};
-        } else if (standardInput.equals("ANSI")) {
-            return new int[]{R.drawable.ansib, R.drawable.ansie, R.drawable.ansij, R.drawable.ansik, R.drawable.ansin, R.drawable.ansiu, R.drawable.ansiu, R.drawable.ansit, R.drawable.ansiu, R.drawable.ansiv};
-        } else if (standardInput.equals("NFE")) {
-            return new int[]{R.drawable.nfeb, R.drawable.nfee, R.drawable.nfej, R.drawable.nfek, 0, R.drawable.nfeu, R.drawable.nfeu, R.drawable.nfet, R.drawable.nfeu, R.drawable.nfev};
-        } else if (standardInput.equals("DIN")) {
-            return new int[]{R.drawable.dinb, R.drawable.dine, R.drawable.dinj, R.drawable.dink, 0, R.drawable.dinu, R.drawable.dinu, R.drawable.dint, R.drawable.dinu, R.drawable.dinv};
-        } else {
-            return new int[]{R.drawable.jisb, R.drawable.jise, R.drawable.jisj, R.drawable.jisk, 0, R.drawable.jisu, R.drawable.jisu, R.drawable.jist, R.drawable.jisu, R.drawable.jisv};
-        }
-    }
-
     public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
         if (getBitmapFromMemCache(key) == null) {
             DetailsActivity.mMemoryCache.put(key, bitmap);
@@ -115,7 +90,7 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
     public Bitmap getBitmapFromMemCache(String key) {
         Bitmap bitmap = DetailsActivity.mMemoryCache.get(key);
         if (bitmap == null) {
-            Log.i("Cache", "Bitmpa null " + key);
+            Log.i("Cache", "Bitmap null " + key);
         }
         return bitmap;
     }
@@ -175,18 +150,13 @@ public class TcArrayAdapter<TcSet> extends ArrayAdapter<TcSet> {
 
         @Override
         protected void onPostExecute(Bitmap bitmap) {
-            if (imageViewReference != null && bitmap != null) {
-                final ImageView imageView = imageViewReference.get();
-                int bitmapsize = bitmap.getHeight() * bitmap.getWidth() * 4;
-                String bms = (String.valueOf(bitmapsize));
-                Log.i("Bitmap Size", bms);
-                if (imageView != null && bitmap != null) {
-                    imageView.setImageBitmap(bitmap);
-                }
-            } else {
-                return;
+            final ImageView imageView = imageViewReference.get();
+            int bitmapsize = bitmap.getHeight() * bitmap.getWidth() * 4;
+            String bms = (String.valueOf(bitmapsize));
+            Log.i("Bitmap Size", bms);
+            if (imageView != null && bitmap != null) {
+                imageView.setImageBitmap(bitmap);
             }
-
         }
     }
 

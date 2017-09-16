@@ -30,7 +30,7 @@ public class DetailsActivity extends AppCompatActivity {
     private DrawerLayout homeDrawer;
     private ActionBarDrawerToggle drawerToggle;
     ListView drawerList;
-    String[] thermoCouples;
+    TcRepo tcRepo;
 	
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
@@ -50,10 +50,11 @@ public class DetailsActivity extends AppCompatActivity {
             actionBar.setHomeButtonEnabled(true);
         }
 
+        tcRepo = TcRepo.getInstance(getApplicationContext());
+
         // Sidebar setup
-		thermoCouples = getResources().getStringArray(R.array.tctitles);
         drawerList = findViewById(R.id.left_drawer);
-        adapter =  new ArrayAdapter<String>(this, R.layout.sidebar_list_item, thermoCouples);
+        adapter = new ArrayAdapter<String>(this, R.layout.sidebar_list_item, tcRepo.getTypesFormatted());
         drawerList.setAdapter(adapter);
         homeDrawer = findViewById(R.id.homedrawerlayout);
         drawerToggle = new ActionBarDrawerToggle(
@@ -116,11 +117,11 @@ public class DetailsActivity extends AppCompatActivity {
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 		public SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
-			
 		}
+
 	    @Override
 	    public Fragment getItem(int position) {
-	        Fragment fragment = new TcDetailsFragment();
+			Fragment fragment = new TcDetailsFragment();
 	        Bundle args = new Bundle();
 	        args.putInt("ID", position);
 	        fragment.setArguments(args);
@@ -129,12 +130,12 @@ public class DetailsActivity extends AppCompatActivity {
 
 		@Override
 		public int getCount() {
-            return thermoCouples.length;
+            return tcRepo.count();
 		}
 
 		@Override
 		public CharSequence getPageTitle(int position) {
-			return thermoCouples[position];
+			return tcRepo.getThermocoupleAt(position).getTypeFormatted();
 		}
 	}
 

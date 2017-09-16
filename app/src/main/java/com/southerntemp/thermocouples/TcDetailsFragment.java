@@ -6,11 +6,13 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
@@ -18,58 +20,71 @@ import java.lang.ref.WeakReference;
 public class TcDetailsFragment extends Fragment {
 
     ImageView tcImage;
+    static TcRepo tcRepo;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment, container, false);
+
         // Array Position is received here
-        Bundle bundle=getArguments();
+        Bundle bundle = getArguments();
         int id = bundle.getInt("ID");
 
-        // Thermocouple details Arrays
-        String[] thermoCouples = getResources().getStringArray(R.array.tctitles);
-        String[] positiveleg = getResources().getStringArray(R.array.positiveleg);
-        String[] negativeleg = getResources().getStringArray(R.array.negativeleg);
-        String[] temprange = getResources().getStringArray(R.array.temprange);
-        String[] compensates = getResources().getStringArray(R.array.compcable);
-        int[] ieccols = {0,R.drawable.iece,R.drawable.iecj,R.drawable.ieck,R.drawable.iecn,R.drawable.iecu,R.drawable.iecu,R.drawable.iect,R.drawable.iecu,R.drawable.iecv};
-        int[] bscols = {0,R.drawable.bse,R.drawable.bsj,R.drawable.bsk,R.drawable.bsn,R.drawable.bsu,R.drawable.bsu,R.drawable.bst,R.drawable.bsu,R.drawable.bsv};
-        int[] ansicols = {R.drawable.ansib,R.drawable.ansie,R.drawable.ansij,R.drawable.ansik,R.drawable.ansin,R.drawable.ansiu,R.drawable.ansiu,R.drawable.ansit,R.drawable.ansiu,R.drawable.ansiv};
-        int[] nfecols = {R.drawable.nfeb,R.drawable.nfee,R.drawable.nfej,R.drawable.nfek,0,R.drawable.nfeu,R.drawable.nfeu,R.drawable.nfet,R.drawable.nfeu,R.drawable.nfev};
-        int[] dincols = {R.drawable.dinb,R.drawable.dine,R.drawable.dinj,R.drawable.dink,0,R.drawable.dinu,R.drawable.dinu,R.drawable.dint,R.drawable.dinu,R.drawable.dinv};
-        int[] jiscols = {R.drawable.jisb,R.drawable.jise,R.drawable.jisj,R.drawable.jisk,0,R.drawable.jisu,R.drawable.jisu,R.drawable.jist,R.drawable.jisu,R.drawable.jisv};
-        int[][] drawableArray = {ieccols, bscols, ansicols, nfecols, dincols, jiscols};
+        if (tcRepo == null) tcRepo = TcRepo.getInstance(getContext());
+        Thermocouple tc = tcRepo.getThermocoupleAt(id);
 
-        // Title is written to textview
+        // Title is written to TextView
         TextView detailTitle = v.findViewById(R.id.tcTitle);
-        detailTitle.setText(thermoCouples[id] + " Thermocouple");
+        detailTitle.setText(String.format("Type %s Thermocouple", tc.type));
 
         // Tab setup
-        RadioButton[] rbArray = {
+        String[] standards = {"IEC", "BS", "ANSI", "NFE", "DIN", "JIS"};
+        RadioButton[] rButtons = {
                 v.findViewById(R.id.tcDetailRBiec),
                 v.findViewById(R.id.tcDetailRBbs),
                 v.findViewById(R.id.tcDetailRBansi),
                 v.findViewById(R.id.tcDetailRBnfe),
                 v.findViewById(R.id.tcDetailRBdin),
-                v.findViewById(R.id.tcDetailRBjis)};
+                v.findViewById(R.id.tcDetailRBjis)
+        };
+
         tcImage = v.findViewById(R.id.tcDetailImageView);
-        boolean clicked = false;
-        for (int i = 0; i<rbArray.length; i++){
-            if (drawableArray[i][id] != 0){
-                setupTab(rbArray[i], drawableArray[i][id]);
-                if (!clicked)rbArray[i].performClick(); clicked=true;
+
+        boolean selected = false;
+        for (int i = 0; i < standards.length; i++) {
+            String standard = standards[i];
+            TcColor color = tc.colors.get(standard);
+            if (color == null) continue;
+
+            RadioButton btn = rButtons[i];
+            setupTab(btn, color.drawable, i, tc);
+            int selectedIndex = tc.getSelectedViewIndex();
+
+            if (selectedIndex != -1 && selectedIndex == i) {
+                btn.performClick();
+                selected = true;
+            }
+
+            // Select first button with content
+            if (!selected && selectedIndex == -1) {
+                btn.performClick();
+                selected = true;
             }
         }
 
         // Thermocouple text is written to views
-        ((TextView)v.findViewById(R.id.tcPositiveLeg)).setText(positiveleg[id]);
-        ((TextView)v.findViewById(R.id.tcNegativeLeg)).setText(negativeleg[id]);
-        ((TextView)v.findViewById(R.id.tcTempRange)).setText(temprange[id]);
-        if (compensates[id].length() > 0) {
-            ((TextView)v.findViewById(R.id.tcExtra)).setText(compensates[id]);
-        } else {
-            ((TextView)v.findViewById(R.id.tcExtra)).setText("N/A");
-        }
+        ((TextView)v.findViewById(R.id.tcPositiveLeg)).setText(tc.pLeg);
+        ((TextView)v.findViewById(R.id.tcNegativeLeg)).setText(tc.nLeg);
+        ((TextView)v.findViewById(R.id.tcTempRange)).setText(String.format("%d to %d°C", tc.minTemp, tc.maxTemp));
+
+        TextView info = v.findViewById(R.id.tcExtra);
+        View infoWrap = v.findViewById(R.id.tcExtraWrap);
+        View sep = v.findViewById(R.id.tcExtraSep);
+
+        int visibility = tc.info.length() > 0 ? View.VISIBLE : View.GONE;
+        info.setText(tc.info);
+        infoWrap.setVisibility(visibility);
+        sep.setVisibility(visibility);
 
         return v;
     }
@@ -83,11 +98,16 @@ public class TcDetailsFragment extends Fragment {
     public void onStart() {
         super.onStart();
     }
-    public void setupTab(RadioButton button, final int image){
+    public void setupTab(final RadioButton button, final int image, final int tabIndex, final Thermocouple tc) {
         button.setVisibility(View.VISIBLE);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RadioGroup group = (RadioGroup) button.getParent();
+                tc.setSelectedViewIndex(tabIndex);
+                group.clearCheck();
+                Log.i("CLICK", button.getText().toString());
+                button.setChecked(true);
                 final String imageKey = String.valueOf(image);
                 final Bitmap bitmap = getBitmapFromMemCache(imageKey);
                 if (bitmap != null) {
