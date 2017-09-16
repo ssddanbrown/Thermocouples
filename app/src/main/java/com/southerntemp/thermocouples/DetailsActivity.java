@@ -1,7 +1,6 @@
 package com.southerntemp.thermocouples;
 
-
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -25,7 +24,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
 public class DetailsActivity extends AppCompatActivity {
 	ArrayAdapter<String> adapter;
 	public static LruCache<String, Bitmap> mMemoryCache;
@@ -38,7 +36,6 @@ public class DetailsActivity extends AppCompatActivity {
 	ViewPager mViewPager;
 	
 
-    @SuppressLint("NewApi")
     protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tcholder);
@@ -47,12 +44,13 @@ public class DetailsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.activity_thermocouple_list);
-
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeButtonEnabled(true);
+        }
 
-        //Sidebar setup
+        // Sidebar setup
 		thermoCouples = getResources().getStringArray(R.array.tctitles);
         drawerList = findViewById(R.id.left_drawer);
         adapter =  new ArrayAdapter<String>(this, R.layout.sidebar_list_item, thermoCouples);
@@ -73,12 +71,12 @@ public class DetailsActivity extends AppCompatActivity {
 			});
 
 
-        // Create comptible method with toolbar instead of actionbar
+        // Create compatible method with toolbar instead of actionbar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             toolbar.setElevation(10f);
         }
 		
-		//Viewpager setup
+		// Viewpager setup
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 		mViewPager = findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -151,46 +149,29 @@ public class DetailsActivity extends AppCompatActivity {
 		return true;
 		
 	}
-	public boolean goToCalc(MenuItem item) {
-        Intent intentCalc = new Intent(this, CalcActivity.class);
-        startActivity(intentCalc);
-        DetailsActivity.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
-        return true;
-	}
-	public boolean goToInfo(MenuItem item) {
-        Intent intentInfo = new Intent(this, InfoActivity.class);
-        startActivity(intentInfo);
-        DetailsActivity.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
-        return true;
-	}
-	public boolean goToSearch(MenuItem item) {
-        Intent intentSearch = new Intent(this, SearchActivity.class);
+
+	protected boolean goToActivity(Class<? extends Activity> activity) {
+        Intent intentSearch = new Intent(this, activity);
         startActivity(intentSearch);
         DetailsActivity.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         return true;
-	}
+    }
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         if (i == android.R.id.home) {
-            if(homeDrawer.isDrawerOpen(drawerList)){
+            if (homeDrawer.isDrawerOpen(drawerList)){
                 homeDrawer.closeDrawer(drawerList);
             } else {
                 homeDrawer.openDrawer(drawerList);
             }
             return true;
-        } else if (i == R.id.SearchItem) {
-            goToSearch(item);
-            return true;
-        } else if (i == R.id.CalculatorItem) {
-            goToCalc(item);
-            return true;
-        } else if (i == R.id.InfoItem) {
-            goToInfo(item);
-            return true;
-        } else {
-            return super.onOptionsItemSelected(item);
         }
+        if (i == R.id.SearchItem) return goToActivity(SearchActivity.class);
+        if (i == R.id.CalculatorItem) return goToActivity(CalcActivity.class);
+        if (i == R.id.InfoItem) return goToActivity(InfoActivity.class);
+        return super.onOptionsItemSelected(item);
 	}
 }
 

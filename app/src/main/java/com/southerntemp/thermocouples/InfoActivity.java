@@ -17,13 +17,12 @@ public class InfoActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.app_info);
 		// Show the Up button in the action bar.
-        Toolbar toolbar = (Toolbar)findViewById(R.id.tcholder_toolbar);
+        Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
 		setSupportActionBar(toolbar);
-
 
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
-		final Button stslogo = (Button)findViewById(R.id.info_button_sponsor);
+		final Button stslogo = findViewById(R.id.info_button_sponsor);
 		stslogo.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {

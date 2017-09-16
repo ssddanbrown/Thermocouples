@@ -2,6 +2,7 @@ package com.southerntemp.thermocouples;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,21 +29,23 @@ public class SpinnerArrayAdapter extends ArrayAdapter<String> {
 	}
 	
 	@Override
-	public View getView(final int position, View convertView, final ViewGroup parent) {
+	public View getView(final int position, View convertView, @NonNull final ViewGroup parent) {
 		//Inflate layout to view
 		LayoutInflater inflater = (LayoutInflater) context
 			.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.spinneritem, parent, false);
 
-		TextView spinnerItem = (TextView)rowView.findViewById(R.id.spinneritemtv);
+		TextView spinnerItem = rowView.findViewById(R.id.spinneritemtv);
 		String spinnerString = objects[position];
-		if(spinnerString.equals("None")){
+
+		if (spinnerString.equals("None")) {
 			spinnerItem.setText(this.spinnerTitle);
 			spinnerItem.setTextColor(Color.WHITE);
 		} else {
 			spinnerItem.setText("");
 			spinnerItem.setBackgroundColor(colorMap.get(spinnerString));
 		}
+
 		return rowView;
 	}
 
@@ -52,7 +55,7 @@ public class SpinnerArrayAdapter extends ArrayAdapter<String> {
 	    LayoutInflater inflater = (LayoutInflater) context
 		        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		    View rowView = inflater.inflate(R.layout.spinneritem, parent, false);
-		    TextView spinnerItem = (TextView)rowView.findViewById(R.id.spinneritemtv);
+		    TextView spinnerItem = rowView.findViewById(R.id.spinneritemtv);
 		    String spinnerString = objects[position];
             int height = (int)context.getResources().getDimension(R.dimen.listItem);
             spinnerItem.setHeight(height);
@@ -70,7 +73,7 @@ public class SpinnerArrayAdapter extends ArrayAdapter<String> {
 	/**
 	 * Create a map of our colors
 	 */
-	public void setupColorMap() {
+	private void setupColorMap() {
 		colorMap = new HashMap<String, Integer>();
 		colorMap.put("None", Color.rgb(0, 0, 0));
 		colorMap.put("grey", Color.rgb(142, 144, 144));

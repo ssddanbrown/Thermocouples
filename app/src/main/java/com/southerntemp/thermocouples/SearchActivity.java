@@ -30,21 +30,21 @@ public class SearchActivity extends AppCompatActivity {
 		setContentView(R.layout.layout_thermocouple_search);
 
 		// ActionBar Setup
-        Toolbar toolbar = (Toolbar)findViewById(R.id.tcholder_toolbar);
+        Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
         setSupportActionBar(toolbar);
 
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
-        // Create comptible method with toolbar instead of actionbar
+        // Create compatible method with toolbar instead of actionbar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) actionBar.setElevation(0f);
 
-        //Load tclists
+        // Load tclists
 		tclist = loadTcSets();
 		filteredList = tclist;
 		
-		//Listview setup
-		ListView tcSearchList = (ListView)findViewById(R.id.tcsearchlist);
+		// Listview setup
+		ListView tcSearchList = findViewById(R.id.tcsearchlist);
 		adapter = new TcArrayAdapter<TcSet>(this, R.layout.tcsearchlistitem, R.id.tcstvtype, filteredList);
 		tcSearchList.setAdapter(adapter);
 		
@@ -55,13 +55,12 @@ public class SearchActivity extends AppCompatActivity {
 		String[] colorarray = {"None", "grey", "purple", "brown", "black", "blue", "yellow", "green", "red", "pink", "orange", "white"};
 			//Jacket spinner setup
 		ArrayAdapter<String> jspinneradpt = new SpinnerArrayAdapter(this, R.layout.spinneritem, R.id.spinneritemtv, colorarray, "Jacket");
-		Spinner jspinner = (Spinner)findViewById(R.id.jcolor);
+		Spinner jspinner = findViewById(R.id.jcolor);
 		jspinner.setAdapter(jspinneradpt);
 		jspinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 		    @Override
 		    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-		        String color = parentView.getItemAtPosition(position).toString();
-		        filter1 = color;
+				filter1 = parentView.getItemAtPosition(position).toString();
 		        filteredList = filterThermocoupleList();
 		        clearAndPopulateFilteredList();
 		    }
@@ -72,7 +71,7 @@ public class SearchActivity extends AppCompatActivity {
 
 		});
 		ArrayAdapter<String> pspinneradpt = new SpinnerArrayAdapter(this, R.layout.spinneritem, R.id.spinneritemtv, colorarray, "Lead");
-		Spinner pspinner = (Spinner)findViewById(R.id.pcolor);
+		Spinner pspinner = findViewById(R.id.pcolor);
 		pspinner.setAdapter(pspinneradpt);
 		pspinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 		    @Override
@@ -88,10 +87,10 @@ public class SearchActivity extends AppCompatActivity {
 
 		});
 		
-		ArrayAdapter<String> nspinneradpt = new SpinnerArrayAdapter(this, R.layout.spinneritem, R.id.spinneritemtv, colorarray, "Lead");
-		Spinner nspinner = (Spinner)findViewById(R.id.ncolor);
-		nspinner.setAdapter(nspinneradpt);
-		nspinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+		ArrayAdapter<String> nSpinnerAdpt = new SpinnerArrayAdapter(this, R.layout.spinneritem, R.id.spinneritemtv, colorarray, "Lead");
+		Spinner nSpinner = findViewById(R.id.ncolor);
+		nSpinner.setAdapter(nSpinnerAdpt);
+		nSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 		    @Override
 		    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 		        filter3 = parentView.getItemAtPosition(position).toString();

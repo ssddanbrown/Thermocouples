@@ -1,6 +1,5 @@
 package com.southerntemp.thermocouples;
 
-
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -23,11 +22,11 @@ public class TcDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment, container, false);
-        //Array Position is received here
+        // Array Position is received here
         Bundle bundle=getArguments();
         int id = bundle.getInt("ID");
 
-        //Thermocouple details Arrays
+        // Thermocouple details Arrays
         String[] thermoCouples = getResources().getStringArray(R.array.tctitles);
         String[] positiveleg = getResources().getStringArray(R.array.positiveleg);
         String[] negativeleg = getResources().getStringArray(R.array.negativeleg);
@@ -41,19 +40,19 @@ public class TcDetailsFragment extends Fragment {
         int[] jiscols = {R.drawable.jisb,R.drawable.jise,R.drawable.jisj,R.drawable.jisk,0,R.drawable.jisu,R.drawable.jisu,R.drawable.jist,R.drawable.jisu,R.drawable.jisv};
         int[][] drawableArray = {ieccols, bscols, ansicols, nfecols, dincols, jiscols};
 
-        //Title is written to textview
-        TextView detailTitle = (TextView)v.findViewById(R.id.tcTitle);
+        // Title is written to textview
+        TextView detailTitle = v.findViewById(R.id.tcTitle);
         detailTitle.setText(thermoCouples[id] + " Thermocouple");
 
-        //Tab setup
+        // Tab setup
         RadioButton[] rbArray = {
-                (RadioButton)v.findViewById(R.id.tcDetailRBiec),
-                (RadioButton)v.findViewById(R.id.tcDetailRBbs),
-                (RadioButton)v.findViewById(R.id.tcDetailRBansi),
-                (RadioButton)v.findViewById(R.id.tcDetailRBnfe),
-                (RadioButton)v.findViewById(R.id.tcDetailRBdin),
-                (RadioButton)v.findViewById(R.id.tcDetailRBjis)};
-        tcImage = (ImageView)v.findViewById(R.id.tcDetailImageView);
+                v.findViewById(R.id.tcDetailRBiec),
+                v.findViewById(R.id.tcDetailRBbs),
+                v.findViewById(R.id.tcDetailRBansi),
+                v.findViewById(R.id.tcDetailRBnfe),
+                v.findViewById(R.id.tcDetailRBdin),
+                v.findViewById(R.id.tcDetailRBjis)};
+        tcImage = v.findViewById(R.id.tcDetailImageView);
         boolean clicked = false;
         for (int i = 0; i<rbArray.length; i++){
             if (drawableArray[i][id] != 0){
@@ -62,7 +61,7 @@ public class TcDetailsFragment extends Fragment {
             }
         }
 
-        //Thermocouple text is written to views
+        // Thermocouple text is written to views
         ((TextView)v.findViewById(R.id.tcPositiveLeg)).setText(positiveleg[id]);
         ((TextView)v.findViewById(R.id.tcNegativeLeg)).setText(negativeleg[id]);
         ((TextView)v.findViewById(R.id.tcTempRange)).setText(temprange[id]);
@@ -113,12 +112,12 @@ public class TcDetailsFragment extends Fragment {
     }
 
     public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId) {
-
         final BitmapFactory.Options options = new BitmapFactory.Options();
         // Decode bitmap with inSampleSize set
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(res, resId, options);
     }
+
     class BitmapWorkerTask extends AsyncTask<Integer, Void, Bitmap> {
         private final WeakReference<ImageView> imageViewReference;
 
