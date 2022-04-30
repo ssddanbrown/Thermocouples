@@ -17,18 +17,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class DetailsActivity extends AppCompatActivity {
-	ArrayAdapter<String> adapter;
 	public static LruCache<String, Bitmap> mMemoryCache;
     private DrawerLayout homeDrawer;
     private ActionBarDrawerToggle drawerToggle;
-    ListView drawerList;
+    NavigationView drawerMenu;
     TcRepo tcRepo;
 	
 	SectionsPagerAdapter mSectionsPagerAdapter;
@@ -37,7 +33,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.tcholder);
+		setContentView(R.layout.activity_details);
 
         // Toolbar setup
         Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
@@ -52,23 +48,26 @@ public class DetailsActivity extends AppCompatActivity {
         tcRepo = TcRepo.getInstance(getApplicationContext());
 
         // Sidebar setup
-        drawerList = findViewById(R.id.left_drawer);
-        adapter = new ArrayAdapter<String>(this, R.layout.sidebar_list_item, tcRepo.getTypesFormatted());
-        drawerList.setAdapter(adapter);
+        NavigationView sidebarNav = findViewById(R.id.left_drawer_view);
+		Menu drawerMenu = sidebarNav.getMenu().getItem(0).getSubMenu();
+        String[] tcTypes = tcRepo.getTypesFormatted();
+		for (int i = 0; i < tcTypes.length; i++) {
+			String tcType = tcTypes[i];
+			MenuItem sidebarNavItem = drawerMenu.add(Menu.NONE, i, i, tcType);
+			sidebarNavItem.setCheckable(true);
+			sidebarNavItem.setChecked(i == 0);
+
+			sidebarNavItem.setOnMenuItemClickListener((MenuItem item) -> {
+				mViewPager.setCurrentItem(item.getItemId());
+				homeDrawer.closeDrawer(sidebarNav);
+				return false;
+			});
+		}
         homeDrawer = findViewById(R.id.homedrawerlayout);
         drawerToggle = new ActionBarDrawerToggle(
                 this, homeDrawer, toolbar, R.string.drawer_open, R.string.drawer_close
         ){};
         homeDrawer.addDrawerListener(drawerToggle);
-		
-		drawerList.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position,
-			                long id) {
-				mViewPager.setCurrentItem(position);
-                homeDrawer.closeDrawer(drawerList);
-			}
-			});
 
 
         // Create compatible method with toolbar instead of actionbar
@@ -78,6 +77,16 @@ public class DetailsActivity extends AppCompatActivity {
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 		mViewPager = findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
+		// Set sidebar draw active item on page change
+		mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+			@Override
+			public void onPageSelected(int position) {
+				for (int i = 0; i < drawerMenu.size(); i++) {
+					drawerMenu.getItem(i).setChecked(false);
+				}
+				drawerMenu.getItem(position).setChecked(true);
+			}
+		});
 		
 		// MEMORY image cache setup
         // Get max available VM memory, exceeding this amount will throw an
@@ -112,11 +121,12 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
+
 		public SectionsPagerAdapter(FragmentManager fm) {
-			super(fm);
+			super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
 		}
 
-	    @Override
+		@Override
 	    public Fragment getItem(int position) {
 			Fragment fragment = new TcDetailsFragment();
 	        Bundle args = new Bundle();
@@ -159,10 +169,10 @@ public class DetailsActivity extends AppCompatActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         if (i == android.R.id.home) {
-            if (homeDrawer.isDrawerOpen(drawerList)){
-                homeDrawer.closeDrawer(drawerList);
+            if (homeDrawer.isDrawerOpen(drawerMenu)){
+                homeDrawer.closeDrawer(drawerMenu);
             } else {
-                homeDrawer.openDrawer(drawerList);
+                homeDrawer.openDrawer(drawerMenu);
             }
             return true;
         }

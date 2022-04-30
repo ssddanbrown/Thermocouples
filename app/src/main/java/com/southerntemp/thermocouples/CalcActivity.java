@@ -3,8 +3,6 @@ package com.southerntemp.thermocouples;
 import java.math.BigDecimal;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -35,16 +33,14 @@ public class CalcActivity extends AppCompatActivity {
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
 	InputMethodManager imm;
-	static Typeface rLight;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-        //Set content view, Keyborad imm and light font
+        // Set content view, Keyboard imm
         setContentView(R.layout.activity_calc_holder);
         imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-        rLight = Typeface.createFromAsset(getAssets(), "Roboto-Light.ttf");
 		
 		//ActionBarSherlock setup
         Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
@@ -140,11 +136,6 @@ public class CalcActivity extends AppCompatActivity {
 			final TextView tempc = v.findViewById(R.id.tempc);
 			final TextView tempf = v.findViewById(R.id.tempf);
 			final TextView tempk = v.findViewById(R.id.tempk);
-			
-			// Set light font
-			tempc.setTypeface(rLight);
-			tempf.setTypeface(rLight);
-			tempk.setTypeface(rLight);
 			
 			//Centigrade button setup
 	        buttonc.setOnClickListener(new View.OnClickListener() {
@@ -265,16 +256,6 @@ public class CalcActivity extends AppCompatActivity {
 			final TextView tcresultt = v.findViewById(R.id.tcresultt);
 			final EditText tcinput = v.findViewById(R.id.tcinput);
 			final Button tccalcbuttonk = v.findViewById(R.id.tccalcbuttonk);
-			
-			// Set light font
-			tcresultb.setTypeface(rLight);
-			tcresulte.setTypeface(rLight);
-			tcresultk.setTypeface(rLight);
-			tcresultj.setTypeface(rLight);
-			tcresultn.setTypeface(rLight);
-			tcresultr.setTypeface(rLight);
-			tcresults.setTypeface(rLight);
-			tcresultt.setTypeface(rLight);
 
 			//Calculate button is clicked on keyboard enter
 			tcinput.setOnEditorActionListener(new OnEditorActionListener() {
@@ -794,18 +775,6 @@ public class CalcActivity extends AppCompatActivity {
             final TextView tcresultt = v.findViewById(R.id.tcresultt);
             final EditText tcinput = v.findViewById(R.id.tcinput);
             final Button tccalcbuttonk = v.findViewById(R.id.tccalcbuttonk);
-
-            //Set light font for ICS and above
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                tcresultb.setTypeface(rLight);
-                tcresulte.setTypeface(rLight);
-                tcresultk.setTypeface(rLight);
-                tcresultj.setTypeface(rLight);
-                tcresultn.setTypeface(rLight);
-                tcresultr.setTypeface(rLight);
-                tcresults.setTypeface(rLight);
-                tcresultt.setTypeface(rLight);
-            }
 
             //Calculate button is clicked on keyboard enter
             tcinput.setOnEditorActionListener(new OnEditorActionListener() {
