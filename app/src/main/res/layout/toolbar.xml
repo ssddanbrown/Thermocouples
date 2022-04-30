@@ -2,7 +2,7 @@
 
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/HeaderBar"
-    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:theme="@style/Widget.MaterialComponents.ActionBar.Primary"
+    app:popupTheme="@style/ThemeOverlay.Material3"
+    style="@style/Widget.Material3.Toolbar"
     android:id="@+id/tcholder_toolbar" />

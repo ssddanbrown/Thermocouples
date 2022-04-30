@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e5e5e5">
+    android:background="@color/material_dynamic_primary99">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -17,9 +17,13 @@
             android:foregroundGravity="center_vertical|center_horizontal"
             android:padding="@dimen/card_padding">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+                android:checkable="false"
+                style="@style/Widget.Material3.CardView.Filled">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -31,62 +35,6 @@
                         android:id="@+id/tcTitle"
                         style="@style/tcTitle"
                         android:text="@string/tcTitleTest" />
-
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/tcDetailRBiec"
-                            style="@style/tcDetailTab"
-                            android:text="IEC" />
-
-                        <RadioButton
-                            android:id="@+id/tcDetailRBbs"
-                            style="@style/tcDetailTab"
-                            android:text="BS" />
-
-                        <RadioButton
-                            android:id="@+id/tcDetailRBansi"
-                            style="@style/tcDetailTab"
-                            android:text="ANSI" />
-
-                        <RadioButton
-                            android:id="@+id/tcDetailRBnfe"
-                            style="@style/tcDetailTab"
-                            android:text="NFE" />
-
-                        <RadioButton
-                            android:id="@+id/tcDetailRBdin"
-                            style="@style/tcDetailTab"
-                            android:text="DIN" />
-
-                        <RadioButton
-                            android:id="@+id/tcDetailRBjis"
-                            style="@style/tcDetailTab"
-                            android:text="JIS" />
-                    </RadioGroup>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginLeft="@dimen/pad_s"
-                        android:layout_marginRight="@dimen/pad_s"
-                        android:background="@color/primary" />
-
-                    <ImageView
-                        android:id="@+id/tcDetailImageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/thick_margin"
-                        android:layout_marginTop="@dimen/standard_margin"
-                        android:padding="@dimen/thin_margin" />
-
-                    <View style="@style/divider" />
 
                     <LinearLayout
                         style="@style/tcDetail"
@@ -104,8 +52,6 @@
                             android:text="@string/tcDetailTest1" />
 
                     </LinearLayout>
-
-                    <View style="@style/divider" />
 
 
                     <LinearLayout
@@ -125,8 +71,6 @@
 
                     </LinearLayout>
 
-                    <View style="@style/divider" />
-
                     <LinearLayout
                         style="@style/tcDetail"
                         android:layout_width="match_parent"
@@ -143,8 +87,6 @@
                             android:text="@string/tcDetailTest3" />
 
                     </LinearLayout>
-
-                    <View android:id="@+id/tcExtraSep" style="@style/divider" />
 
                     <LinearLayout
                         style="@style/tcDetail"
@@ -164,9 +106,64 @@
 
                     </LinearLayout>
 
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/tcDetailRBiec"
+                            style="@style/tcFilter"
+                            android:text="IEC" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/tcDetailRBbs"
+                            style="@style/tcFilter"
+                            android:text="BS" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/tcDetailRBansi"
+                            style="@style/tcFilter"
+                            android:text="ANSI" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/tcDetailRBnfe"
+                            style="@style/tcFilter"
+                            android:text="NFE" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/tcDetailRBdin"
+                            style="@style/tcFilter"
+                            android:text="DIN" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/tcDetailRBjis"
+                            style="@style/tcFilter"
+                            android:text="JIS" />
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="@dimen/pad_s"
+                        android:layout_marginRight="@dimen/pad_s"
+                        android:background="@color/material_dynamic_primary50" />
+
+                    <ImageView
+                        android:id="@+id/tcDetailImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/thick_margin"
+                        android:layout_marginTop="@dimen/standard_margin"
+                        android:padding="@dimen/pad_s" />
+
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
         </FrameLayout>

@@ -15,6 +15,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
+
 import java.lang.ref.WeakReference;
 
 public class TcDetailsFragment extends Fragment {
@@ -35,11 +38,11 @@ public class TcDetailsFragment extends Fragment {
 
         // Title is written to TextView
         TextView detailTitle = v.findViewById(R.id.tcTitle);
-        detailTitle.setText(String.format("Type %s Thermocouple", tc.type));
+        detailTitle.setText(String.format("Type %s", tc.type));
 
         // Tab setup
         String[] standards = {"IEC", "BS", "ANSI", "NFE", "DIN", "JIS"};
-        RadioButton[] rButtons = {
+        Chip[] chips = {
                 v.findViewById(R.id.tcDetailRBiec),
                 v.findViewById(R.id.tcDetailRBbs),
                 v.findViewById(R.id.tcDetailRBansi),
@@ -56,7 +59,7 @@ public class TcDetailsFragment extends Fragment {
             TcColor color = tc.colors.get(standard);
             if (color == null) continue;
 
-            RadioButton btn = rButtons[i];
+            Chip btn = chips[i];
             setupTab(btn, color.drawable, i, tc);
             int selectedIndex = tc.getSelectedViewIndex();
 
@@ -79,12 +82,10 @@ public class TcDetailsFragment extends Fragment {
 
         TextView info = v.findViewById(R.id.tcExtra);
         View infoWrap = v.findViewById(R.id.tcExtraWrap);
-        View sep = v.findViewById(R.id.tcExtraSep);
 
         int visibility = tc.info.length() > 0 ? View.VISIBLE : View.GONE;
         info.setText(tc.info);
         infoWrap.setVisibility(visibility);
-        sep.setVisibility(visibility);
 
         return v;
     }
@@ -98,25 +99,23 @@ public class TcDetailsFragment extends Fragment {
     public void onStart() {
         super.onStart();
     }
-    public void setupTab(final RadioButton button, final int image, final int tabIndex, final Thermocouple tc) {
+    public void setupTab(final Chip button, final int image, final int tabIndex, final Thermocouple tc) {
         button.setVisibility(View.VISIBLE);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RadioGroup group = (RadioGroup) button.getParent();
-                tc.setSelectedViewIndex(tabIndex);
-                group.clearCheck();
-                Log.i("CLICK", button.getText().toString());
-                button.setChecked(true);
-                final String imageKey = String.valueOf(image);
-                final Bitmap bitmap = getBitmapFromMemCache(imageKey);
-                if (bitmap != null) {
-                    tcImage.setImageBitmap(bitmap);
-                    addBitmapToMemoryCache(imageKey, bitmap);
-                } else {
-                    BitmapWorkerTask task = new BitmapWorkerTask(tcImage);
-                    task.execute(image);
-                }
+        button.setOnClickListener(v -> {
+            ChipGroup group = (ChipGroup) button.getParent();
+            tc.setSelectedViewIndex(tabIndex);
+            group.clearCheck();
+            Log.i("CLICK", button.getText().toString());
+
+            button.setChecked(true);
+            final String imageKey = String.valueOf(image);
+            final Bitmap bitmap = getBitmapFromMemCache(imageKey);
+            if (bitmap != null) {
+                tcImage.setImageBitmap(bitmap);
+                addBitmapToMemoryCache(imageKey, bitmap);
+            } else {
+                BitmapWorkerTask task = new BitmapWorkerTask(tcImage);
+                task.execute(image);
             }
         });
     }

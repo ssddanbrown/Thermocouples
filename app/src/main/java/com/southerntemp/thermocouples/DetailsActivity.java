@@ -11,10 +11,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.collection.LruCache;
 import androidx.viewpager.widget.ViewPager;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -36,14 +35,14 @@ public class DetailsActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_details);
 
         // Toolbar setup
-        Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.inflateMenu(R.menu.activity_thermocouple_list);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeButtonEnabled(true);
-        }
+//        Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
+//        setSupportActionBar(toolbar);
+//        toolbar.inflateMenu(R.menu.activity_thermocouple_list);
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//            actionBar.setHomeButtonEnabled(true);
+//        }
 
         tcRepo = TcRepo.getInstance(getApplicationContext());
 
@@ -63,15 +62,15 @@ public class DetailsActivity extends AppCompatActivity {
 				return false;
 			});
 		}
-        homeDrawer = findViewById(R.id.homedrawerlayout);
-        drawerToggle = new ActionBarDrawerToggle(
-                this, homeDrawer, toolbar, R.string.drawer_open, R.string.drawer_close
-        ){};
-        homeDrawer.addDrawerListener(drawerToggle);
+//        homeDrawer = findViewById(R.id.homedrawerlayout);
+//        drawerToggle = new ActionBarDrawerToggle(
+//                this, homeDrawer, toolbar, R.string.drawer_open, R.string.drawer_close
+//        ){};
+//        homeDrawer.addDrawerListener(drawerToggle);
 
 
         // Create compatible method with toolbar instead of actionbar
-		toolbar.setElevation(10f);
+//		toolbar.setElevation(10f);
 
 		// Viewpager setup
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -111,13 +110,13 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
-        drawerToggle.syncState();
+//        drawerToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        drawerToggle.onConfigurationChanged(newConfig);
+//        drawerToggle.onConfigurationChanged(newConfig);
     }
 
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
@@ -153,7 +152,7 @@ public class DetailsActivity extends AppCompatActivity {
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_thermocouple_list, menu);
+		getMenuInflater().inflate(R.menu.nav_menu, menu);
 		return true;
 		
 	}

@@ -4,43 +4,42 @@
 
     </style>
 
-    <style name="Theme.MyTheme" parent="Theme.Material3.Light.NoActionBar">
-        <item name="android:windowBackground">@color/windowBackground</item>
+    <style name="Theme.MyTheme" parent="Theme.Material3.DynamicColors.Light">
         <item name="android:actionBarItemBackground">@drawable/ab_bgselector</item>
-        <item name="colorPrimary">@color/primary</item>
-        <!--   darker variant of colorPrimary (for status bar, contextual app bars) -->
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <!--   theme UI controls like checkboxes and text fields -->
-        <item name="colorAccent">@color/accent</item>
-    </style>
-
-    <style name="HeaderBar">
-        <item name="android:background">@color/primary</item>
-        <item name="android:color">@color/white</item>
-        <item name="android:elevation" tools:ignore="NewApi">10dp</item>
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">56dp</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="tcTitle">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:padding">@dimen/pad_s</item>
-        <item name="android:textColor">#8a000000</item>
-        <item name="android:textSize">45sp</item>
+        <item name="android:paddingTop">@dimen/pad_s</item>
+        <item name="android:paddingLeft">@dimen/pad_s</item>
+        <item name="android:paddingRight">@dimen/pad_s</item>
+        <item name="android:paddingBottom">@dimen/pad_xs</item>
+        <item name="android:textColor">@color/material_dynamic_primary30</item>
+        <item name="android:textSize">36sp</item>
         <item name="android:text">Type K Thermocouple</item>
+    </style>
+
+    <style name="tcFilter" parent="Widget.Material3.Chip.Filter">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="checkedIconEnabled">false</item>
+        <item name="chipBackgroundColor">@color/material_dynamic_secondary70</item>
+        <item name="chipStrokeWidth">0dp</item>
     </style>
 
     <style name="tcDetail">
         <item name="android:paddingLeft">@dimen/pad_s</item>
         <item name="android:paddingRight">@dimen/pad_s</item>
-        <item name="android:paddingTop">@dimen/pad_s</item>
-        <item name="android:paddingBottom">@dimen/pad_s</item>
+        <item name="android:paddingTop">@dimen/pad_xs</item>
+        <item name="android:paddingBottom">@dimen/pad_xs</item>
     </style>
 
     <style name="tcDetailTitle">
-        <item name="android:textSize">@dimen/smallText</item>
+        <item name="android:textSize">@dimen/text_xs</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/thin_margin</item>
@@ -48,11 +47,11 @@
         <item name="android:gravity">left</item>
         <item name="android:padding">0dp</item>
         <item name="android:layout_margin">0dp</item>
-        <item name="android:textColor">#8a000000</item>
+        <item name="android:textColor">@color/material_dynamic_secondary50</item>
     </style>
 
     <style name="tcDetailInfo">
-        <item name="android:textSize">@dimen/text_m</item>
+        <item name="android:textSize">@dimen/text_s</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/thin_margin</item>
@@ -60,28 +59,13 @@
         <item name="android:gravity">left</item>
         <item name="android:padding">0dp</item>
         <item name="android:layout_margin">0dp</item>
-        <item name="android:textColor">#de000000</item>
+        <item name="android:textColor">@color/material_dynamic_primary30</item>
     </style>
 
     <style name="divider">
         <item name="android:background">@color/grey</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
-    </style>
-
-    <style name="tcDetailTab">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">48dp</item>
-        <item name="android:background">@drawable/tabbackground</item>
-        <item name="android:button">@null</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">1dp</item>
-        <item name="android:layout_marginRight">1dp</item>
-        <item name="android:textColor">@drawable/tab_text_selector</item>
-        <item name="android:visibility">gone</item>
-        <item name="android:textSize">@dimen/smallText</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="calcViewButtons" parent="Base.Widget.AppCompat.Button.Colored">
