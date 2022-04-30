@@ -6,13 +6,13 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -52,8 +52,7 @@ public class CalcActivity extends AppCompatActivity {
 
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-        // Create comptible method with toolbar instead of actionbar
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) actionBar.setElevation(0f);
+		actionBar.setElevation(0f);
 
 
 		// Set up the ViewPager with the sections adapter.
@@ -267,17 +266,15 @@ public class CalcActivity extends AppCompatActivity {
 			final EditText tcinput = v.findViewById(R.id.tcinput);
 			final Button tccalcbuttonk = v.findViewById(R.id.tccalcbuttonk);
 			
-			//Set light font for ICS and above
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-				tcresultb.setTypeface(rLight);
-				tcresulte.setTypeface(rLight);
-				tcresultk.setTypeface(rLight);
-				tcresultj.setTypeface(rLight);
-				tcresultn.setTypeface(rLight);
-				tcresultr.setTypeface(rLight);
-				tcresults.setTypeface(rLight);
-				tcresultt.setTypeface(rLight);
-			}
+			// Set light font
+			tcresultb.setTypeface(rLight);
+			tcresulte.setTypeface(rLight);
+			tcresultk.setTypeface(rLight);
+			tcresultj.setTypeface(rLight);
+			tcresultn.setTypeface(rLight);
+			tcresultr.setTypeface(rLight);
+			tcresults.setTypeface(rLight);
+			tcresultt.setTypeface(rLight);
 
 			//Calculate button is clicked on keyboard enter
 			tcinput.setOnEditorActionListener(new OnEditorActionListener() {

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         tools:targetApi="lollipop">
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -26,7 +26,7 @@
 
                 <requestFocus />
             </EditText>
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/textView"
@@ -40,7 +40,7 @@
             android:textSize="@dimen/smallText" />
 
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/tccalcbuttonk"
             style="@style/calcButton"
             android:layout_below="@+id/textView"

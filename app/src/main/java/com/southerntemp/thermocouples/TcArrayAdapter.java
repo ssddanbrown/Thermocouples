@@ -111,7 +111,7 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
             // Choose the smallest ratio as inSampleSize value, this will guarantee
             // a final image with both dimensions larger than or equal to the
             // requested height and width.
-            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+            inSampleSize = Math.min(heightRatio, widthRatio);
         }
 
         return inSampleSize;
@@ -154,7 +154,7 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
             int bitmapsize = bitmap.getHeight() * bitmap.getWidth() * 4;
             String bms = (String.valueOf(bitmapsize));
             Log.i("Bitmap Size", bms);
-            if (imageView != null && bitmap != null) {
+            if (imageView != null) {
                 imageView.setImageBitmap(bitmap);
             }
         }
