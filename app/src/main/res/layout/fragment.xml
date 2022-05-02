@@ -106,60 +106,12 @@
 
                     </LinearLayout>
 
-
-                    <com.google.android.material.chip.ChipGroup
+                    <LinearLayout
+                        android:id="@+id/tcImageList"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:orientation="horizontal">
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/tcDetailRBiec"
-                            style="@style/tcFilter"
-                            android:text="IEC" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/tcDetailRBbs"
-                            style="@style/tcFilter"
-                            android:text="BS" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/tcDetailRBansi"
-                            style="@style/tcFilter"
-                            android:text="ANSI" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/tcDetailRBnfe"
-                            style="@style/tcFilter"
-                            android:text="NFE" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/tcDetailRBdin"
-                            style="@style/tcFilter"
-                            android:text="DIN" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/tcDetailRBjis"
-                            style="@style/tcFilter"
-                            android:text="JIS" />
-                    </com.google.android.material.chip.ChipGroup>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginLeft="@dimen/pad_s"
-                        android:layout_marginRight="@dimen/pad_s"
-                        android:background="@color/material_dynamic_primary50" />
-
-                    <ImageView
-                        android:id="@+id/tcDetailImageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/thick_margin"
-                        android:layout_marginTop="@dimen/standard_margin"
-                        android:padding="@dimen/pad_s" />
+                        android:orientation="vertical">
+                    </LinearLayout>
 
                 </LinearLayout>
 
