@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            app:labelVisibilityMode="labeled"
             app:menu="@menu/nav_menu" />
 
     </LinearLayout>

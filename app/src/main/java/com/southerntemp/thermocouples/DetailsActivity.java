@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -86,7 +87,11 @@ public class DetailsActivity extends AppCompatActivity {
 				drawerMenu.getItem(position).setChecked(true);
 			}
 		});
-		
+
+		// Setup nav bar
+		NavigationBarView navBar = findViewById(R.id.bottom_navigation);
+		navBar.setOnItemSelectedListener(this::onOptionsItemSelected);
+
 		// MEMORY image cache setup
         // Get max available VM memory, exceeding this amount will throw an
 	    // OutOfMemory exception. Stored in kilobytes as LruCache takes an
