@@ -11,22 +11,19 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.collection.LruCache;
 import androidx.viewpager.widget.ViewPager;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 public class DetailsActivity extends AppCompatActivity {
 	public static LruCache<String, Bitmap> mMemoryCache;
-    private DrawerLayout homeDrawer;
-    private ActionBarDrawerToggle drawerToggle;
-    NavigationView drawerMenu;
     TcRepo tcRepo;
-	
+
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
 	
@@ -35,19 +32,10 @@ public class DetailsActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_details);
 
-        // Toolbar setup
-//        Toolbar toolbar = findViewById(R.id.tcholder_toolbar);
-//        setSupportActionBar(toolbar);
-//        toolbar.inflateMenu(R.menu.activity_thermocouple_list);
-//        ActionBar actionBar = getSupportActionBar();
-//        if (actionBar != null) {
-//            actionBar.setDisplayHomeAsUpEnabled(true);
-//            actionBar.setHomeButtonEnabled(true);
-//        }
-
         tcRepo = TcRepo.getInstance(getApplicationContext());
 
         // Sidebar setup
+		DrawerLayout homeDrawer = findViewById(R.id.homedrawerlayout);
         NavigationView sidebarNav = findViewById(R.id.left_drawer_view);
 		Menu drawerMenu = sidebarNav.getMenu().getItem(0).getSubMenu();
         String[] tcTypes = tcRepo.getTypesFormatted();
@@ -63,15 +51,6 @@ public class DetailsActivity extends AppCompatActivity {
 				return false;
 			});
 		}
-//        homeDrawer = findViewById(R.id.homedrawerlayout);
-//        drawerToggle = new ActionBarDrawerToggle(
-//                this, homeDrawer, toolbar, R.string.drawer_open, R.string.drawer_close
-//        ){};
-//        homeDrawer.addDrawerListener(drawerToggle);
-
-
-        // Create compatible method with toolbar instead of actionbar
-//		toolbar.setElevation(10f);
 
 		// Viewpager setup
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -88,9 +67,19 @@ public class DetailsActivity extends AppCompatActivity {
 			}
 		});
 
-		// Setup nav bar
+		// Setup bottom nav bar
 		NavigationBarView navBar = findViewById(R.id.bottom_navigation);
 		navBar.setOnItemSelectedListener(this::onOptionsItemSelected);
+
+		// Setup top app toolbar
+		MaterialToolbar topAppToolbar = findViewById(R.id.top_app_toolbar);
+		topAppToolbar.setNavigationOnClickListener(view -> {
+			if (homeDrawer.isOpen()){
+				homeDrawer.close();
+			} else {
+				homeDrawer.open();
+			}
+		});
 
 		// MEMORY image cache setup
         // Get max available VM memory, exceeding this amount will throw an
@@ -114,14 +103,11 @@ public class DetailsActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-//        drawerToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-//        drawerToggle.onConfigurationChanged(newConfig);
     }
 
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
@@ -172,14 +158,6 @@ public class DetailsActivity extends AppCompatActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
-        if (i == android.R.id.home) {
-            if (homeDrawer.isDrawerOpen(drawerMenu)){
-                homeDrawer.closeDrawer(drawerMenu);
-            } else {
-                homeDrawer.openDrawer(drawerMenu);
-            }
-            return true;
-        }
         if (i == R.id.SearchItem) return goToActivity(SearchActivity.class);
         if (i == R.id.CalculatorItem) return goToActivity(CalcActivity.class);
         if (i == R.id.InfoItem) return goToActivity(InfoActivity.class);
