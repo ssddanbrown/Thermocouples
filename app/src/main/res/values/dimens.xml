@@ -20,6 +20,7 @@
     <dimen name="pad_xs">8dp</dimen>
     <dimen name="pad_s">24dp</dimen>
     <dimen name="pad_m">32dp</dimen>
+    <dimen name="pad_l">48dp</dimen>
 
     <dimen name="button_height_large">56dp</dimen>
     <dimen name="button_text">20sp</dimen>

@@ -19,6 +19,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/pad_s"
+                android:paddingRight="@dimen/pad_s"
+                android:paddingTop="@dimen/pad_l"
+                android:paddingBottom="@dimen/pad_s"
+                android:textColor="@color/material_dynamic_secondary20"
+                android:background="@color/material_dynamic_secondary80"
+                android:layout_marginBottom="@dimen/pad_s"
+                android:textSize="36dp"
+                android:textStyle="normal"
+                android:text="Information" />
+
 
 
         <TextView
@@ -51,16 +65,11 @@
 
 
             <Button
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:text="@string/info_link"
-                android:gravity="left|center_vertical"
-                android:textColor="@color/white"
-                android:background="@color/primary_dark"
-                android:paddingLeft="@dimen/pad_s"
-                android:paddingStart="@dimen/pad_s"
-                android:textAllCaps="false"
-                android:paddingTop="@dimen/pad_s"
-                android:paddingBottom="@dimen/pad_s"
-                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/pad_s"
+                android:layout_marginBottom="@dimen/pad_s"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/info_button_sponsor" />
 

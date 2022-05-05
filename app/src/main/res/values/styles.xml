@@ -156,7 +156,7 @@
         <item name="android:layout_width">fill_parent</item>
         <item name="android:textSize">@dimen/text_s</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/primary_dark</item>
+        <item name="android:textColor">@color/material_dynamic_secondary40</item>
         <item name="android:paddingLeft">@dimen/pad_s</item>
         <item name="android:layout_marginBottom">@dimen/ultra_thin_margin</item>
         <item name="android:layout_marginTop">@dimen/standard_margin</item>
@@ -170,7 +170,7 @@
         <item name="android:layout_marginRight">@dimen/pad_s</item>
         <item name="android:layout_marginBottom">@dimen/pad_xxxs</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">#444444</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/text_s</item>
     </style>
 
