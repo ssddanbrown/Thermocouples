@@ -4,7 +4,7 @@
     <string name="app_name">Thermocouples</string>
     <string name="launcher_name">Thermo\nCouples</string>
 
-    <string name="tcTitleTest">Type K Thermocouple</string>
+    <string name="tcTitleTest">Type K</string>
     <string name="tcPositive">Positive (+) Metal</string>
     <string name="tcNegative">Negative (-) Metal</string>
     <string name="tcTempRange">Temperature Range</string>

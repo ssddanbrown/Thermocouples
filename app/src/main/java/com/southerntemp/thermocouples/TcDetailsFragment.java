@@ -21,7 +21,7 @@ public class TcDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment, container, false);
+        View v = inflater.inflate(R.layout.fragment_details_card, container, false);
         Context ctx = this.getContext();
 
         // Thermocouple type index is received here
