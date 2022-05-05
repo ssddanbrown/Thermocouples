@@ -38,7 +38,6 @@ public class DetailsFragment extends Fragment {
 
 		binding = FragmentDetailsBinding.inflate(inflater, container, false);
 		return binding.getRoot();
-
 	}
 
 	public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {

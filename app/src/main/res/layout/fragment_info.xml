@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ScrollView
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:scrollbars="none"
+        tools:context=".Info" >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+
+        <TextView
+            style="@style/infotitle"
+            android:text="Standards" />
+
+
+
+                <TextView
+                style="@style/infoColourStandards"
+                android:text="@string/iiec"/>
+                <TextView
+                style="@style/infoColourStandards"
+                android:text="@string/ibs"/>
+                <TextView
+                style="@style/infoColourStandards"
+                android:text="@string/iansi"/>
+                <TextView
+                style="@style/infoColourStandards"
+                android:text="@string/infe"/>
+                <TextView
+                style="@style/infoColourStandards"
+                android:text="@string/idin"/>
+                <TextView
+                style="@style/infoColourStandards"
+                android:text="@string/ijis"/>
+                <TextView
+                style="@style/infoColourStandards"
+                android:text=" "/>
+
+
+            <Button
+                android:text="@string/info_link"
+                android:gravity="left|center_vertical"
+                android:textColor="@color/white"
+                android:background="@color/primary_dark"
+                android:paddingLeft="@dimen/pad_s"
+                android:paddingStart="@dimen/pad_s"
+                android:textAllCaps="false"
+                android:paddingTop="@dimen/pad_s"
+                android:paddingBottom="@dimen/pad_s"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/info_button_sponsor" />
+
+
+        <TextView
+            style="@style/infotitle"
+            android:text="Disclaimer" />
+
+            <TextView
+                style="@style/infoParagraph"
+                android:text="@string/info1"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
+
