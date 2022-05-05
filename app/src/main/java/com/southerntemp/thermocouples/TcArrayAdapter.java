@@ -45,7 +45,7 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
             // Inflate layout to view
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            rowView = inflater.inflate(R.layout.tcsearchlistitem, parent, false);
+            rowView = inflater.inflate(R.layout.spinner_item_search_result, parent, false);
 
             // Setup Views within layout within ViewHolder
             ViewHolder viewHolder = new ViewHolder();

@@ -33,7 +33,7 @@ public class SpinnerArrayAdapter extends ArrayAdapter<String> {
         //Inflate layout to view
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.spinneritem, parent, false);
+        View rowView = inflater.inflate(R.layout.spinner_item_search_selection, parent, false);
 
         TextView spinnerItem = rowView.findViewById(R.id.spinneritemtv);
         String spinnerString = objects[position];
@@ -53,7 +53,7 @@ public class SpinnerArrayAdapter extends ArrayAdapter<String> {
         // This view starts when we click the spinner.
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.spinneritem, parent, false);
+        View rowView = inflater.inflate(R.layout.spinner_item_search_selection, parent, false);
         TextView spinnerItem = rowView.findViewById(R.id.spinneritemtv);
         String spinnerString = objects[position];
         int height = (int) context.getResources().getDimension(R.dimen.listItem);

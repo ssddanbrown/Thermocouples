@@ -5,7 +5,6 @@
     </style>
 
     <style name="Theme.MyTheme" parent="Theme.Material3.DynamicColors.Light">
-        <item name="android:actionBarItemBackground">@drawable/ab_bgselector</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -170,7 +169,7 @@
         <item name="android:layout_height">fill_parent</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">10dp</item>
-        <item name="android:elevation" tools:targetApi="lollipop">2dp</item>
+        <item name="android:elevation">2dp</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">30sp</item>
     </style>

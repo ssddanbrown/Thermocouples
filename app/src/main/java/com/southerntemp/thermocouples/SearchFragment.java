@@ -53,7 +53,7 @@ public class SearchFragment extends Fragment {
 
         // Listview setup
         ListView tcSearchList = binding.tcsearchlist;
-        adapter = new TcArrayAdapter(ctx, R.layout.tcsearchlistitem, R.id.tcstvtype, filteredList);
+        adapter = new TcArrayAdapter(ctx, R.layout.spinner_item_search_result, R.id.tcstvtype, filteredList);
         tcSearchList.setAdapter(adapter);
 
         // Spinner setup
@@ -63,7 +63,7 @@ public class SearchFragment extends Fragment {
         String[] colorArray = {"None", "grey", "purple", "brown", "black", "blue", "yellow", "green", "red", "pink", "orange", "white"};
 
         // Jacket spinner setup
-        ArrayAdapter<String> jspinneradpt = new SpinnerArrayAdapter(ctx, R.layout.spinneritem, R.id.spinneritemtv, colorArray, "Jacket");
+        ArrayAdapter<String> jspinneradpt = new SpinnerArrayAdapter(ctx, R.layout.spinner_item_search_selection, R.id.spinneritemtv, colorArray, "Jacket");
         Spinner jspinner = binding.jcolor;
         jspinner.setAdapter(jspinneradpt);
         jspinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -80,7 +80,7 @@ public class SearchFragment extends Fragment {
             }
 
         });
-        ArrayAdapter<String> pSpinnerAdpt = new SpinnerArrayAdapter(ctx, R.layout.spinneritem, R.id.spinneritemtv, colorArray, "Lead");
+        ArrayAdapter<String> pSpinnerAdpt = new SpinnerArrayAdapter(ctx, R.layout.spinner_item_search_selection, R.id.spinneritemtv, colorArray, "Lead");
         Spinner pSpinner = binding.pcolor;
         pSpinner.setAdapter(pSpinnerAdpt);
         pSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -98,7 +98,7 @@ public class SearchFragment extends Fragment {
 
         });
 
-        ArrayAdapter<String> nSpinnerAdpt = new SpinnerArrayAdapter(ctx, R.layout.spinneritem, R.id.spinneritemtv, colorArray, "Lead");
+        ArrayAdapter<String> nSpinnerAdpt = new SpinnerArrayAdapter(ctx, R.layout.spinner_item_search_selection, R.id.spinneritemtv, colorArray, "Lead");
         Spinner nSpinner = binding.ncolor;
         nSpinner.setAdapter(nSpinnerAdpt);
         nSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
