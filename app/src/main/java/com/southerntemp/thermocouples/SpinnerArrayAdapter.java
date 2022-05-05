@@ -40,7 +40,6 @@ public class SpinnerArrayAdapter extends ArrayAdapter<String> {
 
         if (spinnerString.equals("None")) {
             spinnerItem.setText(this.spinnerTitle);
-            spinnerItem.setTextColor(Color.WHITE);
         } else {
             spinnerItem.setText("");
             spinnerItem.setBackgroundColor(colorMap.get(spinnerString));

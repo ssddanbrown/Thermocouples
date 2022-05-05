@@ -28,7 +28,7 @@
     <dimen name="divider">2dp</dimen>
 
     <dimen name="listItem">56dp</dimen>
-    <dimen name="listItemLarge">144dp</dimen>
+    <dimen name="listItemLarge">96dp</dimen>
 
     <dimen name="card_padding">16dp</dimen>
 </resources>

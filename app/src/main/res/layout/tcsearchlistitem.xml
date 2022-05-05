@@ -8,7 +8,10 @@
     android:layout_height="fill_parent"
     android:layout_width="fill_parent"
     android:orientation="horizontal"
-    android:padding="@dimen/pad_s"
+    android:paddingLeft="@dimen/pad_s"
+    android:paddingRight="@dimen/pad_s"
+	android:paddingTop="@dimen/pad_xs"
+	android:paddingBottom="@dimen/pad_xs"
     android:background="#FFFFFF"
     android:layout_marginBottom="@dimen/divider"
     >
@@ -25,19 +28,18 @@
 		    android:layout_height="45dp"
 		    android:text="Type K"
 		    android:gravity="start|center_vertical"
-		    android:textSize="35sp"
-		    android:textColor="#4d4d4d" >
-			</TextView>
+		    android:textSize="30sp"
+		    android:textColor="@color/material_dynamic_primary20"/>
 			
 			<TextView
 		    android:id="@+id/tcstvstandard"
 		    android:layout_width="match_parent"
-		    android:layout_height="40dp"
+		    android:layout_height="28dp"
 		    android:gravity="left|top"
 		    android:text="IEC"
-		    android:textSize="30sp"
-		    android:textColor="#8a8a8a" >
-			</TextView>
+		    android:textSize="20sp"
+			android:textStyle="bold"
+		    android:textColor="@color/material_dynamic_secondary40"/>
         
     </LinearLayout>
     

@@ -188,4 +188,10 @@
         <item name="android:textSize">30sp</item>
     </style>
 
+    <style name="searchSpinner">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
 </resources>

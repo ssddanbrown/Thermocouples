@@ -4,29 +4,25 @@
     android:orientation="vertical" >
     
     <LinearLayout 
-        android:layout_height="@dimen/listItem"
+        android:layout_height="48dp"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:background="@color/primary">
-
+		android:paddingLeft="@dimen/pad_xs"
+		android:paddingRight="@dimen/pad_xs"
+		android:elevation="5dp"
+        android:background="@color/material_dynamic_primary99">
 
         <Spinner
         android:id="@+id/jcolor"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="fill_parent"/>
+			style="@style/searchSpinner"/>
 
         <Spinner
         android:id="@+id/pcolor"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="fill_parent"/>
+			style="@style/searchSpinner"/>
 
         <Spinner
         android:id="@+id/ncolor"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="fill_parent"/>
+			style="@style/searchSpinner"/>
 
     </LinearLayout>
     
@@ -47,11 +43,6 @@
             android:listSelector="@android:color/transparent"
 	        android:scrollbars="none" >
 	    </ListView>
-	            <ImageView
-	                android:layout_width="match_parent"
-	                android:layout_height="3dp"
-	                android:scaleType="fitXY"
-	                android:src="@drawable/vshadow" />
         
     </RelativeLayout>
 
