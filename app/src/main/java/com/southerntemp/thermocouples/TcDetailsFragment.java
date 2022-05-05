@@ -87,12 +87,12 @@ public class TcDetailsFragment extends Fragment {
 
     public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
         if (getBitmapFromMemCache(key) == null) {
-            DetailsActivity.mMemoryCache.put(key, bitmap);
+            DetailsFragment.mMemoryCache.put(key, bitmap);
         }
     }
 
     public Bitmap getBitmapFromMemCache(String key) {
-        return DetailsActivity.mMemoryCache.get(key);
+        return DetailsFragment.mMemoryCache.get(key);
     }
 
     public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId) {
@@ -132,7 +132,7 @@ public class TcDetailsFragment extends Fragment {
     public void addBitmapToCache(String key, Bitmap bitmap) {
         // Add to memory cache as before
         if (getBitmapFromMemCache(key) == null) {
-            DetailsActivity.mMemoryCache.put(key, bitmap);
+            DetailsFragment.mMemoryCache.put(key, bitmap);
         }
     }
 

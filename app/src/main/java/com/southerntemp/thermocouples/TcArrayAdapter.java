@@ -83,12 +83,12 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
 
     public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
         if (getBitmapFromMemCache(key) == null) {
-            DetailsActivity.mMemoryCache.put(key, bitmap);
+            DetailsFragment.mMemoryCache.put(key, bitmap);
         }
     }
 
     public Bitmap getBitmapFromMemCache(String key) {
-        Bitmap bitmap = DetailsActivity.mMemoryCache.get(key);
+        Bitmap bitmap = DetailsFragment.mMemoryCache.get(key);
         if (bitmap == null) {
             Log.i("Cache", "Bitmap null " + key);
         }
