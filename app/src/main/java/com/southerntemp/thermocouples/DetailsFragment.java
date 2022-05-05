@@ -2,24 +2,18 @@ package com.southerntemp.thermocouples;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.collection.LruCache;
-import androidx.viewpager.widget.ViewPager;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.navigation.NavigationView;
+import androidx.annotation.NonNull;
+import androidx.collection.LruCache;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.southerntemp.thermocouples.databinding.FragmentDetailsBinding;
 
 public class DetailsFragment extends Fragment {
@@ -27,7 +21,6 @@ public class DetailsFragment extends Fragment {
     TcRepo tcRepo;
 
 	SectionsPagerAdapter mSectionsPagerAdapter;
-	ViewPager mViewPager;
 	private FragmentDetailsBinding binding;
 
 	@Override
@@ -45,49 +38,16 @@ public class DetailsFragment extends Fragment {
 
         tcRepo = TcRepo.getInstance(getContext());
 
-        // Sidebar setup
-		DrawerLayout homeDrawer = binding.homedrawerlayout;
-        NavigationView sidebarNav = binding.leftDrawerView;
-		Menu drawerMenu = sidebarNav.getMenu().getItem(0).getSubMenu();
-        String[] tcTypes = tcRepo.getTypesFormatted();
-		for (int i = 0; i < tcTypes.length; i++) {
-			String tcType = tcTypes[i];
-			MenuItem sidebarNavItem = drawerMenu.add(Menu.NONE, i, i, tcType);
-			sidebarNavItem.setCheckable(true);
-			sidebarNavItem.setChecked(i == 0);
-
-			sidebarNavItem.setOnMenuItemClickListener((MenuItem item) -> {
-				mViewPager.setCurrentItem(item.getItemId());
-				homeDrawer.closeDrawer(sidebarNav);
-				return false;
-			});
-		}
-
 		// Viewpager setup
-		mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
-		mViewPager = binding.pager;
+		mSectionsPagerAdapter = new SectionsPagerAdapter(this);
+		ViewPager2 mViewPager = binding.detailsFragmentPager;
 		mViewPager.setAdapter(mSectionsPagerAdapter);
-		// Set sidebar draw active item on page change
-		mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-			@Override
-			public void onPageSelected(int position) {
-				for (int i = 0; i < drawerMenu.size(); i++) {
-					drawerMenu.getItem(i).setChecked(false);
-				}
-				drawerMenu.getItem(position).setChecked(true);
-			}
-		});
 
-
-		// Setup top app toolbar
-		MaterialToolbar topAppToolbar = binding.topAppToolbar;
-		topAppToolbar.setNavigationOnClickListener(listerView -> {
-			if (homeDrawer.isOpen()){
-				homeDrawer.close();
-			} else {
-				homeDrawer.open();
-			}
-		});
+		// Tab handling
+		TabLayout topTabs = binding.detailsTopTabs;
+		new TabLayoutMediator(topTabs, mViewPager,
+				(tab, position) -> tab.setText(tcRepo.getThermocoupleAt(position).getTypeFormatted())
+		).attach();
 
 		// MEMORY image cache setup
         // Get max available VM memory, exceeding this amount will throw an
@@ -114,29 +74,25 @@ public class DetailsFragment extends Fragment {
         binding = null;
     }
 
-    public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
+    public class SectionsPagerAdapter extends FragmentStateAdapter {
 
-		public SectionsPagerAdapter(FragmentManager fm) {
-			super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+		public SectionsPagerAdapter(@NonNull Fragment fragment) {
+			super(fragment);
 		}
 
+		@NonNull
 		@Override
-	    public Fragment getItem(int position) {
+		public Fragment createFragment(int position) {
 			Fragment fragment = new TcDetailsFragment();
-	        Bundle args = new Bundle();
-	        args.putInt("ID", position);
-	        fragment.setArguments(args);
-	        return fragment;
-	    }
-
-		@Override
-		public int getCount() {
-            return tcRepo.count();
+			Bundle args = new Bundle();
+			args.putInt("ID", position);
+			fragment.setArguments(args);
+			return fragment;
 		}
 
 		@Override
-		public CharSequence getPageTitle(int position) {
-			return tcRepo.getThermocoupleAt(position).getTypeFormatted();
+		public int getItemCount() {
+			return tcRepo.count();
 		}
 	}
 }
