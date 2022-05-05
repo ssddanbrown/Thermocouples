@@ -1,7 +1,5 @@
 package com.southerntemp.thermocouples;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -24,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             int i = item.getItemId();
             if (i == R.id.SearchItem) return goToFragment(new SearchFragment());
-            if (i == R.id.CalculatorItem) return goToActivity(CalcActivity.class);
+            if (i == R.id.CalculatorItem) return goToFragment(new CalcFragment());
             if (i == R.id.InfoItem) return goToFragment(new InfoFragment());
             if (i == R.id.DetailsItem) return goToFragment(new DetailsFragment());
             return false;
@@ -38,12 +36,4 @@ public class MainActivity extends AppCompatActivity {
         tr.commit();
         return true;
     }
-
-    protected boolean goToActivity(Class<? extends Activity> activity) {
-        Intent intentSearch = new Intent(this, activity);
-        startActivity(intentSearch);
-//        DetailsActivity.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
-        return true;
-    }
-
 }
