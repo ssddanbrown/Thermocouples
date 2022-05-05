@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             int i = item.getItemId();
-            if (i == R.id.SearchItem) return goToActivity(SearchActivity.class);
+            if (i == R.id.SearchItem) return goToFragment(new SearchFragment());
             if (i == R.id.CalculatorItem) return goToActivity(CalcActivity.class);
             if (i == R.id.InfoItem) return goToFragment(new InfoFragment());
             if (i == R.id.DetailsItem) return goToFragment(new DetailsFragment());
