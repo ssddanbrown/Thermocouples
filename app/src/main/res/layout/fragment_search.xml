@@ -31,18 +31,17 @@
         android:layout_height="fill_parent"
         >
 
-	    <ListView
-	        android:id="@+id/tcsearchlist"
-	        android:layout_width="match_parent"
-	        android:layout_height="fill_parent"
-	        android:background="#e5e5e5"
-	        android:clickable="false"
-	        android:divider="#0000"
-	        android:dividerHeight="0dp"
-	        android:paddingTop="0dp"
-            android:listSelector="@android:color/transparent"
-	        android:scrollbars="none" >
-	    </ListView>
+		<ListView
+			android:id="@+id/tcsearchlist"
+			android:layout_width="match_parent"
+			android:layout_height="fill_parent"
+			android:background="@color/material_dynamic_neutral95"
+			android:clickable="false"
+			android:divider="#0000"
+			android:dividerHeight="0dp"
+			android:listSelector="@android:color/transparent"
+			android:paddingTop="0dp"
+			android:scrollbars="none"></ListView>
         
     </RelativeLayout>
 

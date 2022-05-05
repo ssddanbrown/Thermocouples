@@ -7,12 +7,7 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/details_top_tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabBackground="@color/material_dynamic_primary99"
-        app:tabTextColor="@color/material_dynamic_secondary60"
-        app:tabSelectedTextColor="@color/material_dynamic_secondary40"
-        android:elevation="5dp"
+        style="@style/pagerTabs"
         app:tabMode="scrollable"/>
 
     <androidx.viewpager2.widget.ViewPager2

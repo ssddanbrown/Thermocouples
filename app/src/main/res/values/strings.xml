@@ -14,7 +14,7 @@
     <string name="tcDetailTest3">-200 to 350°C</string>
     <string name="tcDetailTest4">R and S</string>
 
-    <string name="calcviewEditTextHint">Enter Temperature</string>
+    <string name="calcviewEditTextHint">Temperature</string>
 
     <string name="tccalcEditTextHint">Enter mV</string>
     <string name="tccalc2EditTextHint">Enter Temp(°C)</string>

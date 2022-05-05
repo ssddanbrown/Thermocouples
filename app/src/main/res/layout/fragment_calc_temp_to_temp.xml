@@ -4,30 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    tools:targetApi="lollipop">
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/headerWrap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary_light"
-        android:elevation="2dp"
+        android:background="@color/material_dynamic_secondary80"
+        android:elevation="4dp"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
+            android:hint="@string/calcviewEditTextHint"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginLeft="@dimen/pad_s"
+            android:layout_marginRight="@dimen/pad_s"
             android:layout_height="wrap_content">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/calcinput"
-                style="@style/calculatorsEditText"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:hint="@string/calcviewEditTextHint">
+                android:autofillHints="no">
 
                 <requestFocus />
-            </EditText>
+            </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -39,30 +44,30 @@
             android:orientation="horizontal"
             android:paddingTop="@dimen/pad_s">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/buttonc"
                 style="@style/calcViewButtons"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="10dp"
                 android:text="°C"
-                app:backgroundTint="@color/primary" />
+                app:backgroundTint="@color/material_dynamic_primary40" />
 
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/buttonf"
                 style="@style/calcViewButtons"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="°F"
-                app:backgroundTint="@color/green" />
+                app:backgroundTint="@color/material_dynamic_secondary40" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/buttonk"
                 style="@style/calcViewButtons"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"
                 android:text="K"
-                app:backgroundTint="@color/orange" />
+                app:backgroundTint="@color/material_dynamic_tertiary40" />
         </LinearLayout>
 
     </LinearLayout>
@@ -72,14 +77,13 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_below="@+id/headerWrap"
-        android:background="@color/white">
+        android:layout_alignParentBottom="true"
+        android:background="@color/material_dynamic_secondary99">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -87,19 +91,19 @@
             <TextView
                 android:id="@+id/tempc"
                 style="@style/calcViewTextView"
-                android:background="@drawable/calcresult"
+                android:background="@color/material_dynamic_primary40"
                 android:text="Centigrade" />
 
             <TextView
                 android:id="@+id/tempf"
                 style="@style/calcViewTextView"
-                android:background="@drawable/calcresultf"
+                android:background="@color/material_dynamic_secondary40"
                 android:text="Farenheit" />
 
             <TextView
                 android:id="@+id/tempk"
                 style="@style/calcViewTextView"
-                android:background="@drawable/calcresultk"
+                android:background="@color/material_dynamic_tertiary40"
                 android:text="Kelvin" />
 
 
