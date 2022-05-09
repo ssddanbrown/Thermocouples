@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/material_dynamic_secondary80">
+    android:background="@color/secondary80">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -26,7 +26,7 @@
                 android:layout_margin="@dimen/card_padding"
                 style="@style/Widget.Material3.CardView.Elevated"
                 app:cardElevation="2dp"
-                app:cardBackgroundColor="@color/material_dynamic_secondary99">
+                app:cardBackgroundColor="@color/secondary99">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -113,6 +113,7 @@
                         android:id="@+id/tcImageList"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/pad_s"
                         android:orientation="vertical">
                     </LinearLayout>
 

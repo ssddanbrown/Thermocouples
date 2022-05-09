@@ -10,7 +10,7 @@
         android:id="@+id/headerWrap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/material_dynamic_secondary80"
+        android:background="@color/secondary80"
         android:elevation="4dp"
         android:orientation="vertical">
 
@@ -50,7 +50,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="10dp"
                 android:text="°C"
-                app:backgroundTint="@color/material_dynamic_primary40" />
+                app:backgroundTint="@color/primary40" />
 
 
             <Button
@@ -59,7 +59,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="°F"
-                app:backgroundTint="@color/material_dynamic_secondary40" />
+                app:backgroundTint="@color/secondary40" />
 
             <Button
                 android:id="@+id/buttonk"
@@ -67,7 +67,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"
                 android:text="K"
-                app:backgroundTint="@color/material_dynamic_tertiary40" />
+                app:backgroundTint="@color/tertiary40" />
         </LinearLayout>
 
     </LinearLayout>
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/headerWrap"
         android:layout_alignParentBottom="true"
-        android:background="@color/material_dynamic_secondary99">
+        android:background="@color/secondary99">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,19 +91,19 @@
             <TextView
                 android:id="@+id/tempc"
                 style="@style/calcViewTextView"
-                android:background="@color/material_dynamic_primary40"
+                android:background="@color/primary40"
                 android:text="Centigrade" />
 
             <TextView
                 android:id="@+id/tempf"
                 style="@style/calcViewTextView"
-                android:background="@color/material_dynamic_secondary40"
+                android:background="@color/secondary40"
                 android:text="Farenheit" />
 
             <TextView
                 android:id="@+id/tempk"
                 style="@style/calcViewTextView"
-                android:background="@color/material_dynamic_tertiary40"
+                android:background="@color/tertiary40"
                 android:text="Kelvin" />
 
 

@@ -7,7 +7,7 @@
         android:id="@+id/headerWrap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/material_dynamic_secondary80"
+        android:background="@color/secondary80"
         android:elevation="4dp"
         android:orientation="vertical">
 
@@ -39,7 +39,7 @@
             style="@style/calcButton"
             android:layout_below="@+id/textView"
             android:text="CONVERT"
-            app:backgroundTint="@color/material_dynamic_primary40"/>
+            app:backgroundTint="@color/primary40"/>
 
     </LinearLayout>
 
@@ -49,7 +49,7 @@
         android:layout_height="0dp"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/headerWrap"
-        android:background="@color/material_dynamic_secondary99">
+        android:background="@color/secondary99">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -60,12 +60,12 @@
             <LinearLayout
                 android:id="@+id/tcidb"
                 style="@style/tcCalcLinearLayout"
-                android:background="@color/material_dynamic_primary40">
+                android:background="@color/primary40">
 
                 <TextView
                     style="@style/tcmvcalcline"
                     android:layout_weight="0.15"
-                    android:background="@color/material_dynamic_primary30"
+                    android:background="@color/primary30"
                     android:text="B"
                     android:textStyle="bold" />
 
@@ -79,12 +79,12 @@
             <LinearLayout
                 android:id="@+id/tcide"
                 style="@style/tcCalcLinearLayout"
-                android:background="@color/material_dynamic_secondary40">
+                android:background="@color/secondary40">
 
                 <TextView
                     style="@style/tcmvcalcline"
                     android:layout_weight="0.15"
-                    android:background="@color/material_dynamic_secondary30"
+                    android:background="@color/secondary30"
                     android:text="E"
                     android:textStyle="bold" />
 
@@ -98,12 +98,12 @@
             <LinearLayout
                 android:id="@+id/tcidj"
                 style="@style/tcCalcLinearLayout"
-                android:background="@color/material_dynamic_tertiary40">
+                android:background="@color/tertiary40">
 
                 <TextView
                     style="@style/tcmvcalcline"
                     android:layout_weight="0.15"
-                    android:background="@color/material_dynamic_tertiary30"
+                    android:background="@color/tertiary30"
                     android:text="J"
                     android:textStyle="bold" />
 
@@ -117,12 +117,12 @@
             <LinearLayout
                 android:id="@+id/tcidk"
                 style="@style/tcCalcLinearLayout"
-                android:background="@color/material_dynamic_primary40">
+                android:background="@color/primary40">
 
                 <TextView
                     style="@style/tcmvcalcline"
                     android:layout_weight="0.15"
-                    android:background="@color/material_dynamic_primary30"
+                    android:background="@color/primary30"
                     android:text="K"
                     android:textStyle="bold" />
 
@@ -136,12 +136,12 @@
             <LinearLayout
                 android:id="@+id/tcidn"
                 style="@style/tcCalcLinearLayout"
-                android:background="@color/material_dynamic_secondary40">
+                android:background="@color/secondary40">
 
                 <TextView
                     style="@style/tcmvcalcline"
                     android:layout_weight="0.15"
-                    android:background="@color/material_dynamic_secondary30"
+                    android:background="@color/secondary30"
                     android:text="N"
                     android:textStyle="bold" />
 
@@ -155,12 +155,12 @@
             <LinearLayout
                 android:id="@+id/tcidr"
                 style="@style/tcCalcLinearLayout"
-                android:background="@color/material_dynamic_tertiary40">
+                android:background="@color/tertiary40">
 
                 <TextView
                     style="@style/tcmvcalcline"
                     android:layout_weight="0.15"
-                    android:background="@color/material_dynamic_tertiary30"
+                    android:background="@color/tertiary30"
                     android:text="R"
                     android:textStyle="bold" />
 
@@ -174,12 +174,12 @@
             <LinearLayout
                 android:id="@+id/tcids"
                 style="@style/tcCalcLinearLayout"
-                android:background="@color/material_dynamic_primary40">
+                android:background="@color/primary40">
 
                 <TextView
                     style="@style/tcmvcalcline"
                     android:layout_weight="0.15"
-                    android:background="@color/material_dynamic_primary30"
+                    android:background="@color/primary30"
                     android:text="S"
                     android:textStyle="bold" />
 
@@ -194,12 +194,12 @@
                 android:id="@+id/tcidt"
                 style="@style/tcCalcLinearLayout"
                 android:layout_marginBottom="@dimen/thin_margin"
-                android:background="@color/material_dynamic_secondary40">
+                android:background="@color/secondary40">
 
                 <TextView
                     style="@style/tcmvcalcline"
                     android:layout_weight="0.15"
-                    android:background="@color/material_dynamic_secondary30"
+                    android:background="@color/secondary30"
                     android:text="T"
                     android:textStyle="bold" />
 

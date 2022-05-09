@@ -3,11 +3,12 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/material_dynamic_secondary60">
+    android:background="@color/secondary60">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/details_top_tabs"
         style="@style/pagerTabs"
+        app:tabMinWidth="48dp"
         app:tabMode="scrollable"/>
 
     <androidx.viewpager2.widget.ViewPager2

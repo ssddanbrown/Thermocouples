@@ -17,7 +17,7 @@
         <item name="android:paddingLeft">@dimen/pad_s</item>
         <item name="android:paddingRight">@dimen/pad_s</item>
         <item name="android:paddingBottom">@dimen/pad_xs</item>
-        <item name="android:textColor">@color/material_dynamic_primary30</item>
+        <item name="android:textColor">@color/primary30</item>
         <item name="android:textSize">36sp</item>
         <item name="android:text">Type K Thermocouple</item>
     </style>
@@ -38,7 +38,7 @@
         <item name="android:gravity">left</item>
         <item name="android:padding">0dp</item>
         <item name="android:layout_margin">0dp</item>
-        <item name="android:textColor">@color/material_dynamic_secondary50</item>
+        <item name="android:textColor">@color/secondary50</item>
     </style>
 
     <style name="tcDetailInfo">
@@ -50,7 +50,7 @@
         <item name="android:gravity">left</item>
         <item name="android:padding">0dp</item>
         <item name="android:layout_margin">0dp</item>
-        <item name="android:textColor">@color/material_dynamic_primary30</item>
+        <item name="android:textColor">@color/primary30</item>
     </style>
 
     <style name="tcStandardImage">
@@ -76,7 +76,7 @@
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:gravity">left</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/material_dynamic_secondary50</item>
+        <item name="android:textColor">@color/secondary50</item>
     </style>
 
     <style name="tcStandardRow">
@@ -142,7 +142,7 @@
         <item name="android:layout_width">fill_parent</item>
         <item name="android:textSize">@dimen/text_s</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/material_dynamic_secondary40</item>
+        <item name="android:textColor">@color/secondary40</item>
         <item name="android:paddingLeft">@dimen/pad_s</item>
         <item name="android:layout_marginBottom">@dimen/ultra_thin_margin</item>
         <item name="android:layout_marginTop">@dimen/standard_margin</item>
@@ -183,9 +183,9 @@
     <style name="pagerTabs">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="tabBackground">@color/material_dynamic_primary99</item>
-        <item name="tabTextColor">@color/material_dynamic_secondary60</item>
-        <item name="tabSelectedTextColor">@color/material_dynamic_secondary40</item>
+        <item name="tabBackground">@color/primary99</item>
+        <item name="tabTextColor">@color/secondary60</item>
+        <item name="tabSelectedTextColor">@color/secondary40</item>
         <item name="android:elevation">5dp</item>
     </style>
 

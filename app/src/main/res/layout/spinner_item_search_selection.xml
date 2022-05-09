@@ -10,7 +10,7 @@
     android:layout_height="match_parent"
     android:textSize="14sp"
     android:textStyle="bold"
-    android:textColor="@color/material_dynamic_secondary40"
+    android:textColor="@color/secondary40"
     android:gravity="center" >
 	</TextView>
     

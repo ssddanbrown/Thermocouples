@@ -10,7 +10,7 @@
 		android:paddingLeft="@dimen/pad_xs"
 		android:paddingRight="@dimen/pad_xs"
 		android:elevation="5dp"
-        android:background="@color/material_dynamic_primary99">
+        android:background="@color/primary99">
 
         <Spinner
         android:id="@+id/jcolor"
@@ -35,7 +35,7 @@
 			android:id="@+id/tcsearchlist"
 			android:layout_width="match_parent"
 			android:layout_height="fill_parent"
-			android:background="@color/material_dynamic_neutral95"
+			android:background="@color/neutral95"
 			android:clickable="false"
 			android:divider="#0000"
 			android:dividerHeight="0dp"
