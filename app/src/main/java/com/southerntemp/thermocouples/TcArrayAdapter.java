@@ -21,8 +21,9 @@ import android.widget.TextView;
 public class TcArrayAdapter extends ArrayAdapter<TcColor> {
 
     private final Context context;
-    private List<com.southerntemp.thermocouples.TcColor > objects;
+    private List<TcColor> objects;
     private int lastPosition;
+    private TcRepo tcRepo;
 
     public TcArrayAdapter(Context context, int resource,
                           int textViewResourceId, List<TcColor> objects) {
@@ -30,6 +31,7 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
         this.context = context;
         lastPosition = 0;
         this.objects = objects;
+        this.tcRepo = TcRepo.getInstance(context);
     }
 
     static class ViewHolder {
@@ -45,7 +47,7 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
             // Inflate layout to view
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            rowView = inflater.inflate(R.layout.tcsearchlistitem, parent, false);
+            rowView = inflater.inflate(R.layout.spinner_item_search_result, parent, false);
 
             // Setup Views within layout within ViewHolder
             ViewHolder viewHolder = new ViewHolder();
@@ -60,7 +62,8 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
         TcColor tcInfo = objects.get(position);
 
         // Fill views with info
-        holder.type.setText(tcInfo.thermocouple.getTypeFormatted());
+        Thermocouple thermocouple = tcRepo.getThermocoupleForColor(tcInfo);
+        holder.type.setText(thermocouple.getTypeFormatted());
         holder.standard.setText(tcInfo.standard);
 
         final String imageKey = String.valueOf(tcInfo.drawable);
@@ -83,12 +86,12 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
 
     public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
         if (getBitmapFromMemCache(key) == null) {
-            DetailsActivity.mMemoryCache.put(key, bitmap);
+            DetailsFragment.mMemoryCache.put(key, bitmap);
         }
     }
 
     public Bitmap getBitmapFromMemCache(String key) {
-        Bitmap bitmap = DetailsActivity.mMemoryCache.get(key);
+        Bitmap bitmap = DetailsFragment.mMemoryCache.get(key);
         if (bitmap == null) {
             Log.i("Cache", "Bitmap null " + key);
         }
@@ -111,7 +114,7 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
             // Choose the smallest ratio as inSampleSize value, this will guarantee
             // a final image with both dimensions larger than or equal to the
             // requested height and width.
-            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+            inSampleSize = Math.min(heightRatio, widthRatio);
         }
 
         return inSampleSize;
@@ -154,7 +157,7 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
             int bitmapsize = bitmap.getHeight() * bitmap.getWidth() * 4;
             String bms = (String.valueOf(bitmapsize));
             Log.i("Bitmap Size", bms);
-            if (imageView != null && bitmap != null) {
+            if (imageView != null) {
                 imageView.setImageBitmap(bitmap);
             }
         }

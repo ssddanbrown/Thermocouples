@@ -1,0 +1,130 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/secondary80">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:scrollbars="none">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center_vertical|center_horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+                android:checkable="false"
+                android:layout_margin="@dimen/card_padding"
+                style="@style/Widget.Material3.CardView.Elevated"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/secondary99">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/pad_xxs">
+
+                    <TextView
+                        android:id="@+id/tcTitle"
+                        style="@style/tcTitle"
+                        android:text="@string/tcTitleTest" />
+
+                    <LinearLayout
+                        style="@style/tcDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/tcDetailTitle"
+                            android:text="@string/tcPositive" />
+
+                        <TextView
+                            android:id="@+id/tcPositiveLeg"
+                            style="@style/tcDetailInfo"
+                            android:text="@string/tcDetailTest1" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        style="@style/tcDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/tcDetailTitle"
+                            android:text="@string/tcNegative" />
+
+                        <TextView
+                            android:id="@+id/tcNegativeLeg"
+                            style="@style/tcDetailInfo"
+                            android:text="@string/tcDetailTest2" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/tcDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/tcDetailTitle"
+                            android:text="@string/tcTempRange" />
+
+                        <TextView
+                            android:id="@+id/tcTempRange"
+                            style="@style/tcDetailInfo"
+                            android:text="@string/tcDetailTest3" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/tcDetail"
+                        android:id="@+id/tcExtraWrap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/tcDetailTitle"
+                            android:text="@string/tcExtra" />
+
+                        <TextView
+                            android:id="@+id/tcExtra"
+                            style="@style/tcDetailInfo"
+                            android:text="@string/tcDetailTest4" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tcImageList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/pad_s"
+                        android:orientation="vertical">
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </FrameLayout>
+
+
+    </ScrollView>
+</RelativeLayout>
+

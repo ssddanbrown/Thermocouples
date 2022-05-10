@@ -4,7 +4,7 @@
     <string name="app_name">Thermocouples</string>
     <string name="launcher_name">Thermo\nCouples</string>
 
-    <string name="tcTitleTest">Type K Thermocouple</string>
+    <string name="tcTitleTest">Type K</string>
     <string name="tcPositive">Positive (+) Metal</string>
     <string name="tcNegative">Negative (-) Metal</string>
     <string name="tcTempRange">Temperature Range</string>
@@ -14,7 +14,7 @@
     <string name="tcDetailTest3">-200 to 350°C</string>
     <string name="tcDetailTest4">R and S</string>
 
-    <string name="calcviewEditTextHint">Enter Temperature</string>
+    <string name="calcviewEditTextHint">Temperature</string>
 
     <string name="tccalcEditTextHint">Enter mV</string>
     <string name="tccalc2EditTextHint">Enter Temp(°C)</string>
@@ -35,9 +35,10 @@
     <string name="title_activity_calc_holder">Converters</string>
     <string name="title_activity_thermocouple_search">Search</string>
 
-    <string name="action_search">Search Thermocouples</string>
-    <string name="action_converters">Conversion Calculators</string>
-    <string name="action_info">Information</string>
+    <string name="action_search">Search</string>
+    <string name="action_converters">Conversions</string>
+    <string name="action_info">Info</string>
+    <string name="action_list">Details</string>
 
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>

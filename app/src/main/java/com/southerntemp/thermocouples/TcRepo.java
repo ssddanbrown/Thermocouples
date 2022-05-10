@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,16 +39,21 @@ class TcRepo {
         }
     }
 
-    Thermocouple[] getAll() {
-        return tcArray;
-    }
-
     TcColor[] getColorArray() {
         List<TcColor> cList = new ArrayList<>();
         for (Thermocouple aTcArray : tcArray) {
-            cList.addAll(aTcArray.colors.values());
+            cList.addAll(Arrays.asList(aTcArray.colors));
         }
         return cList.toArray(new TcColor[0]);
+    }
+
+    Thermocouple getThermocoupleForColor(TcColor color) {
+        for (Thermocouple tc : tcArray) {
+            if (Arrays.asList(tc.colors).contains(color)) {
+                return tc;
+            }
+        }
+        return null;
     }
 
     Thermocouple getThermocoupleAt(int index) {
@@ -56,14 +62,6 @@ class TcRepo {
 
     int count() {
         return tcArray.length;
-    }
-
-    String[] getTypesFormatted() {
-        String[] result = new String[tcArray.length];
-        for (int i = 0; i < tcArray.length; i++) {
-            result[i] = tcArray[i].getTypeFormatted();
-        }
-        return result;
     }
 
     private Map<String, TcColor[]> getColors() {

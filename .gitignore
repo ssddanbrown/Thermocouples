@@ -29,7 +29,7 @@ Thumbs.db
 .idea/
 datasources.ids
 build/
-gradle/
+release/
 .gradle/
 gradlew
 gradlew.bat

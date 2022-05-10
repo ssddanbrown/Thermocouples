@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" >
+    <item
+        android:id="@+id/DetailsItem"
+        android:titleCondensed="Details"
+        android:visible="true"
+        android:title="@string/action_list"
+        android:icon="@drawable/ic_round_view_carousel_24"
+        app:showAsAction="ifRoom"
+        android:enabled="true"/>
+    <item
+        android:id="@+id/SearchItem"
+        android:titleCondensed="Search" 
+        android:title="@string/action_search"
+        android:visible="true"
+        android:icon="@drawable/ic_baseline_search_24"
+        app:showAsAction="ifRoom"
+        android:enabled="true" />
+    <item 
+        android:id="@+id/CalculatorItem" 
+        android:titleCondensed="Converters" 
+        android:visible="true" 
+        android:icon="@drawable/ic_round_calculate_24"
+        android:title="@string/action_converters"
+        app:showAsAction="ifRoom" 
+        android:enabled="true"/>
+    <item
+        android:id="@+id/InfoItem" 
+        android:titleCondensed="Info" 
+        android:visible="true"
+        android:title="@string/action_info"
+        android:icon="@drawable/ic_baseline_info_24"
+        app:showAsAction="ifRoom"
+        android:enabled="true"/>
+        
+</menu>

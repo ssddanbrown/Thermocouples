@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/HeaderBar"
-    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    android:id="@+id/tcholder_toolbar" />

@@ -10,14 +10,17 @@
     <dimen name="smallText">12sp</dimen>
 
     <!--Android L dimensions-->
+    <dimen name="text_xxs">10sp</dimen>
+    <dimen name="text_xs">12sp</dimen>
     <dimen name="text_s">16sp</dimen>
     <dimen name="text_m">20sp</dimen>
 
     <dimen name="pad_xxxs">2dp</dimen>
     <dimen name="pad_xxs">4dp</dimen>
     <dimen name="pad_xs">8dp</dimen>
-    <dimen name="pad_s">16dp</dimen>
+    <dimen name="pad_s">24dp</dimen>
     <dimen name="pad_m">32dp</dimen>
+    <dimen name="pad_l">48dp</dimen>
 
     <dimen name="button_height_large">56dp</dimen>
     <dimen name="button_text">20sp</dimen>
@@ -25,7 +28,7 @@
     <dimen name="divider">2dp</dimen>
 
     <dimen name="listItem">56dp</dimen>
-    <dimen name="listItemLarge">144dp</dimen>
+    <dimen name="listItemLarge">96dp</dimen>
 
     <dimen name="card_padding">16dp</dimen>
 </resources>

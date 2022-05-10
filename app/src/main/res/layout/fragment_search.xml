@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+		android:paddingLeft="@dimen/pad_xs"
+		android:paddingRight="@dimen/pad_xs"
+		android:elevation="5dp"
+        android:background="@color/primary99">
+
+        <Spinner
+        android:id="@+id/jcolor"
+			style="@style/searchSpinner"/>
+
+        <Spinner
+        android:id="@+id/pcolor"
+			style="@style/searchSpinner"/>
+
+        <Spinner
+        android:id="@+id/ncolor"
+			style="@style/searchSpinner"/>
+
+    </LinearLayout>
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        >
+
+		<ListView
+			android:id="@+id/tcsearchlist"
+			android:layout_width="match_parent"
+			android:layout_height="fill_parent"
+			android:background="@color/neutral95"
+			android:clickable="false"
+			android:divider="#0000"
+			android:dividerHeight="0dp"
+			android:listSelector="@android:color/transparent"
+			android:paddingTop="0dp"
+			android:scrollbars="none"></ListView>
+        
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

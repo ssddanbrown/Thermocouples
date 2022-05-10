@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/headerWrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/secondary80"
+        android:elevation="4dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:hint="@string/calcviewEditTextHint"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginLeft="@dimen/pad_s"
+            android:layout_marginRight="@dimen/pad_s"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/calcinput"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:autofillHints="no">
+
+                <requestFocus />
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/calcinput"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/pad_s">
+
+            <Button
+                android:id="@+id/buttonc"
+                style="@style/calcViewButtons"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:text="°C"
+                app:backgroundTint="@color/primary40" />
+
+
+            <Button
+                android:id="@+id/buttonf"
+                style="@style/calcViewButtons"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="°F"
+                app:backgroundTint="@color/secondary40" />
+
+            <Button
+                android:id="@+id/buttonk"
+                style="@style/calcViewButtons"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:text="K"
+                app:backgroundTint="@color/tertiary40" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headerWrap"
+        android:layout_alignParentBottom="true"
+        android:background="@color/secondary99">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+
+            <TextView
+                android:id="@+id/tempc"
+                style="@style/calcViewTextView"
+                android:background="@color/primary40"
+                android:text="Centigrade" />
+
+            <TextView
+                android:id="@+id/tempf"
+                style="@style/calcViewTextView"
+                android:background="@color/secondary40"
+                android:text="Farenheit" />
+
+            <TextView
+                android:id="@+id/tempk"
+                style="@style/calcViewTextView"
+                android:background="@color/tertiary40"
+                android:text="Kelvin" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

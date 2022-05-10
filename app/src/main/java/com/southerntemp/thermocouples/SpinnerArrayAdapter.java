@@ -2,7 +2,7 @@ package com.southerntemp.thermocouples;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,14 +33,13 @@ public class SpinnerArrayAdapter extends ArrayAdapter<String> {
         //Inflate layout to view
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.spinneritem, parent, false);
+        View rowView = inflater.inflate(R.layout.spinner_item_search_selection, parent, false);
 
         TextView spinnerItem = rowView.findViewById(R.id.spinneritemtv);
         String spinnerString = objects[position];
 
         if (spinnerString.equals("None")) {
             spinnerItem.setText(this.spinnerTitle);
-            spinnerItem.setTextColor(Color.WHITE);
         } else {
             spinnerItem.setText("");
             spinnerItem.setBackgroundColor(colorMap.get(spinnerString));
@@ -54,7 +53,7 @@ public class SpinnerArrayAdapter extends ArrayAdapter<String> {
         // This view starts when we click the spinner.
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.spinneritem, parent, false);
+        View rowView = inflater.inflate(R.layout.spinner_item_search_selection, parent, false);
         TextView spinnerItem = rowView.findViewById(R.id.spinneritemtv);
         String spinnerString = objects[position];
         int height = (int) context.getResources().getDimension(R.dimen.listItem);
