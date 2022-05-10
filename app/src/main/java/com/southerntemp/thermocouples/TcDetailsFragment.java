@@ -47,7 +47,7 @@ public class TcDetailsFragment extends Fragment {
 
         // Create thermocouple reference list for each supported standard.
         LinearLayout tcImageList = v.findViewById(R.id.tcImageList);
-        for (TcColor color : tc.colors.values()) {
+        for (TcColor color : tc.colors) {
             LinearLayout standardRow = new LinearLayout(ctx, null, 0, R.style.tcStandardRow);
             TextView standardTextView = new TextView(ctx, null, 0, R.style.tcStandardLabel);
             FrameLayout imageWrap = new FrameLayout(ctx, null, 0, R.style.tcStandardImageWrap);
@@ -55,8 +55,8 @@ public class TcDetailsFragment extends Fragment {
             standardTextView.setText(color.standard);
             standardRow.addView(standardTextView);
             standardRow.addView(imageWrap);
-            tcImageList.addView(standardRow);
             imageWrap.addView(standardImageView);
+            tcImageList.addView(standardRow);
             this.renderThermocoupleImage(standardImageView, color.drawable);
         }
 

@@ -1,14 +1,10 @@
 package com.southerntemp.thermocouples;
 
-
-import java.util.HashMap;
-import java.util.Map;
-
 class Thermocouple {
 
     String type, pLeg, nLeg, info;
     int minTemp, maxTemp;
-    Map<String, TcColor> colors;
+    TcColor[] colors;
 
     Thermocouple(String type, String pLeg, String nLeg, String info, int minTemp, int maxTemp) {
         this.type = type;
@@ -17,14 +13,11 @@ class Thermocouple {
         this.info = info;
         this.minTemp = minTemp;
         this.maxTemp = maxTemp;
-        this.colors = new HashMap<>();
+        this.colors = new TcColor[]{};
     }
 
     void setColors(TcColor[] colors) {
-        for (TcColor color : colors) {
-            this.colors.put(color.standard, color);
-            color.setThermocouple(this);
-        }
+        this.colors = colors;
     }
 
     String getTypeFormatted() {

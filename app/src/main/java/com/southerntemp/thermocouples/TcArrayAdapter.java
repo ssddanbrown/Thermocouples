@@ -21,8 +21,9 @@ import android.widget.TextView;
 public class TcArrayAdapter extends ArrayAdapter<TcColor> {
 
     private final Context context;
-    private List<com.southerntemp.thermocouples.TcColor > objects;
+    private List<TcColor> objects;
     private int lastPosition;
+    private TcRepo tcRepo;
 
     public TcArrayAdapter(Context context, int resource,
                           int textViewResourceId, List<TcColor> objects) {
@@ -30,6 +31,7 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
         this.context = context;
         lastPosition = 0;
         this.objects = objects;
+        this.tcRepo = TcRepo.getInstance(context);
     }
 
     static class ViewHolder {
@@ -60,7 +62,8 @@ public class TcArrayAdapter extends ArrayAdapter<TcColor> {
         TcColor tcInfo = objects.get(position);
 
         // Fill views with info
-        holder.type.setText(tcInfo.thermocouple.getTypeFormatted());
+        Thermocouple thermocouple = tcRepo.getThermocoupleForColor(tcInfo);
+        holder.type.setText(thermocouple.getTypeFormatted());
         holder.standard.setText(tcInfo.standard);
 
         final String imageKey = String.valueOf(tcInfo.drawable);
