@@ -50,13 +50,13 @@
 	</integer-array>
 	<integer-array name="maxTemp">
 		<item>1700</item>
-		<item>-900</item>
+		<item>900</item>
 		<item>750</item>
-		<item>-1250</item>
-		<item>-1300</item>
+		<item>1250</item>
+		<item>1300</item>
 		<item>1450</item>
 		<item>1450</item>
-		<item>-350</item>
+		<item>350</item>
 		<item>50</item>
 		<item>80</item>
 	</integer-array>
