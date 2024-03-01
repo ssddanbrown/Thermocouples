@@ -27,4 +27,5 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'com.southerntemp.thermocouples'
 }
